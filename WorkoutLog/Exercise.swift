@@ -18,14 +18,55 @@ enum ExerciseType {
     case timed (Interval)
 }
 
-class Exercise {
+class ExerciseActivity {
+    var name: String
+    var exercise: ExerciseTemplate
+    var sets: [ExerciseSet]
+    
+    init? (name: String) {
+        self.name = name
+        guard let exercise = ExerciseDictionary().lookup(exercise: name) else { return nil }
+        self.exercise = exercise
+        self.sets = []
+    }
+    
+    func log(set: ExerciseSet) {
+        sets.append(set)
+    }
+}
+
+class ExerciseTemplate {
     var name: String
     var type: ExerciseType
     
-//  var muscleGroup
-    
-    init (name: String, type: ExerciseType) {
+    init (name: String, type: ExerciseType){
         self.name = name
         self.type = type
     }
+}
+
+class ExerciseSet {
+    var reps: ExerciseType
+    
+    init (reps: ExerciseType) {
+        self.reps = reps
+    }
+}
+
+class ExerciseDictionary {
+    private static var dictionary: [String:ExerciseTemplate] = [:]
+    
+    public func lookup (exercise exerciseName: String) -> ExerciseTemplate? {
+        return ExerciseDictionary.dictionary[exerciseName]
+    }
+    
+    public func add (exercise: ExerciseTemplate) -> Bool {
+        if ExerciseDictionary.dictionary[exercise.name] == nil {
+            ExerciseDictionary.dictionary[exercise.name] = exercise
+            return true
+        }
+        return false
+    }
+    
+    public func edit (exercise: ExerciseTemplate) {}
 }
