@@ -14,6 +14,11 @@
 		70940C3D245205B7005C2E8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70940C3C245205B7005C2E8B /* Assets.xcassets */; };
 		70940C40245205B7005C2E8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70940C3E245205B7005C2E8B /* LaunchScreen.storyboard */; };
 		70D562EC247B33F8000CC15A /* MonthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D562EB247B33F8000CC15A /* MonthHeaderView.swift */; };
+		70D562EE247B4989000CC15A /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D562ED247B4989000CC15A /* Month.swift */; };
+		70D562F0247B49C0000CC15A /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D562EF247B49C0000CC15A /* Workout.swift */; };
+		70D562F2247B648A000CC15A /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D562F1247B648A000CC15A /* Exercise.swift */; };
+		70D562F4247C18ED000CC15A /* WeekDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D562F3247C18ED000CC15A /* WeekDayCell.swift */; };
+		70D562F6247C1A55000CC15A /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D562F5247C1A55000CC15A /* DateManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		70940C3F245205B7005C2E8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70940C41245205B7005C2E8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70D562EB247B33F8000CC15A /* MonthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeaderView.swift; sourceTree = "<group>"; };
+		70D562ED247B4989000CC15A /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
+		70D562EF247B49C0000CC15A /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		70D562F1247B648A000CC15A /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		70D562F3247C18ED000CC15A /* WeekDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayCell.swift; sourceTree = "<group>"; };
+		70D562F5247C1A55000CC15A /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +71,13 @@
 				70940C33245205B6005C2E8B /* AppDelegate.swift */,
 				70940C35245205B6005C2E8B /* SceneDelegate.swift */,
 				70940C37245205B6005C2E8B /* ViewController.swift */,
+				70D562ED247B4989000CC15A /* Month.swift */,
+				70D562EF247B49C0000CC15A /* Workout.swift */,
+				70D562F1247B648A000CC15A /* Exercise.swift */,
 				70D562EB247B33F8000CC15A /* MonthHeaderView.swift */,
 				7025C7B22476017600A6C11A /* DayCell.swift */,
+				70D562F3247C18ED000CC15A /* WeekDayCell.swift */,
+				70D562F5247C1A55000CC15A /* DateManager.swift */,
 				70940C3C245205B7005C2E8B /* Assets.xcassets */,
 				70940C3E245205B7005C2E8B /* LaunchScreen.storyboard */,
 				70940C41245205B7005C2E8B /* Info.plist */,
@@ -141,8 +156,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				70940C38245205B6005C2E8B /* ViewController.swift in Sources */,
+				70D562F6247C1A55000CC15A /* DateManager.swift in Sources */,
 				70940C34245205B6005C2E8B /* AppDelegate.swift in Sources */,
+				70D562F4247C18ED000CC15A /* WeekDayCell.swift in Sources */,
+				70D562F0247B49C0000CC15A /* Workout.swift in Sources */,
+				70D562EE247B4989000CC15A /* Month.swift in Sources */,
 				7025C7B32476017600A6C11A /* DayCell.swift in Sources */,
+				70D562F2247B648A000CC15A /* Exercise.swift in Sources */,
 				70940C36245205B6005C2E8B /* SceneDelegate.swift in Sources */,
 				70D562EC247B33F8000CC15A /* MonthHeaderView.swift in Sources */,
 			);

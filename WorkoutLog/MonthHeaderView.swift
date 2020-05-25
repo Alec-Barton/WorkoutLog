@@ -15,11 +15,17 @@ class MonthHeaderView: UICollectionReusableView {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "MONTH"
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    public var month: Month? {
+        didSet {
+            guard let month = month else { return }
+            titleLabel.text = "\(month.name)"
+        }
+    }
     
     override init (frame: CGRect) {
         super.init(frame: frame)
