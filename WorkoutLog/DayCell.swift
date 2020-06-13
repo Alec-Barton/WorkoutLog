@@ -9,9 +9,15 @@
 import Foundation
 import UIKit
 
+protocol DayCellDelegate: AnyObject {
+    func cellTapped (_ cell: DayCell)
+}
+
 class DayCell: UICollectionViewCell {
     
     static let id = "DayCellId"
+    
+    weak var delegate: DayCellDelegate?
     
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
@@ -34,7 +40,11 @@ class DayCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+       
+        
         setup()
+        setupGestures()
     }
 
     func setup () {
@@ -46,6 +56,16 @@ class DayCell: UICollectionViewCell {
             dateLabel.widthAnchor.constraint(equalTo: self.widthAnchor),
             dateLabel.heightAnchor.constraint(equalTo: self.heightAnchor),
         ])
+    }
+    
+    func setupGestures (){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        self.addGestureRecognizer(tap)
+    }
+    
+    @objc private func tapped() {
+        guard let delegate = delegate else { return }
+        delegate.cellTapped(self)
     }
 
     required init?(coder: NSCoder) {

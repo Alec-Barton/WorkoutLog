@@ -9,34 +9,49 @@
 import Foundation
 import UIKit
 
-class WorkoutActivity {
+class WorkoutInstance {
     var date: Date
     var name: String
     var description: String
-    var type: WorkoutTemplate
-    var exercises: [ExerciseActivity]
+    var type: WorkoutTemplate?
+    var exercises: [ExerciseInstance]
     
-    init (workout: WorkoutTemplate) {
+    init (workout: WorkoutTemplate?) {
+        //TODO: dynamic date
         self.date = Date()
-        self.name = workout.name
-        self.description = ""
-        self.type = workout
         self.exercises = []
+        
+        if let workout = workout {
+            self.name = workout.name
+            self.description = ""
+            self.type = workout
+        } else {
+            self.name = ""
+            self.description = ""
+            self.type = nil
+        }
+    }
+    
+    convenience init () {
+        self.init(workout: nil)
     }
 }
 
 class WorkoutTemplate {
-    var name: String
+    public var name: String
     var exercises: [ExerciseTemplate]
     var color: UIColor = .blue
     
-    init () {
-        self.name = ""
+    init? (data: [String: Any]) {
+        guard let name = data["name"] as? String else { return nil }
+        guard let exerciseNames = data["exercises"] as? [String] else { return nil }
+        self.name = name
         self.exercises = []
+        for name in exerciseNames {
+            if let exercise = TemplateManager.shared.getTemplate(exerciseNamed: name){
+                exercises.append(exercise)
+            }
+        }
     }
-    
-}
-
-class WorkoutDictionary {
     
 }

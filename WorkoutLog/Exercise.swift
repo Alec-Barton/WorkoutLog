@@ -13,12 +13,12 @@ typealias Repetitions = Int
 typealias Interval = Int
 
 enum ExerciseType {
-    case weighted (Repetitions, Weight)
-    case unweighted (Repetitions)
-    case timed (Interval)
+    case weighted //(Repetitions, Weight)
+    case unweighted //(Repetitions)
+    case interval //(Interval)
 }
 
-class ExerciseActivity {
+class ExerciseInstance {
     var name: String
     var exercise: ExerciseTemplate
     var sets: [ExerciseSet]

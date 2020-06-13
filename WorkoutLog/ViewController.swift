@@ -14,9 +14,11 @@ class ViewController: UICollectionViewController {
     let padding: CGFloat = 3
     var months: [Month] = []
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        TemplateManager.shared.setup()
+        
         setup()
         registerIds()
         
@@ -81,6 +83,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
             let dayPadding = (month.startingDay.rawValue) + 6
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayCell.id, for: indexPath) as! DayCell
+            cell.delegate = self
             if indexPath.row >= dayPadding && indexPath.row < month.daysInMonth + dayPadding{
                 
                 cell.date = indexPath.row - dayPadding + 1
@@ -103,5 +106,12 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
             return .init(width: size, height: size)
         }
         
+    }
+}
+
+extension ViewController: DayCellDelegate {
+    func cellTapped(_ cell: DayCell) {
+        let vc = WorkoutViewController()
+        self.present(vc, animated: true)
     }
 }
