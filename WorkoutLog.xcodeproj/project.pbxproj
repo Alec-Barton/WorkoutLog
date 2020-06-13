@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7025C7B32476017600A6C11A /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7025C7B22476017600A6C11A /* DayCell.swift */; };
 		704A8082249570F100273D06 /* TemplateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A8081249570F100273D06 /* TemplateManager.swift */; };
+		704A80842495890200273D06 /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A80832495890200273D06 /* ExerciseCell.swift */; };
 		70940C34245205B6005C2E8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70940C33245205B6005C2E8B /* AppDelegate.swift */; };
 		70940C36245205B6005C2E8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70940C35245205B6005C2E8B /* SceneDelegate.swift */; };
 		70940C38245205B6005C2E8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70940C37245205B6005C2E8B /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		7025C7B22476017600A6C11A /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 		704A8081249570F100273D06 /* TemplateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateManager.swift; sourceTree = "<group>"; };
+		704A80832495890200273D06 /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		70940C30245205B6005C2E8B /* WorkoutLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70940C33245205B6005C2E8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70940C35245205B6005C2E8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				70D562ED247B4989000CC15A /* Month.swift */,
 				70D562EF247B49C0000CC15A /* Workout.swift */,
 				70D562F7247C5335000CC15A /* WorkoutViewController.swift */,
+				704A80832495890200273D06 /* ExerciseCell.swift */,
 				70D562F1247B648A000CC15A /* Exercise.swift */,
 				70D562EB247B33F8000CC15A /* MonthHeaderView.swift */,
 				7025C7B22476017600A6C11A /* DayCell.swift */,
@@ -164,6 +167,7 @@
 				70940C38245205B6005C2E8B /* ViewController.swift in Sources */,
 				70D562F6247C1A55000CC15A /* DateManager.swift in Sources */,
 				70D562F8247C5335000CC15A /* WorkoutViewController.swift in Sources */,
+				704A80842495890200273D06 /* ExerciseCell.swift in Sources */,
 				70940C34245205B6005C2E8B /* AppDelegate.swift in Sources */,
 				70D562F4247C18ED000CC15A /* WeekDayCell.swift in Sources */,
 				704A8082249570F100273D06 /* TemplateManager.swift in Sources */,

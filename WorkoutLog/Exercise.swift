@@ -25,7 +25,7 @@ class ExerciseInstance {
     
     init? (name: String) {
         self.name = name
-        guard let exercise = ExerciseDictionary().lookup(exercise: name) else { return nil }
+        guard let exercise = TemplateManager.shared.getTemplate(exerciseNamed: name) else { return nil }
         self.exercise = exercise
         self.sets = []
     }

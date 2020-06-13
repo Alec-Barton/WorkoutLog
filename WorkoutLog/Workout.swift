@@ -25,6 +25,14 @@ class WorkoutInstance {
             self.name = workout.name
             self.description = ""
             self.type = workout
+            self.exercises = []
+            for exercise in workout.exercises {
+                print(exercise.name)
+                let b = TemplateManager.shared.exerciseTemplateDictionary
+                if let instance = ExerciseInstance(name: exercise.name) {
+                    exercises.append(instance)
+                }
+            }
         } else {
             self.name = ""
             self.description = ""
