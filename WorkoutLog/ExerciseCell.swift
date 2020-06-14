@@ -16,7 +16,7 @@ class ExerciseCell: UITableViewCell {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .cyan
+        label.backgroundColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -24,23 +24,27 @@ class ExerciseCell: UITableViewCell {
     //TODO: not sure how I want this implemented yet
     private lazy var infoButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .blue
+        button.backgroundColor = .white
         button.setTitle("i", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderWidth = 1.0
+        button.layer.cornerRadius = ( 40.0 / 2 )
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    //TODO: Implement
     private lazy var collectionView: UICollectionView  = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     var exercise: Exercise? {
         didSet {
-            guard let template = exercise else { return }
-            nameLabel.text = template.name
+            guard let exercise = exercise else { return }
+            nameLabel.text = exercise.name
         }
     }
     
@@ -55,7 +59,6 @@ class ExerciseCell: UITableViewCell {
     }
     
     func setup() {
-        self.backgroundColor = .white
         
         addSubview(nameLabel)
         addSubview(infoButton)
@@ -91,18 +94,17 @@ extension ExerciseCell: UICollectionViewDelegate {
 
 extension ExerciseCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return (exercise?.sets.count ?? 0) + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.row == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SetAddCell.id, for: indexPath)
-            cell.backgroundColor = .blue
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SetAddCell.id, for: indexPath) as! SetAddCell
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SetInfoCell.id, for: indexPath)
-            cell.backgroundColor = .red
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SetInfoCell.id, for: indexPath) as! SetInfoCell
+            cell.label = exercise?.sets[indexPath.row - 1].string
             return cell
         }
     }

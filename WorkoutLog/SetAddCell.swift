@@ -16,6 +16,7 @@ class SetAddCell: UICollectionViewCell {
     private lazy var addButton: UIButton = {
         let button = UIButton()
         button.setTitle("+", for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.cornerRadius = SetAddCell.height/2

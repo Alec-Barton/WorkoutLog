@@ -15,7 +15,6 @@ class WorkoutViewController: UIViewController {
     
     private lazy var tableView : UITableView = {
         let view = UITableView()
-        view.backgroundColor = .red
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -37,10 +36,14 @@ class WorkoutViewController: UIViewController {
     }()
     
     override func viewDidLoad() {
-        self.view.backgroundColor = .orange
-//        let template = TemplateManager.shared.getTemplate(workoutNamed: "Chest Day")
+        self.view.backgroundColor = .white
         workout = Workout(named: "Chest Day")
-
+        
+        //TODO: temp
+        workout?.exercises[0].log(sets: [.weighted(10, 135), .weighted(8, 155)])
+        workout?.exercises[1].log(sets: [.unweighted(100), .unweighted(50), .unweighted(100), .unweighted(100), .unweighted(50), .unweighted(100)])
+        workout?.exercises[2].log(sets: [.interval(30), .interval(60), .interval(90)])
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(ExerciseCell.self, forCellReuseIdentifier: ExerciseCell.id)
@@ -90,18 +93,16 @@ extension WorkoutViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseCell.id, for: indexPath) as! ExerciseCell
-        if let exercise = workout?.exercises[indexPath.row] {
-            cell.exercise = Exercise(named: exercise.name)
-        }
+        cell.exercise = workout?.exercises[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //TODO: Clean up height calculation
-//        guard let workout = workout else { return 0 }
-//        guard workout.exercises.count - 1 >= indexPath.row else { return 0 }
-        
-//        return 60 + (workout.exercises.count/3) * 50
-        return 150
+        //TODO: this is very jenky
+        var exerciseSets = workout?.exercises[indexPath.row].sets.count ?? 0
+        exerciseSets = exerciseSets == 0 ? 1 : exerciseSets
+        let rows: Int = exerciseSets / 3
+        let offset: Int = ((exerciseSets + 1) % 3 == 0) ? 1 : 0
+        return CGFloat(60.0 + Double(rows + offset) * 50 )
     }
 }

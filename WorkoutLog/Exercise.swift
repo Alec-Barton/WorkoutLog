@@ -19,12 +19,23 @@ enum ExerciseType {
 }
 
 enum ExerciseSet {
-    case weighted (Repetitions? = nil, Weight? = nil)
-    case unweighted (Repetitions? = nil)
-    case interval (Interval? = nil)
+    case weighted (Repetitions, Weight)
+    case unweighted (Repetitions)
+    case interval (Interval)
     
     var string: String {
-        return "135lbs x 10"
+        switch self {
+        case .weighted(let reps, let weight):
+//            guard let reps = reps, let weight = weight else { return "ERROR" }
+            return "\(reps) X \(weight)lbs"
+        case .unweighted(let reps):
+//            guard let reps = reps else { return "ERROR" }
+            return "\(reps)"
+        case .interval(let interval):
+//            guard let interval = interval else { return "ERROR" }
+            //TODO: Time formatting
+            return "\(interval) s"
+        }
     }
 }
 
@@ -49,46 +60,10 @@ class Exercise {
     }
     
     func log(set: ExerciseSet) {
-        sets.append(set)
+        self.sets.append(set)
+    }
+    
+    func log(sets: [ExerciseSet]){
+        self.sets.append(contentsOf: sets)
     }
 }
-
-//class ExerciseTemplate {
-//    var name: String
-//    var type: ExerciseType
-//
-//    init (name: String, type: ExerciseType){
-//        self.name = name
-//        self.type = type
-//    }
-//}
-
-//class ExerciseSet {
-//    var reps: ExerciseType
-//
-//    init (reps: ExerciseType) {
-//        self.reps = reps
-//    }
-//
-//    var string: String {
-//        return "135lbs x 10"
-//    }
-//}
-
-//class ExerciseDictionary {
-//    private static var dictionary: [String:ExerciseTemplate] = [:]
-//
-//    public func lookup (exercise exerciseName: String) -> ExerciseTemplate? {
-//        return ExerciseDictionary.dictionary[exerciseName]
-//    }
-//
-//    public func add (exercise: ExerciseTemplate) -> Bool {
-//        if ExerciseDictionary.dictionary[exercise.name] == nil {
-//            ExerciseDictionary.dictionary[exercise.name] = exercise
-//            return true
-//        }
-//        return false
-//    }
-//
-//    public func edit (exercise: ExerciseTemplate) {}
-//}

@@ -15,15 +15,15 @@ class SetInfoCell: UICollectionViewCell {
     
     private lazy var setLabel: UILabel = {
         let label = UILabel()
-        label.layer.borderWidth = 1
-        label.layer.borderColor = UIColor.black.cgColor
+        label.textColor = .black
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var set: ExerciseSet? {
+    var label: String? {
         didSet {
-            
+            setLabel.text = label
         }
     }
     
@@ -33,6 +33,11 @@ class SetInfoCell: UICollectionViewCell {
     }
     
     func setup() {
+        backgroundColor = .white
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 1
+        layer.cornerRadius = SetInfoCell.height / 2.0
+        
         addSubview(setLabel)
         NSLayoutConstraint.activate([
             setLabel.topAnchor.constraint(equalTo: self.topAnchor),
