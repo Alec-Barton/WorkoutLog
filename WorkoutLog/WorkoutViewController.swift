@@ -11,7 +11,7 @@ import UIKit
 
 class WorkoutViewController: UIViewController {
     
-    var workout: WorkoutInstance?
+    var workout: Workout?
     
     private lazy var tableView : UITableView = {
         let view = UITableView()
@@ -38,8 +38,8 @@ class WorkoutViewController: UIViewController {
     
     override func viewDidLoad() {
         self.view.backgroundColor = .orange
-        let template = TemplateManager.shared.getTemplate(workoutNamed: "Chest Day")
-        workout = WorkoutInstance(workout: template)
+//        let template = TemplateManager.shared.getTemplate(workoutNamed: "Chest Day")
+        workout = Workout(named: "Chest Day")
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -91,12 +91,17 @@ extension WorkoutViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseCell.id, for: indexPath) as! ExerciseCell
         if let exercise = workout?.exercises[indexPath.row] {
-            cell.exerciseInstance = ExerciseInstance(name: exercise.name)
+            cell.exercise = Exercise(named: exercise.name)
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return ExerciseCell.height
+        //TODO: Clean up height calculation
+//        guard let workout = workout else { return 0 }
+//        guard workout.exercises.count - 1 >= indexPath.row else { return 0 }
+        
+//        return 60 + (workout.exercises.count/3) * 50
+        return 150
     }
 }
