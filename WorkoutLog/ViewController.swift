@@ -111,7 +111,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 
 extension ViewController: DayCellDelegate {
     func cellTapped(_ cell: DayCell) {
-        let vc = WorkoutViewController()
+        let vc = DayViewController()
         self.present(vc, animated: true)
     }
 }

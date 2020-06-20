@@ -39,7 +39,7 @@ enum ExerciseSet {
     }
 }
 
-class Exercise {
+struct Exercise {
     var name: String
     var type: ExerciseType
     var sets: [ExerciseSet]
@@ -48,22 +48,26 @@ class Exercise {
         return sets.isEmpty
     }
     
+    var setCount: Int {
+        return sets.count
+    }
+    
     init (name: String, type: ExerciseType){
         self.name = name
         self.type = type
         self.sets = []
     }
     
-    convenience init? (named name: String) {
+    init? (named name: String) {
         guard let exercise = TemplateManager.shared.get(exerciseNamed: name) else { return nil }
         self.init(name: exercise.name, type: exercise.type)
     }
     
-    func log(set: ExerciseSet) {
+    mutating func log(set: ExerciseSet) {
         self.sets.append(set)
     }
     
-    func log(sets: [ExerciseSet]){
+    mutating func log(sets: [ExerciseSet]){
         self.sets.append(contentsOf: sets)
     }
 }
