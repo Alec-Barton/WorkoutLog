@@ -41,10 +41,10 @@ class ExerciseCell: UITableViewCell {
         return view
     }()
     
-    private lazy var setCollectionView: UICollectionView = {
+    private lazy var setCollectionView: FlexCollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
-        let view = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        view.backgroundColor = .white
+        let view = FlexCollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        view.backgroundColor = .green
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -53,6 +53,7 @@ class ExerciseCell: UITableViewCell {
         didSet {
             guard let exercise = exercise else { return }
             nameLabel.text = exercise.name
+            
         }
     }
     
@@ -68,11 +69,8 @@ class ExerciseCell: UITableViewCell {
         setCollectionView.dataSource = self
         setCollectionView.register(SetInfoCell.self, forCellWithReuseIdentifier: SetInfoCell.id)
         setCollectionView.register(SetAddCell.self, forCellWithReuseIdentifier: SetAddCell.id)
-//        setCollectionView.register(SetEditCell.self, forCellWithReuseIdentifier: SetEditCell.id)
-
     }
     
-    var yes:CGFloat = 0.0
     var editorHeight:NSLayoutConstraint?
     var collectionViewHeight: NSLayoutConstraint?
     
@@ -99,34 +97,33 @@ class ExerciseCell: UITableViewCell {
             setEditor.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
             setCollectionView.topAnchor.constraint(equalTo: setEditor.bottomAnchor, constant: 10.0),
-            setCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10.0),
+//            setCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             setCollectionView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.95),
             setCollectionView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
         ])
         
-//        setEditor.isHidden = true
+        setEditor.isHidden = true
         editorHeight = setEditor.heightAnchor.constraint(equalToConstant: 0)
         editorHeight?.isActive = true
-//        collectionViewHeight
-//        setEditor.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: 0)
     }
     
     func openEditor() {
+        setEditor.isHidden = false
         self.editorHeight?.constant = 100.0
-
         UIView.animate(withDuration: 0.25, animations: {
-            self.setEditor.layoutIfNeeded()
+            self.layoutIfNeeded()
         })
-
     }
     
     func closeEditor() {
         selectedIndex = nil
-        
         self.editorHeight?.constant = 0.0
 
         UIView.animate(withDuration: 0.25, animations: {
-            self.setEditor.layoutIfNeeded()
+            self.layoutIfNeeded()
+        }, completion: { _ in
+            self.setEditor.isHidden = true
         })
     }
     
@@ -185,15 +182,3 @@ extension ExerciseCell: SetEditorViewDelegate {
         closeEditor()
     }
 }
-
-//extension ExerciseCell: SetAddCellDelegate {
-//    func didTap(_ cell: SetAddCell) {
-//        print("ADD_CELL")
-//    }
-//}
-//
-//extension ExerciseCell: SetInfoCellDelegate {
-//    func didTap(_ cell: SetInfoCell) {
-//        print("INFO_CELL")
-//    }
-//}

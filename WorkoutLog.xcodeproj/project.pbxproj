@@ -28,6 +28,7 @@
 		70D562F6247C1A55000CC15A /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D562F5247C1A55000CC15A /* DateManager.swift */; };
 		70D562F8247C5335000CC15A /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D562F7247C5335000CC15A /* WorkoutViewController.swift */; };
 		70DC7D6B249E92FE000A9541 /* SetEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC7D6A249E92FE000A9541 /* SetEditorView.swift */; };
+		70DC7D6D249EBC13000A9541 /* FlexTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC7D6C249EBC13000A9541 /* FlexTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		70D562F5247C1A55000CC15A /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		70D562F7247C5335000CC15A /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		70DC7D6A249E92FE000A9541 /* SetEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetEditorView.swift; sourceTree = "<group>"; };
+		70DC7D6C249EBC13000A9541 /* FlexTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				70940C37245205B6005C2E8B /* ViewController.swift */,
 				70D562EB247B33F8000CC15A /* MonthHeaderView.swift */,
 				70D562F7247C5335000CC15A /* WorkoutViewController.swift */,
+				70DC7D6C249EBC13000A9541 /* FlexTableView.swift */,
 				704A808D2496BC7800273D06 /* WorkoutCell.swift */,
 				704A80832495890200273D06 /* ExerciseCell.swift */,
 				704A8085249663F200273D06 /* SetInfoCell.swift */,
@@ -185,6 +188,7 @@
 				70940C38245205B6005C2E8B /* ViewController.swift in Sources */,
 				70D562F6247C1A55000CC15A /* DateManager.swift in Sources */,
 				70D562F8247C5335000CC15A /* WorkoutViewController.swift in Sources */,
+				70DC7D6D249EBC13000A9541 /* FlexTableView.swift in Sources */,
 				704A80842495890200273D06 /* ExerciseCell.swift in Sources */,
 				70940C34245205B6005C2E8B /* AppDelegate.swift in Sources */,
 				70DC7D6B249E92FE000A9541 /* SetEditorView.swift in Sources */,

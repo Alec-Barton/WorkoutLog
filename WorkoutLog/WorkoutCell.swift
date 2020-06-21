@@ -21,8 +21,9 @@ class WorkoutCell: UITableViewCell {
         return label
     }()
     
-    private lazy var exerciseTableView : UITableView = {
-        let view = UITableView()
+    private lazy var exerciseTableView : FlexTableView = {
+        let view = FlexTableView()
+        view.allowsSelection = false
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -61,6 +62,7 @@ class WorkoutCell: UITableViewCell {
 }
 
 extension WorkoutCell: UITableViewDelegate {
+    //disabled
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("")
     }
@@ -88,7 +90,7 @@ extension WorkoutCell: UITableViewDataSource {
         exerciseSets = exerciseSets == 0 ? 1 : exerciseSets
         let rows: Int = exerciseSets / 3 + 1
         let offset: Int = ((exerciseSets + 1) % 3 == 0) ? 1 : 0
-        return CGFloat(60.0 + Double(rows + offset) * 50 )
+        return CGFloat((60.0 + Double(rows + offset) * 50 ) + 100)
     }
 }
 

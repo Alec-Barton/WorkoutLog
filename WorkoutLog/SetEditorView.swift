@@ -48,12 +48,12 @@ class SetEditorView: UIView {
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
-            titleLabel.heightAnchor.constraint(equalToConstant: 40.0),
+            titleLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.5),
             titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
-            saveButton.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            saveButton.heightAnchor.constraint(equalToConstant: 40.0),
+            saveButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            saveButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.5),
             saveButton.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             saveButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
         ])
