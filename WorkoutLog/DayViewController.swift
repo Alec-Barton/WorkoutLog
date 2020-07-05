@@ -13,6 +13,9 @@ class DayViewController: UIViewController {
     
     var day: Day?
     
+    //TODO: this is stupid and temporary
+    var toggler:[Int:Bool] = [:]
+    
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.text = "DATE"
@@ -43,12 +46,16 @@ class DayViewController: UIViewController {
         self.day = Day(date: Date())
         
         //TODO: temp
-        if var workout = Workout(named: "Chest Day"), var workout2 = Workout(named: "Chest Day") {
+        if var workout = Workout(named: "Chest Day"), var workout2 = Workout(named: "Chest Day Jr.") {
             workout.test1()
             workout2.test2()
             day?.workouts.append(contentsOf: [workout, workout2])
             workoutTableView.reloadData()
 
+        }
+        guard let workouts = day?.workouts.count else { return }
+        for i in 0..<workouts {
+            toggler[i] = true
         }
     }
     
@@ -72,9 +79,7 @@ class DayViewController: UIViewController {
 }
 
 extension DayViewController: UITableViewDelegate {
-    //disabled
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("a")
     }
 }
 
@@ -84,13 +89,18 @@ extension DayViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return day?.workouts[section].exercises.count ?? 0 
+        if toggler[section] ?? false {
+            return day?.workouts[section].exercises.count ?? 0
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = WorkoutHeaderView()
-        cell.title = "Workout #\(section)"
-        return cell
+        let view = WorkoutHeaderView()
+        view.workout = day?.workouts[section]
+        view.section = section
+        view.delegate = self
+        return view
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -98,9 +108,28 @@ extension DayViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseCell.id, for: indexPath) as! ExerciseCell
         cell.exercise = day?.workouts[indexPath.section].exercises[indexPath.row]
         return cell
+    }
+}
+
+extension DayViewController: WorkoutHeaderViewDelegate {
+    func toggleOpen(_ view: WorkoutHeaderView) {
+        guard let section = view.section else { return }
+        guard let toggle = toggler[section] else { return }
+        
+        defer { workoutTableView.reloadSections(IndexSet(integer: section), with: .fade)}
+        
+        toggler[section] = !toggle
+        
+        guard toggle else { return }
+        
+        var indexPaths:[IndexPath] = []
+        guard let workout = day?.workouts[section] else { return }
+        for i in 0..<workout.exercises.count {
+            indexPaths.append(IndexPath(row: i, section: section))
+        }
+        workoutTableView.deleteRows(at: indexPaths, with: .fade)
     }
 }

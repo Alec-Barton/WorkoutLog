@@ -15,7 +15,17 @@ protocol ExerciseCellDelegate: AnyObject {
 class ExerciseCell: UITableViewCell {
     
     static let id = "ExerciseCellId"
-//    static let height: CGFloat = 100.0
+    
+    public var dynamicCellHeight: CGFloat {
+        return dynamicTableHeight + 60.0
+    }
+    private var dynamicTableHeight: CGFloat {
+        guard var setCount = exercise?.sets.count else { return 50.0 }
+        setCount = setCount == 0 ? 1 : setCount
+        let offset = setCount % 3 == 0 ? 0 : 1
+        return (CGFloat(setCount / 3 + offset) * 50.0)
+    }
+    private var tableHeigthAnchor:NSLayoutConstraint?
     
     var delegate: ExerciseCellDelegate?
     var exerciseIndex: Int?
@@ -24,7 +34,8 @@ class ExerciseCell: UITableViewCell {
         didSet {
             guard let exercise = exercise else { return }
             nameLabel.text = exercise.name
-            
+            //TODO: Update
+            setCollectionView.heightAnchor.constraint(equalToConstant: dynamicTableHeight).isActive = true
         }
     }
     
@@ -56,10 +67,8 @@ class ExerciseCell: UITableViewCell {
     }()
     private lazy var setCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
-//        flowLayout.estimatedItemSize = CGSize(width: 100, height: 100)
         let view = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-//        view.
-        view.backgroundColor = .green
+        view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -109,13 +118,9 @@ class ExerciseCell: UITableViewCell {
             setCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20.0),
             setCollectionView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.95),
             setCollectionView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            setCollectionView.heightAnchor.constraint(equalToConstant: 200.0)
+//            setCollectionView.heightAnchor.constraint(equalToConstant: self.dynamicTableHeight)
             
         ])
-        
-//        setEditor.isHidden = true
-//        editorHeight = setEditor.heightAnchor.constraint(equalToConstant: 0)
-//        editorHeight?.isActive = true
     }
     
     //MARK: ExerciseCell - Methods

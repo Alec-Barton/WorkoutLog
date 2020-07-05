@@ -8,20 +8,29 @@
 
 import UIKit
 
+protocol WorkoutHeaderViewDelegate: AnyObject {
+    func toggleOpen(_ view: WorkoutHeaderView)
+}
+
 class WorkoutHeaderView: UIView {
     static let id = "WorkoutHeaderCellId"
     static let height:CGFloat = 30.0
     
-    var title: String? {
+    var delegate: WorkoutHeaderViewDelegate?
+    
+    var section: Int?
+    var workout: Workout? {
         didSet{
-            label.text = title
+            label.text = workout?.name
         }
     }
     
-    private lazy var collapseButton: UIButton = {
+    private lazy var openButton: UIButton = {
         let button = UIButton()
-        button.setTitle("OPEN", for: .normal)
+        button.setTitle(">", for: .normal)
         button.backgroundColor = .systemTeal
+        button.layer.cornerRadius = 15.0
+        button.addTarget(self, action: #selector(openButtonDidTap), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -43,23 +52,27 @@ class WorkoutHeaderView: UIView {
     private func setup() {
         self.backgroundColor = .white
         
-        addSubview(collapseButton)
+        addSubview(openButton)
         addSubview(label)
         
         NSLayoutConstraint.activate([
-            collapseButton.topAnchor.constraint(equalTo: topAnchor),
-            collapseButton.bottomAnchor.constraint(equalTo: bottomAnchor),
-            collapseButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0),
+            openButton.topAnchor.constraint(equalTo: topAnchor),
+            openButton.bottomAnchor.constraint(equalTo: bottomAnchor),
+            openButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0),
 
             label.topAnchor.constraint(equalTo: topAnchor),
             label.bottomAnchor.constraint(equalTo: bottomAnchor),
-            label.leadingAnchor.constraint(equalTo: collapseButton.trailingAnchor, constant: 10.0),
+            label.leadingAnchor.constraint(equalTo: openButton.trailingAnchor, constant: 10.0),
             label.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    @objc private func openButtonDidTap(_ sender: UITapGestureRecognizer?){
+        delegate?.toggleOpen(self)
     }
 }
 

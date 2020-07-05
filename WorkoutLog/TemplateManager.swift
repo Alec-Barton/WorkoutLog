@@ -27,7 +27,9 @@ class TemplateManager {
         let exercises = [benchPress, pushup, plank]
 
         let workout = Workout(name: "Chest Day", exercises: exercises)
+        let workout2 = Workout(name: "Chest Day Jr.", exercises: exercises)
         guard add(workout: workout) else { print ("ERROR"); return }
+        guard add(workout: workout2) else { print ("ERROR"); return }
     }
     
     private func templateDoesExistFor(workout: Workout) -> Bool {
