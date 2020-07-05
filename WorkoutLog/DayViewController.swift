@@ -30,10 +30,13 @@ class DayViewController: UIViewController {
     
     override func viewDidLoad() {
         self.view.backgroundColor = .white
-        
-        workoutTableView.register(WorkoutCell.self, forCellReuseIdentifier: WorkoutCell.id)
+        workoutTableView.register(ExerciseCell.self, forCellReuseIdentifier: ExerciseCell.id)
+
         workoutTableView.dataSource = self
         workoutTableView.delegate = self
+        
+        workoutTableView.rowHeight = UITableView.automaticDimension
+        workoutTableView.estimatedRowHeight = 600
         
         setup()
         
@@ -60,7 +63,7 @@ class DayViewController: UIViewController {
             dateLabel.heightAnchor.constraint(equalToConstant: 30.0),
             
             workoutTableView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 50.0),
-            workoutTableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.95),
+            workoutTableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.0),
             workoutTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20.0),
             workoutTableView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
@@ -77,20 +80,27 @@ extension DayViewController: UITableViewDelegate {
 
 extension DayViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return day?.workouts.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return day?.workouts.count ?? 0 + 1
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: WorkoutCell.id, for: indexPath) as! WorkoutCell
-        cell.workout = day?.workouts[indexPath.row]
-        return cell
+        return day?.workouts[section].exercises.count ?? 0 
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 1000.0
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = WorkoutHeaderView()
+        cell.title = "Workout #\(section)"
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return WorkoutHeaderView.height
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseCell.id, for: indexPath) as! ExerciseCell
+        cell.exercise = day?.workouts[indexPath.section].exercises[indexPath.row]
+        return cell
     }
 }
