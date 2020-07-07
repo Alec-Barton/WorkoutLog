@@ -15,6 +15,7 @@ class DayViewController: UIViewController {
     
     //TODO: this is stupid and temporary
     var toggler:[Int:Bool] = [:]
+    var editingIndex: IndexPath?
     
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
@@ -32,7 +33,7 @@ class DayViewController: UIViewController {
     }()
     
     override func viewDidLoad() {
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = UIColor.WorkoutLog.lightGray
         workoutTableView.register(ExerciseCell.self, forCellReuseIdentifier: ExerciseCell.id)
 
         workoutTableView.dataSource = self
@@ -107,9 +108,19 @@ extension DayViewController: UITableViewDataSource {
         return WorkoutHeaderView.height
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseCell.id, for: indexPath) as! ExerciseCell
         cell.exercise = day?.workouts[indexPath.section].exercises[indexPath.row]
+
+        cell.index = indexPath
+        cell.delegate = self
+        if indexPath == editingIndex {
+            cell.editorOpen = true
+        }
         return cell
     }
 }
@@ -131,5 +142,12 @@ extension DayViewController: WorkoutHeaderViewDelegate {
             indexPaths.append(IndexPath(row: i, section: section))
         }
         workoutTableView.deleteRows(at: indexPaths, with: .fade)
+    }
+}
+
+extension DayViewController: ExerciseCellDelegate {
+    func editingStateChanged(_ cell: ExerciseCell, editingIndex: IndexPath?) {
+        self.workoutTableView.reloadData()
+        self.editingIndex = editingIndex
     }
 }

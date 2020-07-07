@@ -113,10 +113,5 @@
 //    }
 //}
 //
-//extension WorkoutCell: ExerciseCellDelegate {
-//    func editingStateChanged(_ cell: ExerciseCell, editingIndex: Int?) {
-//        self.editingIndex = editingIndex
-//        exerciseTableView.reloadData()
-//    }
-//}
+
 //

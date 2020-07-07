@@ -16,6 +16,8 @@
 		704A808C2496B7CE00273D06 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A808B2496B7CE00273D06 /* Day.swift */; };
 		704A808E2496BC7800273D06 /* WorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A808D2496BC7800273D06 /* WorkoutCell.swift */; };
 		708463FC24B24674009A7D8E /* WorkoutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */; };
+		708463FE24B267D6009A7D8E /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708463FD24B267D6009A7D8E /* UIColor+Extensions.swift */; };
+		7084640024B3EF1E009A7D8E /* AddExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708463FF24B3EF1E009A7D8E /* AddExerciseCell.swift */; };
 		70940C34245205B6005C2E8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70940C33245205B6005C2E8B /* AppDelegate.swift */; };
 		70940C36245205B6005C2E8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70940C35245205B6005C2E8B /* SceneDelegate.swift */; };
 		70940C38245205B6005C2E8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70940C37245205B6005C2E8B /* ViewController.swift */; };
@@ -42,6 +44,8 @@
 		704A808B2496B7CE00273D06 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		704A808D2496BC7800273D06 /* WorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCell.swift; sourceTree = "<group>"; };
 		708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHeaderView.swift; sourceTree = "<group>"; };
+		708463FD24B267D6009A7D8E /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		708463FF24B3EF1E009A7D8E /* AddExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseCell.swift; sourceTree = "<group>"; };
 		70940C30245205B6005C2E8B /* WorkoutLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70940C33245205B6005C2E8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70940C35245205B6005C2E8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +75,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7084640124B402E1009A7D8E /* Day */ = {
+			isa = PBXGroup;
+			children = (
+				70D562F7247C5335000CC15A /* DayViewController.swift */,
+				708463FF24B3EF1E009A7D8E /* AddExerciseCell.swift */,
+				708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */,
+				704A80832495890200273D06 /* ExerciseCell.swift */,
+			);
+			path = Day;
+			sourceTree = "<group>";
+		};
+		7084640224B40300009A7D8E /* Legacy */ = {
+			isa = PBXGroup;
+			children = (
+				70DC7D6A249E92FE000A9541 /* SetEditorView.swift */,
+				704A808D2496BC7800273D06 /* WorkoutCell.swift */,
+			);
+			path = Legacy;
+			sourceTree = "<group>";
+		};
+		7084640324B4030F009A7D8E /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				70940C37245205B6005C2E8B /* ViewController.swift */,
+				70D562EB247B33F8000CC15A /* MonthHeaderView.swift */,
+				70D562F3247C18ED000CC15A /* WeekDayCell.swift */,
+				7025C7B22476017600A6C11A /* DayCell.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		7084640424B4032A009A7D8E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				704A8081249570F100273D06 /* TemplateManager.swift */,
+				704A808924968D3D00273D06 /* UserManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		7084640524B40338009A7D8E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				70D562F1247B648A000CC15A /* Exercise.swift */,
+				70D562EF247B49C0000CC15A /* Workout.swift */,
+				70D562ED247B4989000CC15A /* Month.swift */,
+				704A808B2496B7CE00273D06 /* Day.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7084640624B403C6009A7D8E /* Sets */ = {
+			isa = PBXGroup;
+			children = (
+				704A8085249663F200273D06 /* SetInfoCell.swift */,
+				704A808724967E5E00273D06 /* SetAddCell.swift */,
+			);
+			path = Sets;
+			sourceTree = "<group>";
+		};
 		70940C27245205B6005C2E8B = {
 			isa = PBXGroup;
 			children = (
@@ -90,27 +154,17 @@
 		70940C32245205B6005C2E8B /* WorkoutLog */ = {
 			isa = PBXGroup;
 			children = (
-				70940C33245205B6005C2E8B /* AppDelegate.swift */,
-				70940C35245205B6005C2E8B /* SceneDelegate.swift */,
-				70940C37245205B6005C2E8B /* ViewController.swift */,
-				70D562EB247B33F8000CC15A /* MonthHeaderView.swift */,
-				70D562F7247C5335000CC15A /* DayViewController.swift */,
-				704A80832495890200273D06 /* ExerciseCell.swift */,
-				708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */,
-				704A808D2496BC7800273D06 /* WorkoutCell.swift */,
+				7084640324B4030F009A7D8E /* Calendar */,
+				7084640224B40300009A7D8E /* Legacy */,
+				7084640124B402E1009A7D8E /* Day */,
+				7084640624B403C6009A7D8E /* Sets */,
+				7084640524B40338009A7D8E /* Model */,
+				7084640424B4032A009A7D8E /* Managers */,
+				708463FD24B267D6009A7D8E /* UIColor+Extensions.swift */,
 				70DC7D6C249EBC13000A9541 /* FlexTableView.swift */,
-				704A8085249663F200273D06 /* SetInfoCell.swift */,
-				704A808724967E5E00273D06 /* SetAddCell.swift */,
-				70DC7D6A249E92FE000A9541 /* SetEditorView.swift */,
-				70D562F3247C18ED000CC15A /* WeekDayCell.swift */,
-				7025C7B22476017600A6C11A /* DayCell.swift */,
-				704A808B2496B7CE00273D06 /* Day.swift */,
-				70D562F1247B648A000CC15A /* Exercise.swift */,
-				70D562ED247B4989000CC15A /* Month.swift */,
-				70D562EF247B49C0000CC15A /* Workout.swift */,
-				704A8081249570F100273D06 /* TemplateManager.swift */,
-				704A808924968D3D00273D06 /* UserManager.swift */,
+				70940C33245205B6005C2E8B /* AppDelegate.swift */,
 				70D562F5247C1A55000CC15A /* DateManager.swift */,
+				70940C35245205B6005C2E8B /* SceneDelegate.swift */,
 				70940C3C245205B7005C2E8B /* Assets.xcassets */,
 				70940C3E245205B7005C2E8B /* LaunchScreen.storyboard */,
 				70940C41245205B7005C2E8B /* Info.plist */,
@@ -204,9 +258,11 @@
 				70D562F0247B49C0000CC15A /* Workout.swift in Sources */,
 				704A8086249663F200273D06 /* SetInfoCell.swift in Sources */,
 				704A808C2496B7CE00273D06 /* Day.swift in Sources */,
+				7084640024B3EF1E009A7D8E /* AddExerciseCell.swift in Sources */,
 				70D562EE247B4989000CC15A /* Month.swift in Sources */,
 				7025C7B32476017600A6C11A /* DayCell.swift in Sources */,
 				70D562F2247B648A000CC15A /* Exercise.swift in Sources */,
+				708463FE24B267D6009A7D8E /* UIColor+Extensions.swift in Sources */,
 				70940C36245205B6005C2E8B /* SceneDelegate.swift in Sources */,
 				70D562EC247B33F8000CC15A /* MonthHeaderView.swift in Sources */,
 			);
