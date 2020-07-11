@@ -113,7 +113,7 @@ class ExerciseCell: UITableViewCell {
             
             setCollectionView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5.0),
             setCollectionView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.95),
-            setCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25.0),
+            setCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0),
             setCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
 
 

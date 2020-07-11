@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import MobileCoreServices
 
 class Day {
     var date: Date

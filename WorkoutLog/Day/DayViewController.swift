@@ -35,6 +35,7 @@ class DayViewController: UIViewController {
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.WorkoutLog.lightGray
         workoutTableView.register(ExerciseCell.self, forCellReuseIdentifier: ExerciseCell.id)
+        workoutTableView.register(ExerciseAddCell.self, forCellReuseIdentifier: ExerciseAddCell.id)
 
         workoutTableView.dataSource = self
         workoutTableView.delegate = self
@@ -84,6 +85,7 @@ extension DayViewController: UITableViewDelegate {
     }
 }
 
+
 extension DayViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return day?.workouts.count ?? 0
@@ -91,7 +93,7 @@ extension DayViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if toggler[section] ?? false {
-            return day?.workouts[section].exercises.count ?? 0
+            return (day?.workouts[section].exercises.count ?? 0) + 1
         }
         return 0
     }
@@ -113,6 +115,12 @@ extension DayViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.row == (day?.workouts[indexPath.section].exercises.count ?? 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseAddCell.id, for: indexPath) as! ExerciseAddCell
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseCell.id, for: indexPath) as! ExerciseCell
         cell.exercise = day?.workouts[indexPath.section].exercises[indexPath.row]
 
