@@ -9,13 +9,14 @@
 import Foundation
 import UIKit
 
-class MonthHeaderView: UICollectionReusableView {
+class DateHeaderView: UICollectionReusableView {
     
-    static let id = "MonthHeaderId"
+    static let id = "DateHeaderId"
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .center
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 30)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -24,6 +25,13 @@ class MonthHeaderView: UICollectionReusableView {
         didSet {
             guard let month = month else { return }
             titleLabel.text = "\(month.name)"
+        }
+    }
+    
+    public var year: Year? {
+        didSet {
+            guard let year = year else { return }
+            titleLabel.text = "\(year.name)"
         }
     }
     
@@ -36,7 +44,7 @@ class MonthHeaderView: UICollectionReusableView {
         self.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30.0),
             titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10.0),
             titleLabel.widthAnchor.constraint(equalTo: self.widthAnchor),
             titleLabel.heightAnchor.constraint(equalToConstant: 50.0),

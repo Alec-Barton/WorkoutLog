@@ -43,7 +43,7 @@ class YearViewController: UICollectionViewController {
     }
     
     private func registerIds () {
-        collectionView.register(MonthHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MonthHeaderView.id)
+        collectionView.register(DateHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DateHeaderView.id)
         
         collectionView.register(WeekdayCell.self, forCellWithReuseIdentifier: WeekdayCell.id)
         collectionView.register(DayCell.self, forCellWithReuseIdentifier: DayCell.id)
@@ -59,13 +59,13 @@ extension YearViewController: UICollectionViewDelegateFlowLayout {
     }
         
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MonthHeaderView.id, for: indexPath) as! MonthHeaderView
-//        header.month = months[indexPath.section]
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: DateHeaderView.id, for: indexPath) as! DateHeaderView
+        header.year = years[indexPath.section]
         return header
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .init(width: view.frame.width, height: 20.0)
+        return .init(width: view.frame.width, height: 50.0)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

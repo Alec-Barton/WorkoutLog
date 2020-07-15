@@ -40,7 +40,7 @@ class MonthViewController: UICollectionViewController {
     }
     
     private func registerIds () {
-        collectionView.register(MonthHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MonthHeaderView.id)
+        collectionView.register(DateHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DateHeaderView.id)
         
         collectionView.register(WeekdayCell.self, forCellWithReuseIdentifier: WeekdayCell.id)
         collectionView.register(DayCell.self, forCellWithReuseIdentifier: DayCell.id)
@@ -54,7 +54,7 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
     }
         
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MonthHeaderView.id, for: indexPath) as! MonthHeaderView
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: DateHeaderView.id, for: indexPath) as! DateHeaderView
         header.month = months[indexPath.section]
         return header
     }
