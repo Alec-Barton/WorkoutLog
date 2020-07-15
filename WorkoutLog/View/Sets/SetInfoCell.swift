@@ -8,27 +8,10 @@
 
 import UIKit
 
-//protocol SetInfoCellDelegate {
-//    func didTap(_ cell: SetInfoCell)
-//}
-
 class SetInfoCell: UICollectionViewCell {
     
     static let id = "SetInfoId"
     static let height: CGFloat = 40.0
-    
-//    var delegate: SetInfoCellDelegate?
-    
-//    private lazy var setButton: UIButton = {
-//        let button = UIButton()
-//        button.setTitleColor(.black, for: .normal)
-//        button.layer.borderWidth = 1
-//        button.layer.borderColor = UIColor.black.cgColor
-//        button.layer.cornerRadius = SetAddCell.height/2
-//        button.addTarget(self, action: #selector(didTap), for: .touchUpInside)
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        return button
-//    }()
     
     private lazy var setLabel: UILabel = {
         let label = UILabel()
@@ -50,9 +33,6 @@ class SetInfoCell: UICollectionViewCell {
     
     func setup() {
         backgroundColor = .white
-//        layer.borderColor = UIColor.black.cgColor
-//        layer.borderWidth = 1
-//        layer.cornerRadius = SetInfoCell.height / 2.0
         
         addSubview(setLabel)
         NSLayoutConstraint.activate([
@@ -62,10 +42,6 @@ class SetInfoCell: UICollectionViewCell {
             setLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
         ])
     }
-    
-//    @objc private func didTap(){
-//        delegate?.didTap(self)
-//    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)

@@ -28,9 +28,6 @@ class WorkoutHeaderView: UIView {
     private lazy var openButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "collapseIcon"), for: .normal)
-//        button.setTitle(">", for: .normal)
-//        button.backgroundColor = .systemTeal
-//        button.layer.cornerRadius = 15.0
         button.addTarget(self, action: #selector(openButtonDidTap), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -79,13 +76,9 @@ class WorkoutHeaderView: UIView {
     }
     
     private func setup() {
-//        self.backgroundColor = .lightGray
         
         addSubview(openButton)
         addSubview(label)
-//        addSubview(infoButton)
-//        addSubview(editButton)
-//        addSubview(deleteButton)
         addSubview(moreButton)
         
         NSLayoutConstraint.activate([
@@ -113,6 +106,7 @@ class WorkoutHeaderView: UIView {
 //            deleteButton.widthAnchor.constraint(equalToConstant: WorkoutHeaderView.height * 0.5),
 //            deleteButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5.0),
 //            deleteButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            
             moreButton.heightAnchor.constraint(equalToConstant: WorkoutHeaderView.height * 0.75),
             moreButton.widthAnchor.constraint(equalToConstant: WorkoutHeaderView.height * 0.75),
             moreButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -7.5),

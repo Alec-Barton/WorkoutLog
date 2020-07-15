@@ -8,16 +8,10 @@
 
 import UIKit
 
-//protocol SetAddCellDelegate: AnyObject {
-//    func didTap(_ self: SetAddCell)
-//}
-
 class SetAddCell: UICollectionViewCell {
     
     static let id = "SetAddCellId"
     static let height: CGFloat = 40.0
-    
-//    var delegate: SetAddCellDelegate?
     
     private lazy var addImageView: UIImageView = {
         let view = UIImageView()
@@ -62,19 +56,8 @@ class SetAddCell: UICollectionViewCell {
             addImageView.heightAnchor.constraint(equalToConstant: 25.0),
             addImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             addImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-
-
-            
-//            addImageView.topAnchor.constraint(equalTo: self.topAnchor),
-//            addImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-//            addImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-//            addImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
         ])
     }
-    
-//    @objc private func didTap() {
-//        delegate?.didTap(self)
-//    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)

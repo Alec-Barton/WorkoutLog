@@ -17,7 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
-        self.window?.rootViewController = ViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        var layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 6
+        layout.minimumLineSpacing = 6
+        self.window?.rootViewController = YearViewController(collectionViewLayout: layout)
         
     }
 

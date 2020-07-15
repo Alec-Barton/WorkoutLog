@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-
-
 class WeekdayCell: UICollectionViewCell {
     static let id = "WeekDayCellId"
     

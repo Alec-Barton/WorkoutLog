@@ -1,18 +1,26 @@
 //
-//  ViewController.swift
+//  YearViewController.swift
 //  WorkoutLog
 //
-//  Created by Alec Barton on 4/23/20.
+//  Created by Alec Barton on 7/12/20.
 //  Copyright © 2020 Alec Barton. All rights reserved.
 //
 
 import UIKit
-import Foundation
 
-class ViewController: UICollectionViewController {
+class YearViewController: UICollectionViewController {
     
-    let padding: CGFloat = 3
-    var months: [Month] = []
+    let padding: CGFloat = 30
+    var years: [Year] = {
+        var array:[Year] = []
+        if let year2020 = Year(year: 2020){
+            array.append(year2020)
+        }
+        if let year2021 = Year(year: 2021){
+            array.append(year2021)
+        }
+        return array
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +30,6 @@ class ViewController: UICollectionViewController {
         setup()
         registerIds()
         
-        for i in 1...12 {
-            if let month = Month(month: i, year: 2020) {
-                months.append(month)
-//                print(month.name)
-            }
-        }
-        
     }
     
     private func setup() {
@@ -36,11 +37,9 @@ class ViewController: UICollectionViewController {
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionInset = .init(top: padding, left: padding, bottom: padding, right: padding)
         }
-        
-        collectionView.backgroundColor = .gray
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = ColorTheme.lightGray1
         collectionView.contentInsetAdjustmentBehavior = .never
-        
-       
     }
     
     private func registerIds () {
@@ -52,66 +51,46 @@ class ViewController: UICollectionViewController {
     }
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout {
+extension YearViewController: UICollectionViewDelegateFlowLayout {
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return months.count
+//        return
+        return years.count
     }
         
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MonthHeaderView.id, for: indexPath) as! MonthHeaderView
-        header.month = months[indexPath.section]
+//        header.month = months[indexPath.section]
         return header
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .init(width: view.frame.width, height: 100.0)
+        return .init(width: view.frame.width, height: 20.0)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return months[section].numberOfCells + 7
+        return years[section].numberOfCells
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if indexPath.row < 7 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeekdayCell.id, for: indexPath) as! WeekdayCell
-            cell.day = WeekdayName(rawValue: indexPath.row + 1)
-            return cell 
-        } else {
-            let month = months[indexPath.section]
-            let dayPadding = (month.startingDay.rawValue) + 6
+
+        let year = years[indexPath.section]
+        let dayPadding = year.dayOffset
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayCell.id, for: indexPath) as! DayCell
+        if indexPath.row >= dayPadding && indexPath.row < year.daysInYear + dayPadding{
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayCell.id, for: indexPath) as! DayCell
-            cell.delegate = self
-            if indexPath.row >= dayPadding && indexPath.row < month.daysInMonth + dayPadding{
-                
-                cell.date = indexPath.row - dayPadding + 1
-                cell.backgroundColor = .cyan
-            } else {
-                cell.backgroundColor = .lightGray
-                cell.date = 0 
-            }
-            return cell
+            cell.date = indexPath.row - dayPadding + 1
+            cell.backgroundColor = ColorTheme.lightGray4
+        } else {
+            cell.backgroundColor = ColorTheme.lightGray2
+            cell.date = 0
         }
-        
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = view.frame.width/7 - 10
-        
-         if indexPath.row < 7 {
-            return .init(width: size, height: 30.0)
-         } else {
-            return .init(width: size, height: size)
-        }
-        
+        let size = view.frame.width/14 - 10
+        return .init(width: size, height: size)
     }
 }
 
-extension ViewController: DayCellDelegate {
-    func cellTapped(_ cell: DayCell) {
-        let vc = DayViewController()
-        self.present(vc, animated: true)
-    }
-}

@@ -16,9 +16,6 @@ class ExerciseCell: UITableViewCell {
     
     static let id = "ExerciseCellId"
     
-//    public var dynamicCellHeight: CGFloat {
-//        return dynamicTableHeight + 60.0
-//    }
     private var dynamicTableHeight: CGFloat {
         guard var setCount = exercise?.sets.count else { return 50.0 }
         setCount = setCount == 0 ? 1 : setCount
@@ -55,12 +52,7 @@ class ExerciseCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-//    private lazy var setEditor: SetEditorView = {
-//        let view = SetEditorView()
-//        view.delegate = self
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        return view
-//    }()
+
     private lazy var setCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -93,7 +85,6 @@ class ExerciseCell: UITableViewCell {
         self.addSubview(nameLabel)
         self.addSubview(infoButton)
         self.addSubview(setCollectionView)
-//        self.addSubview(setEditor)
         
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10.0),
@@ -105,11 +96,6 @@ class ExerciseCell: UITableViewCell {
             infoButton.widthAnchor.constraint(equalToConstant: 25.0),
             infoButton.heightAnchor.constraint(equalToConstant: 25.0),
             infoButton.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor),
-            
-//            setEditor.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10.0),
-//            setEditor.widthAnchor.constraint(equalTo: self.widthAnchor),
-//            setEditor.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//            setEditor.bottomAnchor.constraint(equalTo: self.setCollectionView.topAnchor, constant: -10.0),
             
             setCollectionView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5.0),
             setCollectionView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.95),
@@ -123,46 +109,15 @@ class ExerciseCell: UITableViewCell {
     //MARK: ExerciseCell - Methods
     
     func beginEditing() {
-//        setEditor.isHidden = false
-//        self.editorHeight?.constant = 100.0
-//        UIView.animate(withDuration: 0.25, animations: {
-//            self.layoutIfNeeded()
-//        }, completion: { _ in
-//            self.setEditor.isHidden = true
-//            if let delegate = self.delegate, let index = self.index {
-//                delegate.editingStateChanged(self, editingIndex: index)
-//            }
-//        })
-//
     }
     
     func endEditing() {
-//        setSelectedIndex = nil
-//        self.editorHeight?.constant = 0.0
-//
-//        UIView.animate(withDuration: 0.25, animations: {
-//            self.layoutIfNeeded()
-//        }, completion: { _ in
-//            self.setEditor.isHidden = true
-//            if let delegate = self.delegate {
-//                delegate.editingStateChanged(self, editingIndex: nil)
-//            }
-//        })
-       
     }
 }
 
 extension ExerciseCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         beginEditing()
-//        if indexPath.row == 0 {
-//            setSelectedIndex = exercise?.setCount
-//            beginEditing()
-//        } else {
-//            setSelectedIndex = indexPath.row
-//
-//        }
-//        self.setCollectionView.reloadData()
     }
 }
 
@@ -186,19 +141,4 @@ extension ExerciseCell: UICollectionViewDataSource {
 }
 
 extension ExerciseCell: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//                
-//        if indexPath.row == 0 {
-//            return CGSize(width: 40.0, height: 30.0)
-//        } else {
-//            return CGSize(width: 100.0, height: 30.0)
-//
-//        }
-//    }
-}
-
-extension ExerciseCell: SetEditorViewDelegate {
-    func save() {
-        endEditing()
-    }
 }

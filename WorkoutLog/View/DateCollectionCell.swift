@@ -22,6 +22,7 @@ class DayCell: UICollectionViewCell {
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 8.0)
         label.textAlignment = .center
         return label
     }()
@@ -31,7 +32,6 @@ class DayCell: UICollectionViewCell {
             guard let date = date else { return }
             if date == 0 {
                 dateLabel.text = ""
-
             } else {
                 dateLabel.text = String(date)
             }
@@ -40,8 +40,6 @@ class DayCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-       
         
         setup()
         setupGestures()
@@ -56,6 +54,8 @@ class DayCell: UICollectionViewCell {
             dateLabel.widthAnchor.constraint(equalTo: self.widthAnchor),
             dateLabel.heightAnchor.constraint(equalTo: self.heightAnchor),
         ])
+        
+        self.layer.cornerRadius = 4.0
     }
     
     func setupGestures (){

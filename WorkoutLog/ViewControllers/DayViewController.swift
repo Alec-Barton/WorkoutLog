@@ -33,7 +33,7 @@ class DayViewController: UIViewController {
     }()
     
     override func viewDidLoad() {
-        self.view.backgroundColor = UIColor.WorkoutLog.lightGray
+        self.view.backgroundColor = ColorTheme.lightGray1
         workoutTableView.register(ExerciseCell.self, forCellReuseIdentifier: ExerciseCell.id)
         workoutTableView.register(ExerciseAddCell.self, forCellReuseIdentifier: ExerciseAddCell.id)
 
