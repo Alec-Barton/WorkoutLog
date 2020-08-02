@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         var layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 6
         layout.minimumLineSpacing = 6
-        self.window?.rootViewController = YearViewController(collectionViewLayout: layout)
+        self.window?.rootViewController = MultiMonthViewController(collectionViewLayout: layout)
         
     }
 
