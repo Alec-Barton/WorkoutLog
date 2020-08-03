@@ -33,19 +33,24 @@ class YearViewController: UICollectionViewController {
     }
     
     private func setup() {
-        
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionInset = .init(top: padding, left: padding, bottom: padding, right: padding)
         }
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
         collectionView.backgroundColor = ColorTheme.lightGray1
         collectionView.contentInsetAdjustmentBehavior = .never
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
     }
     
     private func registerIds () {
         collectionView.register(DateHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DateHeaderView.id)
-        
-        collectionView.register(WeekdayCell.self, forCellWithReuseIdentifier: WeekdayCell.id)
         collectionView.register(DayCell.self, forCellWithReuseIdentifier: DayCell.id)
         
     }
