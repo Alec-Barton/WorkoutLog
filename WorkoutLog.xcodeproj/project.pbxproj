@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		700DB21D24D662A600344B34 /* MonthCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700DB21C24D662A500344B34 /* MonthCollectionCell.swift */; };
 		7025C7B32476017600A6C11A /* DateCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7025C7B22476017600A6C11A /* DateCollectionCell.swift */; };
+		7027ACB824DA0A23000D10D2 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027ACB724DA0A23000D10D2 /* UIView+Extensions.swift */; };
 		704A8082249570F100273D06 /* TemplateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A8081249570F100273D06 /* TemplateManager.swift */; };
 		704A80842495890200273D06 /* ExerciseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A80832495890200273D06 /* ExerciseTableCell.swift */; };
 		704A8086249663F200273D06 /* SetInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A8085249663F200273D06 /* SetInfoCell.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		700DB21C24D662A500344B34 /* MonthCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCollectionCell.swift; sourceTree = "<group>"; };
 		7025C7B22476017600A6C11A /* DateCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionCell.swift; sourceTree = "<group>"; };
+		7027ACB724DA0A23000D10D2 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		704A8081249570F100273D06 /* TemplateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateManager.swift; sourceTree = "<group>"; };
 		704A80832495890200273D06 /* ExerciseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableCell.swift; sourceTree = "<group>"; };
 		704A8085249663F200273D06 /* SetInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInfoCell.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				708463FD24B267D6009A7D8E /* UIColor+Extensions.swift */,
+				7027ACB724DA0A23000D10D2 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				700DB21D24D662A600344B34 /* MonthCollectionCell.swift in Sources */,
 				7084640024B3EF1E009A7D8E /* ExcerciseAddTableCell.swift in Sources */,
 				70D562EE247B4989000CC15A /* Month.swift in Sources */,
+				7027ACB824DA0A23000D10D2 /* UIView+Extensions.swift in Sources */,
 				7025C7B32476017600A6C11A /* DateCollectionCell.swift in Sources */,
 				70D562F2247B648A000CC15A /* Exercise.swift in Sources */,
 				708463FE24B267D6009A7D8E /* UIColor+Extensions.swift in Sources */,
