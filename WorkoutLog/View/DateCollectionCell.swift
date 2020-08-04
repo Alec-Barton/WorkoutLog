@@ -27,13 +27,12 @@ class DayCell: UICollectionViewCell {
         return label
     }()
     
-    var date: Int? {
+    var date: Date? {
         didSet {
-            guard let date = date else { return }
-            if date == 0 {
-                dateLabel.text = ""
+            if let date = date {
+                dateLabel.text = String(date.dayOfYear)
             } else {
-                dateLabel.text = String(date)
+                dateLabel.text = ""
             }
         }
     }

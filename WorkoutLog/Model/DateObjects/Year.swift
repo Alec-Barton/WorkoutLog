@@ -11,6 +11,7 @@ import Foundation
 class Year {
     private let calendar = Calendar.current
 
+    public let year: Int
     public let name: String
     public let months: [Month]
     public let daysInYear: Int
@@ -28,6 +29,7 @@ class Year {
         guard let date = components.date else { return nil }
         guard let daysInYear = calendar.range(of: .day, in: .year, for: date)?.last else { return nil }
        
+        self.year = year
         self.name = String(year)
         self.months = []
         self.daysInYear = daysInYear

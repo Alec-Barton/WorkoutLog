@@ -15,3 +15,14 @@ enum WeekdayName: Int {
 enum MonthName: Int {
     case January = 1, February, March, April, May, June, July, August, September, October, November, December
 }
+
+class DateManager {
+    static let shared = DateManager()
+    
+    var currentDate: Date {
+        get {
+            return Date()
+        }
+    }
+}
+

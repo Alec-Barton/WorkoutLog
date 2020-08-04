@@ -29,10 +29,11 @@ class YearViewController: UICollectionViewController {
         
         setup()
         registerIds()
-        
     }
     
     private func setup() {
+        view.backgroundColor = ColorTheme.lightGray1
+        
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionInset = .init(top: padding, left: padding, bottom: padding, right: padding)
         }
@@ -84,11 +85,18 @@ extension YearViewController: UICollectionViewDelegateFlowLayout {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayCell.id, for: indexPath) as! DayCell
         if indexPath.row >= dayPadding && indexPath.row < year.daysInYear + dayPadding{
             
-            cell.date = indexPath.row - dayPadding + 1
-            cell.backgroundColor = ColorTheme.lightGray4
+            let day = indexPath.row - dayPadding + 1
+            let date = Date(year: year.year, day: day)
+            cell.date = date
+            
+            if cell.date?.isSameDay(as: DateManager.shared.currentDate) ?? false {
+                cell.backgroundColor = ColorTheme.DateCell.highlight
+            } else {
+                cell.backgroundColor = ColorTheme.lightGray4
+            }
         } else {
             cell.backgroundColor = ColorTheme.lightGray2
-            cell.date = 0
+            cell.date = nil
         }
         return cell
     }

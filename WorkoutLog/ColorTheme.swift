@@ -16,4 +16,8 @@ struct ColorTheme {
     static var lightGray3: UIColor  { return UIColor(hex: "#c0c0c0") }
     static var lightGray4: UIColor  { return UIColor(hex: "#b4b4b4") }
     static var lightGray5: UIColor  { return UIColor(hex: "#a7a7a7") }
+    
+    struct DateCell {
+        static var highlight: UIColor { return .systemTeal }
+    }
 }

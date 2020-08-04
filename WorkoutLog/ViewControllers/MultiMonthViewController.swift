@@ -78,12 +78,11 @@ extension MultiMonthViewController: UICollectionViewDelegateFlowLayout {
         let dayPadding = year.dayOffset
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayCell.id, for: indexPath) as! DayCell
         if indexPath.row >= dayPadding && indexPath.row < year.daysInYear + dayPadding{
-            
-            cell.date = indexPath.row - dayPadding + 1
+//            cell.dateNumber = indexPath.row - dayPadding + 1
             cell.backgroundColor = ColorTheme.lightGray4
         } else {
             cell.backgroundColor = ColorTheme.lightGray2
-            cell.date = 0
+//            cell.dateNumber = 0
         }
         return cell
     }

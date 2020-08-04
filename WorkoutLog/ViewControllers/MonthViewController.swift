@@ -80,12 +80,11 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayCell.id, for: indexPath) as! DayCell
             cell.delegate = self
             if indexPath.row >= dayPadding && indexPath.row < month.daysInMonth + dayPadding{
-                
-                cell.date = indexPath.row - dayPadding + 1
+//                cell.dateNumber = indexPath.row - dayPadding + 1
                 cell.backgroundColor = .cyan
             } else {
                 cell.backgroundColor = ColorTheme.lightGray1
-                cell.date = 0 
+//                cell.dateNumber = 0 
             }
             return cell
         }
