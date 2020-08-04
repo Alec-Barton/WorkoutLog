@@ -89,7 +89,7 @@ extension YearViewController: UICollectionViewDelegateFlowLayout {
             let date = Date(year: year.year, day: day)
             cell.date = date
             
-            if cell.date?.isSameDay(as: DateManager.shared.currentDate) ?? false {
+            if cell.date?.isToday ?? false {
                 cell.backgroundColor = ColorTheme.DateCell.highlight
             } else {
                 cell.backgroundColor = ColorTheme.lightGray4

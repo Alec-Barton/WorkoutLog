@@ -23,6 +23,10 @@ extension Date {
         guard let date = calendar.date(from: components) else { return nil }
         self = date
     }
+    var isToday: Bool {
+        let calendar = Calendar(identifier: .gregorian)
+        return calendar.isDateInToday(self)
+    }
     
     var dayOfYear: Int {
         let calendar = Calendar(identifier: .gregorian)
