@@ -23,15 +23,21 @@ extension Date {
         guard let date = calendar.date(from: components) else { return nil }
         self = date
     }
+    
     var isToday: Bool {
         let calendar = Calendar(identifier: .gregorian)
         return calendar.isDateInToday(self)
     }
     
+    var year: Int {
+        let calendar = Calendar(identifier: .gregorian)
+        return calendar.dateComponents([.year], from: self).year ?? 0
+    }
+    
     var dayOfYear: Int {
         let calendar = Calendar(identifier: .gregorian)
         //TODO: total days in year
-        return calendar.dateComponents([.day], from: self).day ?? 0
+        return calendar.dateComponents([.day], from: self).day ?? 0 
     }
     
     func isSameDay (as date: Date) -> Bool {

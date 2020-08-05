@@ -12,9 +12,11 @@ import MobileCoreServices
 
 class Day {
     var date: Date
+    var key: DateKey
     var workouts: [Workout] = []
     
     init (date: Date) {
         self.date = date
+        self.key = DateKey(year: date.year, day: date.dayOfYear)
     }
 }
