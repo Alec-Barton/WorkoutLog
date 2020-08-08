@@ -6,6 +6,6 @@
 //  Copyright © 2020 Alec Barton. All rights reserved.
 //
 
-import Foundation
-
-class UserManager {}
+//import Foundation
+//
+//class UserManager {}
