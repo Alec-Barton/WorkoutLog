@@ -95,9 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				70E8E7D424BBFD640010C4AF /* CalendarManager.swift */,
+				704A808924968D3D00273D06 /* UserManager.swift */,
 				704A8081249570F100273D06 /* TemplateManager.swift */,
 				70D562F5247C1A55000CC15A /* DateManager.swift */,
-				704A808924968D3D00273D06 /* UserManager.swift */,
 				7027ACBB24DB700E000D10D2 /* DataManager.swift */,
 			);
 			path = Managers;
