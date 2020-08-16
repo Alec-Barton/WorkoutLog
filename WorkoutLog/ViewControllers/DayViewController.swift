@@ -12,6 +12,7 @@ import UIKit
 class DayViewController: UIViewController {
     
     var day: Day?
+    var date: Date?
     
     //TODO: this is stupid and temporary
     var toggler:[Int:Bool] = [:]
@@ -28,12 +29,21 @@ class DayViewController: UIViewController {
     private lazy var workoutTableView: UITableView = {
         let view = UITableView()
         view.allowsSelection = false
+        view.separatorStyle = .none
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     override func viewDidLoad() {
-        self.view.backgroundColor = ColorTheme.lightGray1
+        super.viewDidLoad()
+        
+//        guard let date = date else { return }
+//        
+//        let formatter = DateFormatter()
+//        formatter.setLocalizedDateFormatFromTemplate("MMMMd")
+//        dateLabel.text = formatter.string(from: date)
+        
+        self.view.backgroundColor = ColorTheme.DayController.background
         workoutTableView.register(ExerciseCell.self, forCellReuseIdentifier: ExerciseCell.id)
         workoutTableView.register(ExerciseAddCell.self, forCellReuseIdentifier: ExerciseAddCell.id)
         workoutTableView.register(DescriptionCell.self, forCellReuseIdentifier: DescriptionCell.id)
@@ -56,7 +66,7 @@ class DayViewController: UIViewController {
             workoutTableView.reloadData()
 
         }
-        guard let workouts = day?.workouts.count else { return }
+        guard let workouts = day? .workouts.count else { return }
         for i in 0..<workouts {
             toggler[i] = true
         }

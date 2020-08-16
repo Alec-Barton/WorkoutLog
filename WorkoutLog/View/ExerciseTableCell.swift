@@ -38,16 +38,17 @@ class ExerciseCell: UITableViewCell {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .white
+        label.font = UIFont.systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     //TODO not sure how I want this implemented yet
-    private lazy var infoButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "infoIcon"), for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+//    private lazy var infoButton: UIButton = {
+//        let button = UIButton()
+//        button.setImage(UIImage(named: "infoIcon"), for: .normal)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
 
     lazy var setCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -82,24 +83,24 @@ class ExerciseCell: UITableViewCell {
     
     func setup() {
         self.addSubview(nameLabel)
-        self.addSubview(infoButton)
+//        self.addSubview(infoButton)
         self.addSubview(setCollectionView)
         
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10.0),
             nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0),
-            nameLabel.trailingAnchor.constraint(equalTo: infoButton.leadingAnchor, constant: -10.0),
-            nameLabel.heightAnchor.constraint(equalToConstant: 40.0),
+            nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            nameLabel.heightAnchor.constraint(equalToConstant: 35.0),
             
-            infoButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10.0),
-            infoButton.widthAnchor.constraint(equalToConstant: 25.0),
-            infoButton.heightAnchor.constraint(equalToConstant: 25.0),
-            infoButton.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor),
+//            infoButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10.0),
+//            infoButton.widthAnchor.constraint(equalToConstant: 25.0),
+//            infoButton.heightAnchor.constraint(equalToConstant: 25.0),
+//            infoButton.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor),
             
             setCollectionView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5.0),
             setCollectionView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.95),
             setCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0),
-            setCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            setCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15.0),
 
 
         ])

@@ -13,7 +13,10 @@ class DescriptionCell: UITableViewCell {
     
     private lazy var descriptionView: UITextView = {
         let view = UITextView()
-        view.text = "Description"
+        view.text = "Placeholder Description"
+        view.textColor = .lightGray
+        view.font = UIFont.systemFont(ofSize: 12)
+//        view.isScrollEnabled = false
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -29,8 +32,8 @@ class DescriptionCell: UITableViewCell {
         NSLayoutConstraint.activate([
             descriptionView.topAnchor.constraint(equalTo: self.topAnchor),
             descriptionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            descriptionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            descriptionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            descriptionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0),
+            descriptionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 20.0),
         ])
     }
     

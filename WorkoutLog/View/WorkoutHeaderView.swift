@@ -53,11 +53,11 @@ class WorkoutHeaderView: UIView {
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: topAnchor),
             label.bottomAnchor.constraint(equalTo: bottomAnchor),
-            label.leadingAnchor.constraint(equalTo: self.safeAreaLeadingAnchor, constant: 10.0),
+            label.leadingAnchor.constraint(equalTo: self.safeAreaLeadingAnchor, constant: 20.0),
             label.heightAnchor.constraint(equalToConstant: WorkoutHeaderView.height),
             
-            moreButton.heightAnchor.constraint(equalToConstant: WorkoutHeaderView.height * 0.75),
-            moreButton.widthAnchor.constraint(equalToConstant: WorkoutHeaderView.height * 0.75),
+            moreButton.heightAnchor.constraint(equalToConstant: WorkoutHeaderView.height * 0.5),
+            moreButton.widthAnchor.constraint(equalToConstant: WorkoutHeaderView.height * 0.5),
             moreButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -7.5),
             moreButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
         ])

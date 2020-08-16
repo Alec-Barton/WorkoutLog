@@ -12,7 +12,7 @@ class ExerciseAddCell: UITableViewCell {
 
     private var footerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemGray3
+        view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -20,44 +20,47 @@ class ExerciseAddCell: UITableViewCell {
     private lazy var addImageView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "addIcon")
+        view.tintColor = .gray
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private lazy var workoutLabel: UILabel = {
         let label = UILabel()
-        label.text = "Add Workout"
-        label.textAlignment = .center
+        label.text = "Add New Workout"
+        label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.backgroundColor = .systemGray
 
         setup()
     }
 
     private func setup() {
+        backgroundColor = ColorTheme.DayController.background
+
         addSubview(footerView)
         footerView.addSubview(addImageView)
         footerView.addSubview(workoutLabel)
 
         NSLayoutConstraint.activate([
             footerView.topAnchor.constraint(equalTo: self.topAnchor),
-            footerView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30.0),
+            footerView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30),
             footerView.widthAnchor.constraint(equalTo: self.widthAnchor),
             
             addImageView.centerYAnchor.constraint(equalTo: footerView.centerYAnchor),
-            addImageView.widthAnchor.constraint(equalToConstant: 25.0),
-            addImageView.heightAnchor.constraint(equalToConstant: 25.0),
-            addImageView.leadingAnchor.constraint(equalTo: footerView.leadingAnchor),
-            addImageView.trailingAnchor.constraint(equalTo: workoutLabel.leadingAnchor, constant: 10.0),
+            addImageView.widthAnchor.constraint(equalToConstant: 20.0),
+            addImageView.heightAnchor.constraint(equalToConstant: 20.0),
+            addImageView.leadingAnchor.constraint(equalTo: footerView.leadingAnchor, constant: 20.0),
+            addImageView.trailingAnchor.constraint(equalTo: workoutLabel.leadingAnchor, constant: -30.0),
             
-            workoutLabel.topAnchor.constraint(equalTo: footerView.topAnchor),
-            workoutLabel.bottomAnchor.constraint(equalTo: footerView.bottomAnchor),
-            workoutLabel.trailingAnchor.constraint(equalTo: footerView.trailingAnchor),
+            workoutLabel.topAnchor.constraint(equalTo: footerView.topAnchor, constant: 10),
+            workoutLabel.bottomAnchor.constraint(equalTo: footerView.bottomAnchor, constant: -10),
+            workoutLabel.heightAnchor.constraint(equalToConstant: 30.0),
+            workoutLabel.trailingAnchor.constraint(equalTo: footerView.trailingAnchor, constant: 20.0),
             
         ])
     }

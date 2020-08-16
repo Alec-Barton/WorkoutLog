@@ -20,4 +20,15 @@ struct ColorTheme {
     struct DateCell {
         static var highlight: UIColor { return .systemTeal }
     }
+    
+    struct DayController {
+        static var background: UIColor = UIColor.Str.veryLightGray
+    }
 }
+
+extension UIColor {
+    struct Str {
+        static var veryLightGray: UIColor  { return UIColor(hex: "#f0f0f0") }
+    }
+}
+
