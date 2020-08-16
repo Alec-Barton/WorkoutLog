@@ -16,33 +16,10 @@ class SetAddCell: UICollectionViewCell {
     private lazy var addImageView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "addIcon")
-        view.tintColor = .black
+        view.tintColor = .gray
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
-//    private lazy var addButton: UIButton = {
-//        let button = UIButton()
-//        button.setTitle("+", for: .normal)
-//        button.setTitleColor(.black, for: .normal)
-//        button.layer.borderWidth = 1
-//        button.layer.borderColor = UIColor.black.cgColor
-//        button.layer.cornerRadius = SetAddCell.height/2
-//        button.addTarget(self, action: #selector(didTap), for: .touchUpInside)
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        return button
-//    }()
-    
-//    private lazy var addLabel: UILabel = {
-//        let label = UILabel()
-//        label.text = "+"
-//        label.textAlignment = .center
-//        label.layer.borderWidth = 1
-//        label.layer.borderColor = UIColor.black.cgColor
-//        label.layer.cornerRadius = SetAddCell.height/2
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
 
      override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,8 +29,8 @@ class SetAddCell: UICollectionViewCell {
     func setup() {
         addSubview(addImageView)
         NSLayoutConstraint.activate([
-            addImageView.widthAnchor.constraint(equalToConstant: 25.0),
-            addImageView.heightAnchor.constraint(equalToConstant: 25.0),
+            addImageView.widthAnchor.constraint(equalToConstant: 20.0),
+            addImageView.heightAnchor.constraint(equalToConstant: 20.0),
             addImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             addImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
         ])

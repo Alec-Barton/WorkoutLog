@@ -43,6 +43,20 @@ class SetInfoCell: UICollectionViewCell {
         ])
     }
     
+    //MARK: SetInfoCell - Static Methods
+    
+    private static let sizingLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    static func sizeFor(text: String) -> CGSize {
+        sizingLabel.text = text
+        return sizingLabel.sizeThatFits(CGSize(
+            width: 10, height: SetInfoCell.height
+        ))
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }

@@ -12,6 +12,7 @@
 		7027ACB824DA0A23000D10D2 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027ACB724DA0A23000D10D2 /* UIView+Extensions.swift */; };
 		7027ACBA24DA0DA8000D10D2 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027ACB924DA0DA8000D10D2 /* Date+Extensions.swift */; };
 		7027ACBC24DB700E000D10D2 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027ACBB24DB700E000D10D2 /* DataManager.swift */; };
+		704A014C24E886F600D8891E /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A014B24E886F600D8891E /* DescriptionCell.swift */; };
 		704A8082249570F100273D06 /* TemplateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A8081249570F100273D06 /* TemplateManager.swift */; };
 		704A80842495890200273D06 /* ExerciseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A80832495890200273D06 /* ExerciseTableCell.swift */; };
 		704A8086249663F200273D06 /* SetInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A8085249663F200273D06 /* SetInfoCell.swift */; };
@@ -23,7 +24,7 @@
 		707BE20D24C7B633009C5ADE /* MultiMonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707BE20C24C7B633009C5ADE /* MultiMonthViewController.swift */; };
 		708463FC24B24674009A7D8E /* WorkoutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */; };
 		708463FE24B267D6009A7D8E /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708463FD24B267D6009A7D8E /* UIColor+Extensions.swift */; };
-		7084640024B3EF1E009A7D8E /* ExcerciseAddTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708463FF24B3EF1E009A7D8E /* ExcerciseAddTableCell.swift */; };
+		7084640024B3EF1E009A7D8E /* ExerciseAddTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708463FF24B3EF1E009A7D8E /* ExerciseAddTableCell.swift */; };
 		70940C34245205B6005C2E8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70940C33245205B6005C2E8B /* AppDelegate.swift */; };
 		70940C36245205B6005C2E8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70940C35245205B6005C2E8B /* SceneDelegate.swift */; };
 		70940C38245205B6005C2E8B /* MonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70940C37245205B6005C2E8B /* MonthViewController.swift */; };
@@ -48,6 +49,7 @@
 		7027ACB724DA0A23000D10D2 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		7027ACB924DA0DA8000D10D2 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		7027ACBB24DB700E000D10D2 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		704A014B24E886F600D8891E /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		704A8081249570F100273D06 /* TemplateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateManager.swift; sourceTree = "<group>"; };
 		704A80832495890200273D06 /* ExerciseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableCell.swift; sourceTree = "<group>"; };
 		704A8085249663F200273D06 /* SetInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInfoCell.swift; sourceTree = "<group>"; };
@@ -59,7 +61,7 @@
 		707BE20C24C7B633009C5ADE /* MultiMonthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiMonthViewController.swift; sourceTree = "<group>"; };
 		708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHeaderView.swift; sourceTree = "<group>"; };
 		708463FD24B267D6009A7D8E /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
-		708463FF24B3EF1E009A7D8E /* ExcerciseAddTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseAddTableCell.swift; sourceTree = "<group>"; };
+		708463FF24B3EF1E009A7D8E /* ExerciseAddTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseAddTableCell.swift; sourceTree = "<group>"; };
 		70940C30245205B6005C2E8B /* WorkoutLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70940C33245205B6005C2E8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70940C35245205B6005C2E8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,7 +174,8 @@
 			children = (
 				708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */,
 				70D562EB247B33F8000CC15A /* DateHeaderView.swift */,
-				708463FF24B3EF1E009A7D8E /* ExcerciseAddTableCell.swift */,
+				708463FF24B3EF1E009A7D8E /* ExerciseAddTableCell.swift */,
+				704A014B24E886F600D8891E /* DescriptionCell.swift */,
 				704A80832495890200273D06 /* ExerciseTableCell.swift */,
 				7025C7B22476017600A6C11A /* DateCollectionCell.swift */,
 				70D562F3247C18ED000CC15A /* WeekDayCollectionCell.swift */,
@@ -301,10 +304,11 @@
 				707BE20D24C7B633009C5ADE /* MultiMonthViewController.swift in Sources */,
 				7027ACBC24DB700E000D10D2 /* DataManager.swift in Sources */,
 				70E8E7D524BBFD640010C4AF /* CalendarManager.swift in Sources */,
+				704A014C24E886F600D8891E /* DescriptionCell.swift in Sources */,
 				704A8086249663F200273D06 /* SetInfoCell.swift in Sources */,
 				704A808C2496B7CE00273D06 /* Day.swift in Sources */,
 				700DB21D24D662A600344B34 /* MonthCollectionCell.swift in Sources */,
-				7084640024B3EF1E009A7D8E /* ExcerciseAddTableCell.swift in Sources */,
+				7084640024B3EF1E009A7D8E /* ExerciseAddTableCell.swift in Sources */,
 				70D562EE247B4989000CC15A /* Month.swift in Sources */,
 				7027ACBA24DA0DA8000D10D2 /* Date+Extensions.swift in Sources */,
 				7027ACB824DA0A23000D10D2 /* UIView+Extensions.swift in Sources */,

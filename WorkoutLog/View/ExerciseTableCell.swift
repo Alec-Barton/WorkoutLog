@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol ExerciseCellDelegate: AnyObject {
-    func editingStateChanged (_ cell: ExerciseCell, editingIndex: IndexPath?)
-}
-
 class ExerciseCell: UITableViewCell {
     
     static let id = "ExerciseCellId"
@@ -24,7 +20,6 @@ class ExerciseCell: UITableViewCell {
     }
     private var tableHeigthAnchor:NSLayoutConstraint?
     
-    var delegate: ExerciseCellDelegate?
     var index: IndexPath?
     var editorOpen: Bool = false
     var setSelectedIndex: Int?
@@ -33,7 +28,8 @@ class ExerciseCell: UITableViewCell {
             guard let exercise = exercise else { return }
             nameLabel.text = exercise.name
             //TODO: Update
-            setCollectionView.heightAnchor.constraint(equalToConstant: dynamicTableHeight).isActive = true
+            setCollectionView.layoutIfNeeded()
+            setCollectionView.heightAnchor.constraint(equalToConstant: setCollectionView.collectionViewLayout.collectionViewContentSize.height).isActive = true
         }
     }
     
@@ -53,13 +49,16 @@ class ExerciseCell: UITableViewCell {
         return button
     }()
 
-    private lazy var setCollectionView: UICollectionView = {
+    lazy var setCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumInteritemSpacing = 20
+        flowLayout.minimumLineSpacing = 5
         let view = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
     var editorHeight:NSLayoutConstraint?
     var collectionViewHeight: NSLayoutConstraint?
     
@@ -88,7 +87,7 @@ class ExerciseCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10.0),
-            nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25.0),
+            nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0),
             nameLabel.trailingAnchor.constraint(equalTo: infoButton.leadingAnchor, constant: -10.0),
             nameLabel.heightAnchor.constraint(equalToConstant: 40.0),
             
@@ -99,7 +98,7 @@ class ExerciseCell: UITableViewCell {
             
             setCollectionView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5.0),
             setCollectionView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.95),
-            setCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0),
+            setCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0),
             setCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
 
 
@@ -116,9 +115,7 @@ class ExerciseCell: UITableViewCell {
 }
 
 extension ExerciseCell: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-        beginEditing()
-    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){}
 }
 
 extension ExerciseCell: UICollectionViewDataSource {
@@ -137,8 +134,14 @@ extension ExerciseCell: UICollectionViewDataSource {
             return cell
         }
     }
-    
 }
 
 extension ExerciseCell: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.row == 0 {
+            return CGSize(width: 25, height: 25)
+        }
+        return SetInfoCell.sizeFor(text: exercise?.sets[indexPath.row - 1].string ?? "")
+    }
 }
+

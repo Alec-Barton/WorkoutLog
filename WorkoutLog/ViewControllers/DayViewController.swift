@@ -36,6 +36,7 @@ class DayViewController: UIViewController {
         self.view.backgroundColor = ColorTheme.lightGray1
         workoutTableView.register(ExerciseCell.self, forCellReuseIdentifier: ExerciseCell.id)
         workoutTableView.register(ExerciseAddCell.self, forCellReuseIdentifier: ExerciseAddCell.id)
+        workoutTableView.register(DescriptionCell.self, forCellReuseIdentifier: DescriptionCell.id)
 
         workoutTableView.dataSource = self
         workoutTableView.delegate = self
@@ -92,10 +93,7 @@ extension DayViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if toggler[section] ?? false {
-            return (day?.workouts[section].exercises.count ?? 0) + 1
-        }
-        return 0
+        return (day?.workouts[section].exercises.count ?? 0) + 2
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -116,19 +114,18 @@ extension DayViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == (day?.workouts[indexPath.section].exercises.count ?? 0) {
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.id, for: indexPath) as! DescriptionCell
+            return cell
+        }
+        
+        if indexPath.row == ((day?.workouts[indexPath.section].exercises.count ?? 0) + 1) {
             let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseAddCell.id, for: indexPath) as! ExerciseAddCell
             return cell
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseCell.id, for: indexPath) as! ExerciseCell
-        cell.exercise = day?.workouts[indexPath.section].exercises[indexPath.row]
-
-        cell.index = indexPath
-        cell.delegate = self
-        if indexPath == editingIndex {
-            cell.editorOpen = true
-        }
+        cell.exercise = day?.workouts[indexPath.section].exercises[indexPath.row - 1]
         return cell
     }
 }
@@ -150,12 +147,5 @@ extension DayViewController: WorkoutHeaderViewDelegate {
             indexPaths.append(IndexPath(row: i, section: section))
         }
         workoutTableView.deleteRows(at: indexPaths, with: .fade)
-    }
-}
-
-extension DayViewController: ExerciseCellDelegate {
-    func editingStateChanged(_ cell: ExerciseCell, editingIndex: IndexPath?) {
-        self.workoutTableView.reloadData()
-        self.editingIndex = editingIndex
     }
 }
