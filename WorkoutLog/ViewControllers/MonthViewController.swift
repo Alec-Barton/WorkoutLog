@@ -101,6 +101,11 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
         }
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        //TODO: Re-adjust this
+        return 10.0
+    }
 }
 
 extension MonthViewController: DayCellDelegate {
@@ -110,3 +115,4 @@ extension MonthViewController: DayCellDelegate {
         self.present(vc, animated: true)
     }
 }
+
