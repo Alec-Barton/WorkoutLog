@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		700DB21D24D662A600344B34 /* MonthCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700DB21C24D662A500344B34 /* MonthCollectionCell.swift */; };
 		701959052503F31F002DC93A /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 701959042503F31F002DC93A /* Data.json */; };
+		70195907250412FA002DC93A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70195906250412FA002DC93A /* MenuViewController.swift */; };
 		7025C7B32476017600A6C11A /* DateCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7025C7B22476017600A6C11A /* DateCollectionCell.swift */; };
 		7027ACB824DA0A23000D10D2 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027ACB724DA0A23000D10D2 /* UIView+Extensions.swift */; };
 		7027ACBA24DA0DA8000D10D2 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027ACB924DA0DA8000D10D2 /* Date+Extensions.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		700DB21C24D662A500344B34 /* MonthCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCollectionCell.swift; sourceTree = "<group>"; };
 		701959042503F31F002DC93A /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
+		70195906250412FA002DC93A /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		7025C7B22476017600A6C11A /* DateCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionCell.swift; sourceTree = "<group>"; };
 		7027ACB724DA0A23000D10D2 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		7027ACB924DA0DA8000D10D2 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				707BE20C24C7B633009C5ADE /* MultiMonthViewController.swift */,
 				70940C37245205B6005C2E8B /* MonthViewController.swift */,
 				70D562F7247C5335000CC15A /* DayViewController.swift */,
+				70195906250412FA002DC93A /* MenuViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				70E8E7D124BBE6E00010C4AF /* YearViewController.swift in Sources */,
 				708463FC24B24674009A7D8E /* WorkoutHeaderView.swift in Sources */,
 				70D562F6247C1A55000CC15A /* DateManager.swift in Sources */,
+				70195907250412FA002DC93A /* MenuViewController.swift in Sources */,
 				70E8E7D324BBF0360010C4AF /* Year.swift in Sources */,
 				707465D224D247A100D0E330 /* ColorTheme.swift in Sources */,
 				70E8E7D724BE85130010C4AF /* Constants.swift in Sources */,

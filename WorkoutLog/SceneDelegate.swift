@@ -17,10 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = 6
-        layout.minimumLineSpacing = 6
-        self.window?.rootViewController = YearViewController(collectionViewLayout: layout)
+//        let layout = UICollectionViewFlowLayout()
+//        layout.minimumInteritemSpacing = 6
+//        layout.minimumLineSpacing = 6
+//        self.window?.rootViewController = YearViewController(collectionViewLayout: layout)
+        self.window?.rootViewController = MenuViewController()
+
         
         DataManager.shared.loadJson()
     }
