@@ -6,7 +6,7 @@
                 "lift_count" : 2,
                 "run_miles": 10,
                 "run_time": 360,
-            }
+            },
             "workouts": [
                 {
                     "name": "chest day",
