@@ -29,14 +29,15 @@ class DataManager {
     var dataDictionary:[String:Any] = [:]
     
     func loadJson() {
-        guard let fileUrl = Bundle.main.url(forResource: "Data", withExtension: "json") else { return }
+        guard let file = Bundle.main.url(forResource: "Data", withExtension: "json") else { return }
         do {
-            let data = try Data(contentsOf: fileUrl)
-
-            guard let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else { return }
-
-            dataDictionary = dictionary
-        } catch { }
+            let data = try Data(contentsOf: file)
+            if let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                dataDictionary = dictionary
+            }
+        } catch {
+            print("ERROR")
+        }
     }
     
     func log(day: Day) {}

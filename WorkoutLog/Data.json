@@ -1,7 +1,35 @@
 {
-    "A" : {
-        "B" : {
-            "C" : "D"
+    "Date_Data": {
+        "2020_9_5": {
+            "statistics": {
+                "color" : "00bfff00",
+                "lift_count" : 2,
+                "run_miles": 10,
+                "run_time": 360,
+            }
+            "workouts": [
+                {
+                    "name": "chest day",
+                    "type": "lift",
+                    "exercises": [
+                        {
+                            "name": "bench press",
+                            "sets": [
+                                { "reps": 10, "weight": 135, },
+                                { "reps": 8, "weight": 155, },
+                            ],
+                        },
+                        {
+                            "name": "pushups",
+                            "sets": [
+                                { "reps": 50 },
+                                { "reps": 75 }
+                            ],
+                        }
+                    ]
+                }
+            ],
         }
     }
 }
+
