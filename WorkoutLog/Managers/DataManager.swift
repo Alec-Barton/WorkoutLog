@@ -24,16 +24,28 @@ struct DateKey: Hashable {
 }
 
 class DataManager {
-    
     static let shared = DataManager()
+
+    var dataDictionary:[String:Any] = [:]
     
-    private var dayDictionary: [DateKey:Day] = [:]
-    
-    func log(day: Day) {
-        dayDictionary[day.key] = day
+    func loadJson() {
+        guard let fileUrl = Bundle.main.url(forResource: "Data", withExtension: "json") else { return }
+        do {
+            let data = try Data(contentsOf: fileUrl)
+
+            guard let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else { return }
+
+            dataDictionary = dictionary
+        } catch { }
     }
     
-    func getDay(for key: DateKey) -> Day? {
-        return dayDictionary[key]
-    }
+    func log(day: Day) {}
+    func getData(for key: DateKey) {}
+    private func lookupDate() {}
+    func createYearModel() {}
+    func createMonthModel() {}
+    func getYearSummary() {}
+    func getMonthSummary() {}
 }
+
+

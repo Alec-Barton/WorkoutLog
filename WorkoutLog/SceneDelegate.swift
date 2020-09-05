@@ -20,8 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 6
         layout.minimumLineSpacing = 6
-        self.window?.rootViewController = MonthViewController(collectionViewLayout: layout)
+        self.window?.rootViewController = YearViewController(collectionViewLayout: layout)
         
+        DataManager.shared.loadJson()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

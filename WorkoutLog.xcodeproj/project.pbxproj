@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		700DB21D24D662A600344B34 /* MonthCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700DB21C24D662A500344B34 /* MonthCollectionCell.swift */; };
+		701959052503F31F002DC93A /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 701959042503F31F002DC93A /* Data.json */; };
 		7025C7B32476017600A6C11A /* DateCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7025C7B22476017600A6C11A /* DateCollectionCell.swift */; };
 		7027ACB824DA0A23000D10D2 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027ACB724DA0A23000D10D2 /* UIView+Extensions.swift */; };
 		7027ACBA24DA0DA8000D10D2 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027ACB924DA0DA8000D10D2 /* Date+Extensions.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		700DB21C24D662A500344B34 /* MonthCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCollectionCell.swift; sourceTree = "<group>"; };
+		701959042503F31F002DC93A /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		7025C7B22476017600A6C11A /* DateCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionCell.swift; sourceTree = "<group>"; };
 		7027ACB724DA0A23000D10D2 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		7027ACB924DA0DA8000D10D2 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				70940C35245205B6005C2E8B /* SceneDelegate.swift */,
 				70940C3C245205B7005C2E8B /* Assets.xcassets */,
 				70940C3E245205B7005C2E8B /* LaunchScreen.storyboard */,
+				701959042503F31F002DC93A /* Data.json */,
 				70940C41245205B7005C2E8B /* Info.plist */,
 			);
 			path = WorkoutLog;
@@ -275,6 +278,7 @@
 			files = (
 				70940C40245205B7005C2E8B /* LaunchScreen.storyboard in Resources */,
 				70940C3D245205B7005C2E8B /* Assets.xcassets in Resources */,
+				701959052503F31F002DC93A /* Data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
