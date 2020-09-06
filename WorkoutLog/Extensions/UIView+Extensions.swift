@@ -75,3 +75,13 @@ extension UIView {
     }
 }
 
+extension UIView {
+    //TODO: add options
+    func applyDropShadow() {
+        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOffset = .zero
+        self.layer.shadowRadius = 3
+    }
+}
+

@@ -40,3 +40,8 @@ class Year {
         }()
    }
 }
+
+struct YearModel {
+    let year: Int
+    let dayKeys: [DateKey]
+}

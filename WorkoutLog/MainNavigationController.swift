@@ -1,5 +1,5 @@
 //
-//  MenuViewController.swift
+//  MainNavigationController.swift
 //  WorkoutLog
 //
 //  Created by Alec Barton on 9/5/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class MainNavigationController: UINavigationController {
     
     private lazy var hamburgerButton: UIButton = {
         let button = UIButton()
@@ -21,14 +21,19 @@ class MenuViewController: UIViewController {
     
     private lazy var logButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "editIcon"), for: .normal)
+        button.setImage(UIImage(named: "penIcon"), for: .normal)
+        button.tintColor = .white
+        button.imageEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        button.layer.cornerRadius = 20
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .darkGray
+        button.applyDropShadow()
         return button
     }()
     
-    private lazy var menuView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
+    private lazy var menuView: MenuView = {
+        let view = MenuView()
+        view.applyDropShadow()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -57,7 +62,8 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.Str.veryLightGray
+        isNavigationBarHidden = true
         
         setupSubviews()
         setupGestureRecognizers()
@@ -70,19 +76,18 @@ class MenuViewController: UIViewController {
         view.addSubview(blurView)
         view.addSubview(menuView)
         
-        
         menuViewWidthConstraint = menuView.widthAnchor.constraint(equalToConstant: 0)
         
         NSLayoutConstraint.activate([
-            hamburgerButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50.0),
-            hamburgerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50.0),
-            hamburgerButton.widthAnchor.constraint(equalToConstant: 50.0),
-            hamburgerButton.heightAnchor.constraint(equalToConstant: 50.0),
+            hamburgerButton.topAnchor.constraint(equalTo: view.safeAreaTopAnchor, constant: 5.0),
+            hamburgerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30.0),
+            hamburgerButton.widthAnchor.constraint(equalToConstant: 40.0),
+            hamburgerButton.heightAnchor.constraint(equalToConstant: 40.0),
             
-            logButton.bottomAnchor.constraint(equalTo: view.safeAreaBottomAnchor, constant: 20.0),
+            logButton.bottomAnchor.constraint(equalTo: view.safeAreaBottomAnchor, constant: -10.0),
             logButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logButton.widthAnchor.constraint(equalToConstant: 50.0),
-            logButton.heightAnchor.constraint(equalToConstant: 50.0),
+            logButton.widthAnchor.constraint(equalToConstant: 60.0),
+            logButton.heightAnchor.constraint(equalToConstant: 60.0),
             
             blurView.topAnchor.constraint(equalTo: view.topAnchor),
             blurView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -127,6 +132,5 @@ class MenuViewController: UIViewController {
     
     @objc private func blurViewTapped() {
         menuIsOpen = false
-        
     }
 }
