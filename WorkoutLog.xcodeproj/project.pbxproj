@@ -45,6 +45,8 @@
 		70E8E7D524BBFD640010C4AF /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8E7D424BBFD640010C4AF /* CalendarManager.swift */; };
 		70E8E7D724BE85130010C4AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8E7D624BE85130010C4AF /* Constants.swift */; };
 		70F47AE325044ECA00F0C6E1 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F47AE225044ECA00F0C6E1 /* UIFont+Extensions.swift */; };
+		70F47AE5250462D700F0C6E1 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F47AE4250462D700F0C6E1 /* MenuButton.swift */; };
+		70F47AE72504741400F0C6E1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F47AE62504741400F0C6E1 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		70E8E7D424BBFD640010C4AF /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		70E8E7D624BE85130010C4AF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		70F47AE225044ECA00F0C6E1 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		70F47AE4250462D700F0C6E1 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		70F47AE62504741400F0C6E1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +196,7 @@
 				70D562F3247C18ED000CC15A /* WeekDayCollectionCell.swift */,
 				700DB21C24D662A500344B34 /* MonthCollectionCell.swift */,
 				7019590825042BC1002DC93A /* MenuView.swift */,
+				70F47AE4250462D700F0C6E1 /* MenuButton.swift */,
 				7084640624B403C6009A7D8E /* Sets */,
 			);
 			path = View;
@@ -204,6 +209,7 @@
 				707BE20C24C7B633009C5ADE /* MultiMonthViewController.swift */,
 				70940C37245205B6005C2E8B /* MonthViewController.swift */,
 				70D562F7247C5335000CC15A /* DayViewController.swift */,
+				70F47AE62504741400F0C6E1 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -330,7 +336,9 @@
 				7027ACB824DA0A23000D10D2 /* UIView+Extensions.swift in Sources */,
 				7025C7B32476017600A6C11A /* DateCollectionCell.swift in Sources */,
 				70D562F2247B648A000CC15A /* Exercise.swift in Sources */,
+				70F47AE5250462D700F0C6E1 /* MenuButton.swift in Sources */,
 				708463FE24B267D6009A7D8E /* UIColor+Extensions.swift in Sources */,
+				70F47AE72504741400F0C6E1 /* ProfileViewController.swift in Sources */,
 				70940C36245205B6005C2E8B /* SceneDelegate.swift in Sources */,
 				70D562EC247B33F8000CC15A /* DateHeaderView.swift in Sources */,
 			);

@@ -33,6 +33,7 @@ class MainNavigationController: UINavigationController {
     
     private lazy var menuView: MenuView = {
         let view = MenuView()
+        view.delegate = self
         view.applyDropShadow()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -41,19 +42,19 @@ class MainNavigationController: UINavigationController {
     private lazy var blurView: UIVisualEffectView = {
         let view = UIVisualEffectView()
         view.effect = UIBlurEffect(style: .regular)
-        view.alpha = 0.5
+        view.alpha = 0.75
         view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     var menuViewWidthConstraint: NSLayoutConstraint!
-    var menuViewMaxWidth = UIScreen.main.bounds.width * (2/3)
+    var menuViewMaxWidth = UIScreen.main.bounds.width * 0.6
     var menuIsOpen: Bool = false {
         didSet {
             menuViewWidthConstraint.constant = menuIsOpen ? menuViewMaxWidth : 0
             blurView.isHidden = !menuIsOpen
-            UIView.animate(withDuration: 0.15, animations: { [weak self] in
+            UIView.animate(withDuration: 0.25, animations: { [weak self] in
                 self?.view.layoutIfNeeded()
             })
         }
@@ -114,11 +115,11 @@ class MainNavigationController: UINavigationController {
         self.blurView.addGestureRecognizer(tapBlur)
     }
     
-    @objc private func hamburgerButtonTapped() {
+    @objc private func hamburgerButtonTapped(_ sender: Any) {
         menuIsOpen = !menuIsOpen
     }
     
-    @objc private func viewSwipedLeft() {
+    @objc private func viewSwipedLeft(_ sender: Any) {
         if !menuIsOpen {
             menuIsOpen = true
         }
@@ -132,5 +133,15 @@ class MainNavigationController: UINavigationController {
     
     @objc private func blurViewTapped() {
         menuIsOpen = false
+    }
+}
+
+extension MainNavigationController: MenuViewDelegate {
+    func present(_ viewController: UIViewController) {
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        //TODO: This is to remind me to implement a custom animation
+        navigationController.modalTransitionStyle = .crossDissolve
+        self.present(navigationController, animated: true)
     }
 }
