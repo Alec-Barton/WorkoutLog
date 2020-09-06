@@ -140,8 +140,57 @@ extension MainNavigationController: MenuViewDelegate {
     func present(_ viewController: UIViewController) {
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .fullScreen
-        //TODO: This is to remind me to implement a custom animation
-        navigationController.modalTransitionStyle = .crossDissolve
+        navigationController.modalPresentationStyle = .custom
+        navigationController.transitioningDelegate = self
         self.present(navigationController, animated: true)
     }
 }
+
+extension MainNavigationController:  UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self
+    }
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self
+    }
+}
+
+extension MainNavigationController: UIViewControllerAnimatedTransitioning {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.5
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let fromView = transitionContext.viewController(forKey: .from)?.view else { return }
+        guard let toView = transitionContext.viewController(forKey: .to)?.view else { return }
+
+        let isPresenting = fromView == view
+        let newView = isPresenting ? toView : fromView
+        let prevView = isPresenting ? fromView : toView
+        
+        if isPresenting {
+            transitionContext.containerView.addSubview(newView)
+        }
+
+        let screenSize = UIScreen.main.bounds.size
+        let positiveOffScreenFrame = CGRect(origin: CGPoint(x: screenSize.width, y:0), size: screenSize)
+        let negativeOffScreenFrame = CGRect(origin: CGPoint(x: screenSize.width * -1, y:0), size: screenSize)
+        let onScreenFrame = CGRect(origin: .zero, size: screenSize)
+        let duration = transitionDuration(using: transitionContext)
+        
+        newView.frame = isPresenting ? positiveOffScreenFrame : onScreenFrame
+        
+        UIView.animate(withDuration: duration, animations: {
+            newView.frame = isPresenting ? onScreenFrame : positiveOffScreenFrame
+            prevView.frame = isPresenting ? negativeOffScreenFrame : onScreenFrame
+        }, completion: { (success) in
+            if !isPresenting {
+                newView.removeFromSuperview()
+            }
+            transitionContext.completeTransition(success)
+        })
+    }
+}
+
+
