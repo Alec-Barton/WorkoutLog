@@ -47,6 +47,7 @@
 		70F47AE325044ECA00F0C6E1 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F47AE225044ECA00F0C6E1 /* UIFont+Extensions.swift */; };
 		70F47AE5250462D700F0C6E1 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F47AE4250462D700F0C6E1 /* MenuButton.swift */; };
 		70F47AE72504741400F0C6E1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F47AE62504741400F0C6E1 /* ProfileViewController.swift */; };
+		70F47AE925057FF200F0C6E1 /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F47AE825057FF200F0C6E1 /* UINavigationBar+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		70F47AE225044ECA00F0C6E1 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		70F47AE4250462D700F0C6E1 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		70F47AE62504741400F0C6E1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		70F47AE825057FF200F0C6E1 /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				708463FD24B267D6009A7D8E /* UIColor+Extensions.swift */,
 				70F47AE225044ECA00F0C6E1 /* UIFont+Extensions.swift */,
 				7027ACB724DA0A23000D10D2 /* UIView+Extensions.swift */,
+				70F47AE825057FF200F0C6E1 /* UINavigationBar+Extensions.swift */,
 				7027ACB924DA0DA8000D10D2 /* Date+Extensions.swift */,
 			);
 			path = Extensions;
@@ -318,6 +321,7 @@
 				70940C34245205B6005C2E8B /* AppDelegate.swift in Sources */,
 				704A808824967E5E00273D06 /* SetAddCell.swift in Sources */,
 				70F47AE325044ECA00F0C6E1 /* UIFont+Extensions.swift in Sources */,
+				70F47AE925057FF200F0C6E1 /* UINavigationBar+Extensions.swift in Sources */,
 				704A808A24968D3D00273D06 /* UserManager.swift in Sources */,
 				70D562F4247C18ED000CC15A /* WeekDayCollectionCell.swift in Sources */,
 				704A8082249570F100273D06 /* TemplateManager.swift in Sources */,

@@ -42,7 +42,7 @@ class MainNavigationController: UINavigationController {
     private lazy var blurView: UIVisualEffectView = {
         let view = UIVisualEffectView()
         view.effect = UIBlurEffect(style: .regular)
-        view.alpha = 0.75
+        view.alpha = 0
         view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -53,9 +53,20 @@ class MainNavigationController: UINavigationController {
     var menuIsOpen: Bool = false {
         didSet {
             menuViewWidthConstraint.constant = menuIsOpen ? menuViewMaxWidth : 0
-            blurView.isHidden = !menuIsOpen
+            let blurViewAlpha:CGFloat = menuIsOpen ? 0.75 : 0
+            
+            if menuIsOpen {
+                blurView.alpha = 0
+                blurView.isHidden = false
+            }
+                
             UIView.animate(withDuration: 0.25, animations: { [weak self] in
                 self?.view.layoutIfNeeded()
+                self?.blurView.alpha = blurViewAlpha
+            }, completion: { [weak self] _ in
+                if !(self?.menuIsOpen ?? false) {
+                    self?.blurView.isHidden = true
+                }
             })
         }
     }
@@ -103,13 +114,13 @@ class MainNavigationController: UINavigationController {
     }
     
     private func setupGestureRecognizers() {
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(viewSwipedLeft))
-        swipeRight.direction = .left
-        self.view.addGestureRecognizer(swipeRight)
-        
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(viewSwipedRight))
-        swipeLeft.direction = .right
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(viewSwipedLeft))
+        swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(viewSwipedRight))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
         
         let tapBlur = UITapGestureRecognizer(target: self, action: #selector(blurViewTapped))
         self.blurView.addGestureRecognizer(tapBlur)

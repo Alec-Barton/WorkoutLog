@@ -10,34 +10,33 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    //TODO: TEMP
-    private lazy var dismissButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("DISMISS", for: .normal)
-        button.addTarget(self, action: #selector(dismissButtonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
     override func viewDidLoad() {
         self.view.backgroundColor = ColorTheme.lightGray1
         
         setupSubviews()
+        setupNavbar()
+        setupGestureRecognizers()
     }
     
-    func setupSubviews() {
-        view.addSubview(dismissButton)
-        
-        NSLayoutConstraint.activate([
-            dismissButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            dismissButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            dismissButton.heightAnchor.constraint(equalToConstant: 50.0),
-            dismissButton.widthAnchor.constraint(equalToConstant: 100.0),
-        ])
+    func setupSubviews() {}
+    
+    func setupNavbar() {
+        UINavigationBar.setVisibility(false)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "leftArrowIcon"), style: .plain, target: self, action: #selector(leftBarButtonTapped))
+        navigationItem.leftBarButtonItem?.tintColor = .black
     }
     
-    //TODO: TEMP
-    @objc private func dismissButtonTapped() {
+    private func setupGestureRecognizers() {
+           let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(viewSwipedRight))
+           swipeRight.direction = .right
+           self.view.addGestureRecognizer(swipeRight)
+       }
+    
+    @objc private func leftBarButtonTapped() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func viewSwipedRight() {
         self.dismiss(animated: true, completion: nil)
     }
 }

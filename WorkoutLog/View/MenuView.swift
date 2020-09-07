@@ -79,10 +79,10 @@ class MenuView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setup()
+        setupSubviews()
     }
 
-    private func setup() {
+    private func setupSubviews() {
         backgroundColor = ColorTheme.lightGray1
 
         addSubview(contentView)
@@ -151,19 +151,26 @@ class MenuView: UIView {
     
     @objc private func profileButtonTapped(_ sender: Any) {
         let vc = ProfileViewController()
+        vc.title = "Profile"
         delegate?.present(vc)
     }
     
     @objc private func workoutsButtonTapped(_ sender: Any) {
-        
+        let vc = ProfileViewController()
+        vc.title = "Workouts"
+        delegate?.present(vc)
     }
     
     @objc private func scheduleButtonTapped(_ sender: Any) {
-        
+        let vc = ProfileViewController()
+        vc.title = "Schedule"
+        delegate?.present(vc)
     }
     
     @objc private func settingsButtonTapped(_ sender: Any) {
-        
+        let vc = ProfileViewController()
+        vc.title = "Settings"
+        delegate?.present(vc)
     }
     
     required init?(coder: NSCoder) {
