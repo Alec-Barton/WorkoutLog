@@ -12,6 +12,10 @@ enum CalendarType {
     case yearly, monthly, weekly
 }
 
+protocol CalendarSelectorViewDelegate {
+    func changeActiveCalendar(to type: CalendarType)
+}
+
 class CalendarSelectorView: UIView {
     private static let buttonHeight: CGFloat = 30.0
     
@@ -48,8 +52,8 @@ class CalendarSelectorView: UIView {
     private lazy var monthlyCenterYConstraint: NSLayoutConstraint = self.monthlyButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)
     private lazy var weeklyCenterYConstraint: NSLayoutConstraint = self.weeklyButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)
     
+    var delegate: CalendarSelectorViewDelegate?
     var activeType: CalendarType = .monthly
-    
     var isOpen: Bool = false {
         didSet {
             heightConstraint.constant = isOpen ? 90 : 30
@@ -101,8 +105,8 @@ class CalendarSelectorView: UIView {
     }
     
     private func setActiveType( _ type: CalendarType) {
+        //TODO: This might be worth refactoring
         activeType = type
-        
         
         switch type {
         case .yearly:
@@ -130,8 +134,8 @@ class CalendarSelectorView: UIView {
             yearlyCenterYConstraint.isActive = false
             monthlyCenterYConstraint.isActive = false
         }
-        
         isOpen = false
+        delegate?.changeActiveCalendar(to: type)
     }
     
     @objc private func yearlyButtonTapped() {

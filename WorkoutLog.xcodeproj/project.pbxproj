@@ -33,6 +33,7 @@
 		70940C38245205B6005C2E8B /* MonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70940C37245205B6005C2E8B /* MonthViewController.swift */; };
 		70940C3D245205B7005C2E8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70940C3C245205B7005C2E8B /* Assets.xcassets */; };
 		70940C40245205B7005C2E8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70940C3E245205B7005C2E8B /* LaunchScreen.storyboard */; };
+		70B0E59E2517EB9400A4A4AA /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B0E59D2517EB9400A4A4AA /* MainTabViewController.swift */; };
 		70D562EC247B33F8000CC15A /* DateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D562EB247B33F8000CC15A /* DateHeaderView.swift */; };
 		70D562EE247B4989000CC15A /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D562ED247B4989000CC15A /* Month.swift */; };
 		70D562F0247B49C0000CC15A /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D562EF247B49C0000CC15A /* Workout.swift */; };
@@ -80,6 +81,7 @@
 		70940C3C245205B7005C2E8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70940C3F245205B7005C2E8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70940C41245205B7005C2E8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70B0E59D2517EB9400A4A4AA /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		70D562EB247B33F8000CC15A /* DateHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeaderView.swift; sourceTree = "<group>"; };
 		70D562ED247B4989000CC15A /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		70D562EF247B49C0000CC15A /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				70940C37245205B6005C2E8B /* MonthViewController.swift */,
 				70D562F7247C5335000CC15A /* DayViewController.swift */,
 				70F47AE62504741400F0C6E1 /* ProfileViewController.swift */,
+				70B0E59D2517EB9400A4A4AA /* MainTabViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				7027ACBC24DB700E000D10D2 /* DataManager.swift in Sources */,
 				70E8E7D524BBFD640010C4AF /* CalendarManager.swift in Sources */,
 				704A014C24E886F600D8891E /* DescriptionCell.swift in Sources */,
+				70B0E59E2517EB9400A4A4AA /* MainTabViewController.swift in Sources */,
 				704A8086249663F200273D06 /* SetInfoCell.swift in Sources */,
 				704A808C2496B7CE00273D06 /* Day.swift in Sources */,
 				700DB21D24D662A600344B34 /* MonthCollectionCell.swift in Sources */,
