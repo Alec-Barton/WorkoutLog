@@ -48,6 +48,13 @@ class MainNavigationController: UINavigationController {
         return view
     }()
     
+    private lazy var calendarSelectorView: CalendarSelectorView = {
+        let view = CalendarSelectorView()
+        view.applyDropShadow()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     var menuViewWidthConstraint: NSLayoutConstraint!
     var menuViewMaxWidth = UIScreen.main.bounds.width * 0.6
     var menuIsOpen: Bool = false {
@@ -70,7 +77,7 @@ class MainNavigationController: UINavigationController {
             })
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -87,6 +94,7 @@ class MainNavigationController: UINavigationController {
         view.addSubview(logButton)
         view.addSubview(blurView)
         view.addSubview(menuView)
+        view.addSubview(calendarSelectorView)
         
         menuViewWidthConstraint = menuView.widthAnchor.constraint(equalToConstant: 0)
         
@@ -109,7 +117,11 @@ class MainNavigationController: UINavigationController {
             menuView.topAnchor.constraint(equalTo: view.topAnchor),
             menuView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             menuView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            menuViewWidthConstraint
+            menuViewWidthConstraint,
+            
+            calendarSelectorView.bottomAnchor.constraint(equalTo: view.safeAreaBottomAnchor, constant: -10),
+            calendarSelectorView.leadingAnchor.constraint(equalTo: logButton.trailingAnchor, constant: 30.0),
+            calendarSelectorView.widthAnchor.constraint(equalToConstant: 100.0),
         ])
     }
     

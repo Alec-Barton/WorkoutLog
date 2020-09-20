@@ -48,6 +48,7 @@
 		70F47AE5250462D700F0C6E1 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F47AE4250462D700F0C6E1 /* MenuButton.swift */; };
 		70F47AE72504741400F0C6E1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F47AE62504741400F0C6E1 /* ProfileViewController.swift */; };
 		70F47AE925057FF200F0C6E1 /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F47AE825057FF200F0C6E1 /* UINavigationBar+Extensions.swift */; };
+		70F47AEB250691C200F0C6E1 /* CalendarSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F47AEA250691C200F0C6E1 /* CalendarSelectorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		70F47AE4250462D700F0C6E1 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		70F47AE62504741400F0C6E1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		70F47AE825057FF200F0C6E1 /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
+		70F47AEA250691C200F0C6E1 /* CalendarSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSelectorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 				700DB21C24D662A500344B34 /* MonthCollectionCell.swift */,
 				7019590825042BC1002DC93A /* MenuView.swift */,
 				70F47AE4250462D700F0C6E1 /* MenuButton.swift */,
+				70F47AEA250691C200F0C6E1 /* CalendarSelectorView.swift */,
 				7084640624B403C6009A7D8E /* Sets */,
 			);
 			path = View;
@@ -319,6 +322,7 @@
 				70D562F8247C5335000CC15A /* DayViewController.swift in Sources */,
 				704A80842495890200273D06 /* ExerciseTableCell.swift in Sources */,
 				70940C34245205B6005C2E8B /* AppDelegate.swift in Sources */,
+				70F47AEB250691C200F0C6E1 /* CalendarSelectorView.swift in Sources */,
 				704A808824967E5E00273D06 /* SetAddCell.swift in Sources */,
 				70F47AE325044ECA00F0C6E1 /* UIFont+Extensions.swift in Sources */,
 				70F47AE925057FF200F0C6E1 /* UINavigationBar+Extensions.swift in Sources */,

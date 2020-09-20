@@ -27,10 +27,12 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupGestureRecognizers() {
-           let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(viewSwipedRight))
-           swipeRight.direction = .right
-           self.view.addGestureRecognizer(swipeRight)
-       }
+        
+        //TODO: Not sure if I like this UX 
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(viewSwipedRight))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+    }
     
     @objc private func leftBarButtonTapped() {
         self.dismiss(animated: true, completion: nil)
