@@ -56,7 +56,7 @@ class MainNavigationController: UINavigationController {
         return view
     }()
     
-    private lazy var yearViewController: YearViewController = {
+    private let yearViewController: YearViewController = {
         let layout: UICollectionViewFlowLayout = {
             let layout = UICollectionViewFlowLayout()
             layout.minimumInteritemSpacing = 6
@@ -66,7 +66,7 @@ class MainNavigationController: UINavigationController {
         return YearViewController(collectionViewLayout: layout)
     }()
     
-    private lazy var monthViewController: MonthViewController = {
+    private let monthViewController: MonthViewController = {
         let layout: UICollectionViewFlowLayout = {
             let layout = UICollectionViewFlowLayout()
             layout.minimumInteritemSpacing = 6
@@ -76,11 +76,12 @@ class MainNavigationController: UINavigationController {
         return MonthViewController(collectionViewLayout: layout)
     }()
     
-    private lazy var weekViewController: WeekViewController = {
+    private let weekViewController: WeekViewController = {
         return WeekViewController()
     }()
     
     var activeCalendar: CalendarType = .yearly {
+        //TODO: Do we need to cache viewControllers in some way?
         didSet {
             switch activeCalendar {
             case .yearly:
