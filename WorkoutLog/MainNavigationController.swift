@@ -50,11 +50,49 @@ class MainNavigationController: UINavigationController {
     
     private lazy var calendarSelectorView: CalendarSelectorView = {
         let view = CalendarSelectorView()
+        view.delegate = self
         view.applyDropShadow()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
+    private lazy var yearViewController: YearViewController = {
+        let layout: UICollectionViewFlowLayout = {
+            let layout = UICollectionViewFlowLayout()
+            layout.minimumInteritemSpacing = 6
+            layout.minimumLineSpacing = 6
+            return layout
+        }()
+        return YearViewController(collectionViewLayout: layout)
+    }()
+    
+    private lazy var monthViewController: MonthViewController = {
+        let layout: UICollectionViewFlowLayout = {
+            let layout = UICollectionViewFlowLayout()
+            layout.minimumInteritemSpacing = 6
+            layout.minimumLineSpacing = 6
+            return layout
+        }()
+        return MonthViewController(collectionViewLayout: layout)
+    }()
+    
+    private lazy var weekViewController: WeekViewController = {
+        return WeekViewController()
+    }()
+    
+    var activeCalendar: CalendarType = .yearly {
+        didSet {
+            switch activeCalendar {
+            case .yearly:
+                setViewControllers([yearViewController], animated: false)
+            case .monthly:
+                setViewControllers([monthViewController], animated: false)
+            case .weekly:
+                setViewControllers([weekViewController], animated: false)
+            }
+        }
+    }
+
     var menuViewWidthConstraint: NSLayoutConstraint!
     var menuViewMaxWidth = UIScreen.main.bounds.width * 0.6
     var menuIsOpen: Bool = false {
@@ -86,15 +124,17 @@ class MainNavigationController: UINavigationController {
         
         setupSubviews()
         setupGestureRecognizers()
+        
+        activeCalendar = calendarSelectorView.activeType
     }
     
     private func setupSubviews() {
         
         view.addSubview(hamburgerButton)
         view.addSubview(logButton)
+        view.addSubview(calendarSelectorView)
         view.addSubview(blurView)
         view.addSubview(menuView)
-        view.addSubview(calendarSelectorView)
         
         menuViewWidthConstraint = menuView.widthAnchor.constraint(equalToConstant: 0)
         
@@ -109,6 +149,10 @@ class MainNavigationController: UINavigationController {
             logButton.widthAnchor.constraint(equalToConstant: 60.0),
             logButton.heightAnchor.constraint(equalToConstant: 60.0),
             
+            calendarSelectorView.bottomAnchor.constraint(equalTo: view.safeAreaBottomAnchor, constant: -10),
+            calendarSelectorView.leadingAnchor.constraint(equalTo: logButton.trailingAnchor, constant: 30.0),
+            calendarSelectorView.widthAnchor.constraint(equalToConstant: 100.0),
+            
             blurView.topAnchor.constraint(equalTo: view.topAnchor),
             blurView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             blurView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -118,10 +162,6 @@ class MainNavigationController: UINavigationController {
             menuView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             menuView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             menuViewWidthConstraint,
-            
-            calendarSelectorView.bottomAnchor.constraint(equalTo: view.safeAreaBottomAnchor, constant: -10),
-            calendarSelectorView.leadingAnchor.constraint(equalTo: logButton.trailingAnchor, constant: 30.0),
-            calendarSelectorView.widthAnchor.constraint(equalToConstant: 100.0),
         ])
     }
     
@@ -166,6 +206,12 @@ extension MainNavigationController: MenuViewDelegate {
         navigationController.modalPresentationStyle = .custom
         navigationController.transitioningDelegate = self
         self.present(navigationController, animated: true)
+    }
+}
+
+extension MainNavigationController: CalendarSelectorViewDelegate {
+    func changeActiveCalendar(to type: CalendarType) {
+        activeCalendar = type
     }
 }
 
@@ -215,5 +261,3 @@ extension MainNavigationController: UIViewControllerAnimatedTransitioning {
         })
     }
 }
-
-

@@ -46,7 +46,7 @@ class CalendarSelectorView: UIView {
         return button
     }()
     
-    private lazy var heightConstraint: NSLayoutConstraint = self.heightAnchor.constraint(equalToConstant: 90)
+    private lazy var heightConstraint: NSLayoutConstraint = self.heightAnchor.constraint(equalToConstant: CalendarSelectorView.buttonHeight)
     
     private lazy var yearlyCenterYConstraint: NSLayoutConstraint = self.yearlyButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)
     private lazy var monthlyCenterYConstraint: NSLayoutConstraint = self.monthlyButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)
@@ -56,7 +56,7 @@ class CalendarSelectorView: UIView {
     var activeType: CalendarType = .monthly
     var isOpen: Bool = false {
         didSet {
-            heightConstraint.constant = isOpen ? 90 : 30
+            heightConstraint.constant = isOpen ? (CalendarSelectorView.buttonHeight * 3) : CalendarSelectorView.buttonHeight
             
             if isOpen {
                 yearlyCenterYConstraint.isActive = false
