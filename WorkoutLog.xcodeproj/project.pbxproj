@@ -24,7 +24,6 @@
 		704A808C2496B7CE00273D06 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A808B2496B7CE00273D06 /* Day.swift */; };
 		707465D224D247A100D0E330 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707465D124D247A100D0E330 /* ColorTheme.swift */; };
 		707465D424D5045700D0E330 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707465D324D5045700D0E330 /* Timer.swift */; };
-		707BE20D24C7B633009C5ADE /* MultiMonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707BE20C24C7B633009C5ADE /* MultiMonthViewController.swift */; };
 		708463FC24B24674009A7D8E /* WorkoutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */; };
 		708463FE24B267D6009A7D8E /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708463FD24B267D6009A7D8E /* UIColor+Extensions.swift */; };
 		7084640024B3EF1E009A7D8E /* ExerciseAddTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708463FF24B3EF1E009A7D8E /* ExerciseAddTableCell.swift */; };
@@ -70,7 +69,6 @@
 		704A808B2496B7CE00273D06 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		707465D124D247A100D0E330 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		707465D324D5045700D0E330 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
-		707BE20C24C7B633009C5ADE /* MultiMonthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiMonthViewController.swift; sourceTree = "<group>"; };
 		708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHeaderView.swift; sourceTree = "<group>"; };
 		708463FD24B267D6009A7D8E /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		708463FF24B3EF1E009A7D8E /* ExerciseAddTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseAddTableCell.swift; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 			isa = PBXGroup;
 			children = (
 				70E8E7D024BBE6E00010C4AF /* YearViewController.swift */,
-				707BE20C24C7B633009C5ADE /* MultiMonthViewController.swift */,
 				70940C37245205B6005C2E8B /* MonthViewController.swift */,
 				70B0E59F2517EEBE00A4A4AA /* WeekViewController.swift */,
 				70D562F7247C5335000CC15A /* DayViewController.swift */,
@@ -334,7 +331,6 @@
 				704A8082249570F100273D06 /* TemplateManager.swift in Sources */,
 				70D562F0247B49C0000CC15A /* Workout.swift in Sources */,
 				707465D424D5045700D0E330 /* Timer.swift in Sources */,
-				707BE20D24C7B633009C5ADE /* MultiMonthViewController.swift in Sources */,
 				7027ACBC24DB700E000D10D2 /* DataManager.swift in Sources */,
 				70B0E5A02517EEBE00A4A4AA /* WeekViewController.swift in Sources */,
 				70E8E7D524BBFD640010C4AF /* CalendarManager.swift in Sources */,
