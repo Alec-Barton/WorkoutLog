@@ -32,12 +32,12 @@ class YearViewController: UICollectionViewController {
     }
     
     private func setup() {
-        view.backgroundColor = ColorTheme.lightGray1
         
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionInset = .init(top: padding, left: padding, bottom: padding, right: padding)
         }
         
+        view.backgroundColor = ColorTheme.lightGray1
         collectionView.backgroundColor = ColorTheme.lightGray1
         collectionView.contentInsetAdjustmentBehavior = .never
         

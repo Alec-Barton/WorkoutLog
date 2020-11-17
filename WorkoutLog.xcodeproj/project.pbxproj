@@ -22,6 +22,7 @@
 		704A808824967E5E00273D06 /* SetAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A808724967E5E00273D06 /* SetAddCell.swift */; };
 		704A808A24968D3D00273D06 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A808924968D3D00273D06 /* UserManager.swift */; };
 		704A808C2496B7CE00273D06 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A808B2496B7CE00273D06 /* Day.swift */; };
+		705CFF0625634676007F8DF8 /* MonthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705CFF0525634676007F8DF8 /* MonthHeaderView.swift */; };
 		707465D224D247A100D0E330 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707465D124D247A100D0E330 /* ColorTheme.swift */; };
 		707465D424D5045700D0E330 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707465D324D5045700D0E330 /* Timer.swift */; };
 		708463FC24B24674009A7D8E /* WorkoutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */; };
@@ -67,6 +68,7 @@
 		704A808724967E5E00273D06 /* SetAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAddCell.swift; sourceTree = "<group>"; };
 		704A808924968D3D00273D06 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		704A808B2496B7CE00273D06 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		705CFF0525634676007F8DF8 /* MonthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeaderView.swift; sourceTree = "<group>"; };
 		707465D124D247A100D0E330 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		707465D324D5045700D0E330 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHeaderView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		705CFF082563467C007F8DF8 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */,
+				705CFF0525634676007F8DF8 /* MonthHeaderView.swift */,
+				70D562EB247B33F8000CC15A /* DateHeaderView.swift */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
 		7084640424B4032A009A7D8E /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,9 +204,8 @@
 		70E8E7DB24BE90690010C4AF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */,
-				70D562EB247B33F8000CC15A /* DateHeaderView.swift */,
 				708463FF24B3EF1E009A7D8E /* ExerciseAddTableCell.swift */,
+				705CFF082563467C007F8DF8 /* Headers */,
 				704A014B24E886F600D8891E /* DescriptionCell.swift */,
 				704A80832495890200273D06 /* ExerciseTableCell.swift */,
 				7025C7B22476017600A6C11A /* DateCollectionCell.swift */,
@@ -344,6 +355,7 @@
 				7027ACB824DA0A23000D10D2 /* UIView+Extensions.swift in Sources */,
 				7025C7B32476017600A6C11A /* DateCollectionCell.swift in Sources */,
 				70D562F2247B648A000CC15A /* Exercise.swift in Sources */,
+				705CFF0625634676007F8DF8 /* MonthHeaderView.swift in Sources */,
 				70F47AE5250462D700F0C6E1 /* MenuButton.swift in Sources */,
 				708463FE24B267D6009A7D8E /* UIColor+Extensions.swift in Sources */,
 				70F47AE72504741400F0C6E1 /* ProfileViewController.swift in Sources */,

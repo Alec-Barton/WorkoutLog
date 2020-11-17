@@ -10,8 +10,9 @@ import UIKit
 import Foundation
 
 class MonthViewController: UICollectionViewController {
-    
-    let padding: CGFloat = 3
+
+    let cellSpacing: CGFloat = 4.0
+    let padding: CGFloat = 30.0
     var months: [Month] = []
     
     override func viewDidLoad() {
@@ -32,15 +33,24 @@ class MonthViewController: UICollectionViewController {
     private func setup() {
         
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.sectionInset = .init(top: padding, left: padding, bottom: padding, right: padding)
+            layout.sectionInset = .init(top: 0.0, left: padding, bottom: padding, right: padding)
         }
         
-        collectionView.backgroundColor = .gray
+        view.backgroundColor = ColorTheme.lightGray1
+        collectionView.backgroundColor = ColorTheme.lightGray1
         collectionView.contentInsetAdjustmentBehavior = .never
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaTopAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
     }
     
     private func registerIds () {
-        collectionView.register(DateHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DateHeaderView.id)
+        collectionView.register(MonthHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MonthHeaderView.id)
         
         collectionView.register(WeekdayCell.self, forCellWithReuseIdentifier: WeekdayCell.id)
         collectionView.register(DayCell.self, forCellWithReuseIdentifier: DayCell.id)
@@ -54,8 +64,9 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
     }
         
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: DateHeaderView.id, for: indexPath) as! DateHeaderView
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MonthHeaderView.id, for: indexPath) as! MonthHeaderView
         header.month = months[indexPath.section]
+        header.year = Year(year: 2020)
         return header
     }
     
@@ -72,6 +83,7 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
         if indexPath.row < 7 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeekdayCell.id, for: indexPath) as! WeekdayCell
             cell.day = WeekdayName(rawValue: indexPath.row + 1)
+            cell.backgroundColor = ColorTheme.lightGray2
             return cell 
         } else {
             let month = months[indexPath.section]
@@ -80,11 +92,9 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayCell.id, for: indexPath) as! DayCell
             cell.delegate = self
             if indexPath.row >= dayPadding && indexPath.row < month.daysInMonth + dayPadding{
-//                cell.dateNumber = indexPath.row - dayPadding + 1
-                cell.backgroundColor = .cyan
+                cell.backgroundColor = ColorTheme.lightGray4
             } else {
-                cell.backgroundColor = ColorTheme.lightGray1
-//                cell.dateNumber = 0 
+                cell.backgroundColor = ColorTheme.lightGray2
             }
             return cell
         }
@@ -92,11 +102,11 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = view.frame.width/7 - 10
+        let size = (view.frame.width - 60 - cellSpacing * 7) / 7
         
-         if indexPath.row < 7 {
+        if indexPath.row < 7 {
             return .init(width: size, height: 30.0)
-         } else {
+        } else {
             return .init(width: size, height: size)
         }
         
@@ -104,7 +114,7 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         //TODO: Re-adjust this
-        return 10.0
+        return cellSpacing
     }
 }
 

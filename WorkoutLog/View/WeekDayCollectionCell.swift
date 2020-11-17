@@ -42,6 +42,8 @@ class WeekdayCell: UICollectionViewCell {
             label.widthAnchor.constraint(equalTo: self.widthAnchor),
             label.heightAnchor.constraint(equalTo: self.heightAnchor),
         ])
+        
+        self.layer.cornerRadius = 4.0
     }
 
     required init?(coder: NSCoder) {

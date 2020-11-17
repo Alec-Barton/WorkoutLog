@@ -85,11 +85,11 @@ class MainNavigationController: UINavigationController {
         didSet {
             switch activeCalendar {
             case .yearly:
-                setViewControllers([yearViewController], animated: false)
+                setViewControllers([yearViewController], animated: true)
             case .monthly:
-                setViewControllers([monthViewController], animated: false)
+                setViewControllers([monthViewController], animated: true)
             case .weekly:
-                setViewControllers([weekViewController], animated: false)
+                setViewControllers([weekViewController], animated: true)
             }
         }
     }
