@@ -51,7 +51,7 @@ class YearViewController: UICollectionViewController {
     }
     
     private func registerIds () {
-        collectionView.register(DateHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DateHeaderView.id)
+        collectionView.register(YearHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: YearHeaderView.id)
         collectionView.register(DayCell.self, forCellWithReuseIdentifier: DayCell.id)
         
     }
@@ -65,7 +65,7 @@ extension YearViewController: UICollectionViewDelegateFlowLayout {
     }
         
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: DateHeaderView.id, for: indexPath) as! DateHeaderView
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: YearHeaderView.id, for: indexPath) as! YearHeaderView
         header.year = years[indexPath.section]
         return header
     }

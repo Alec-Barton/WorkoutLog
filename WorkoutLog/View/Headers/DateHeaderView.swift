@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-class DateHeaderView: UICollectionReusableView {
+class YearHeaderView: UICollectionReusableView {
     
-    static let id = "DateHeaderId"
+    static let id = "YearHeaderId"
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
