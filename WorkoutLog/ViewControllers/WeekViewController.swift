@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeekViewController: UIViewController {
+class WeekViewController: UITableViewController {
     
     private lazy var tempLabel: UILabel = {
         let label = UILabel()
@@ -19,21 +19,64 @@ class WeekViewController: UIViewController {
         return label
     }()
     
+    convenience init () {
+        self.init(style: UITableView.Style.grouped)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = ColorTheme.lightGray1
         
-        setupSubviews()
-    }
-    
-    private func setupSubviews() {
-        view.addSubview(tempLabel)
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
         
-        NSLayoutConstraint.activate([
-            tempLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            tempLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ])
+        setup()
+        registerIds()
     }
     
+    private func setup() {
+//        view.addSubview(tempLabel)
+//        
+//        NSLayoutConstraint.activate([
+//            tempLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            tempLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+//        ])
+    }
+    
+    private func registerIds () {
+        tableView.register(WeekHeaderView.self, forHeaderFooterViewReuseIdentifier: WeekHeaderView.id)
+        tableView.register(WeekTableCell.self, forCellReuseIdentifier: WeekTableCell.id)
+    }
+    
+}
+
+extension WeekViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 52
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: WeekTableCell.id, for: indexPath) as! WeekTableCell
+        cell.backgroundColor = .red
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: WeekHeaderView.id) as! WeekHeaderView
+        header.contentView.backgroundColor = .blue
+        return header
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 25.0
+    }
 }
