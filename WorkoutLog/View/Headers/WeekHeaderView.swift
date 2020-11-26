@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeekHeaderView: UITableViewHeaderFooterView {
+class WeekHeaderView: UICollectionReusableView {
     
     static let id = "WeekHeaderId"
 
@@ -57,13 +57,10 @@ class WeekHeaderView: UITableViewHeaderFooterView {
         }
     }
     
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
+    override init (frame: CGRect) {
+        super.init(frame: frame)
+        setup()
     }
-    
-//    convenience init() {
-//        self.init(style: .default ,reuseIdentifier: WeekTableCell.id)
-//    }
     
     private func setup (){
         self.addSubview(monthLabel)

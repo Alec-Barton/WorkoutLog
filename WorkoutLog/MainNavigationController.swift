@@ -77,7 +77,13 @@ class MainNavigationController: UINavigationController {
     }()
     
     private let weekViewController: WeekViewController = {
-        return WeekViewController()
+        let layout: UICollectionViewFlowLayout = {
+            let layout = UICollectionViewFlowLayout()
+            layout.minimumInteritemSpacing = 6
+            layout.minimumLineSpacing = 6
+            return layout
+        }()
+        return WeekViewController(collectionViewLayout: layout)
     }()
     
     var activeCalendar: CalendarType = .yearly {

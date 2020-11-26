@@ -8,7 +8,10 @@
 
 import UIKit
 
-class WeekViewController: UITableViewController {
+class WeekViewController: UICollectionViewController {
+    
+    let cellSpacing: CGFloat = 4.0
+    let padding: CGFloat = 30.0
     
     private lazy var tempLabel: UILabel = {
         let label = UILabel()
@@ -19,64 +22,83 @@ class WeekViewController: UITableViewController {
         return label
     }()
     
-    convenience init () {
-        self.init(style: UITableView.Style.grouped)
-    }
+//    convenience init () {
+//        self.init(style: UITableView.Style.grouped)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = ColorTheme.lightGray1
         
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
         
         setup()
         registerIds()
     }
     
     private func setup() {
-//        view.addSubview(tempLabel)
-//        
-//        NSLayoutConstraint.activate([
-//            tempLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            tempLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//        ])
+        
+        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.sectionInset = .init(top: 0.0, left: padding, bottom: padding, right: padding)
+        }
+        
+        view.backgroundColor = ColorTheme.lightGray1
+        collectionView.backgroundColor = ColorTheme.lightGray1
+        collectionView.contentInsetAdjustmentBehavior = .never
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaTopAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
     }
     
     private func registerIds () {
-        tableView.register(WeekHeaderView.self, forHeaderFooterViewReuseIdentifier: WeekHeaderView.id)
-        tableView.register(WeekTableCell.self, forCellReuseIdentifier: WeekTableCell.id)
+        collectionView.register(WeekHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: WeekHeaderView.id)
+        
+//        collectionView.register(WeekdayCell.self, forCellWithReuseIdentifier: WeekdayCell.id)
+        collectionView.register(WeekCollectionCell.self, forCellWithReuseIdentifier: WeekCollectionCell.id)
     }
     
 }
 
-extension WeekViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension WeekViewController: UICollectionViewDelegateFlowLayout {
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 52
+    }
+        
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: WeekHeaderView.id, for: indexPath) as! WeekHeaderView
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return .init(width: view.frame.width, height: 100.0)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 7
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 52
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: WeekTableCell.id, for: indexPath) as! WeekTableCell
-        cell.backgroundColor = .red
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeekCollectionCell.id, for: indexPath) as! WeekCollectionCell
+        cell.backgroundColor = ColorTheme.lightGray4
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: WeekHeaderView.id) as! WeekHeaderView
-        header.contentView.backgroundColor = .blue
-        return header
-    }
-
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50.0
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat = view.frame.width - (2 * padding)
+        let height: CGFloat = 60.0
+        return CGSize(width: width, height: height)
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 25.0
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        //TODO: Re-adjust this
+//        return 5.0
+//    }
 }

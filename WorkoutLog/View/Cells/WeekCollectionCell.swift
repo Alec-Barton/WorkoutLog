@@ -8,17 +8,12 @@
 
 import UIKit
 
-class WeekTableCell: UITableViewCell {
+class WeekCollectionCell: UICollectionViewCell {
     
     static let id = "WeekCellId"
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-    }
-    
-    convenience init() {
-        self.init(style: .default ,reuseIdentifier: WeekTableCell.id)
-        
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setup()
     }
     

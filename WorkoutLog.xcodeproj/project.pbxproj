@@ -35,7 +35,7 @@
 		70940C40245205B7005C2E8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70940C3E245205B7005C2E8B /* LaunchScreen.storyboard */; };
 		70B0E5A02517EEBE00A4A4AA /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B0E59F2517EEBE00A4A4AA /* WeekViewController.swift */; };
 		70C1746F256AE37200F26F2C /* WeekHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C1746E256AE37200F26F2C /* WeekHeaderView.swift */; };
-		70C17472256AE60800F26F2C /* WeekTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C17471256AE60800F26F2C /* WeekTableCell.swift */; };
+		70C17472256AE60800F26F2C /* WeekCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C17471256AE60800F26F2C /* WeekCollectionCell.swift */; };
 		70D562EC247B33F8000CC15A /* DateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D562EB247B33F8000CC15A /* DateHeaderView.swift */; };
 		70D562EE247B4989000CC15A /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D562ED247B4989000CC15A /* Month.swift */; };
 		70D562F0247B49C0000CC15A /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D562EF247B49C0000CC15A /* Workout.swift */; };
@@ -85,7 +85,7 @@
 		70940C41245205B7005C2E8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70B0E59F2517EEBE00A4A4AA /* WeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
 		70C1746E256AE37200F26F2C /* WeekHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHeaderView.swift; sourceTree = "<group>"; };
-		70C17471256AE60800F26F2C /* WeekTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekTableCell.swift; sourceTree = "<group>"; };
+		70C17471256AE60800F26F2C /* WeekCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCollectionCell.swift; sourceTree = "<group>"; };
 		70D562EB247B33F8000CC15A /* DateHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeaderView.swift; sourceTree = "<group>"; };
 		70D562ED247B4989000CC15A /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		70D562EF247B49C0000CC15A /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
@@ -194,6 +194,15 @@
 			path = WorkoutLog;
 			sourceTree = "<group>";
 		};
+		70C17474257043B600F26F2C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				700DB21C24D662A500344B34 /* MonthCollectionCell.swift */,
+				70C17471256AE60800F26F2C /* WeekCollectionCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		70E8E7DA24BE8D970010C4AF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,18 +218,17 @@
 		70E8E7DB24BE90690010C4AF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				708463FF24B3EF1E009A7D8E /* ExerciseAddTableCell.swift */,
 				705CFF082563467C007F8DF8 /* Headers */,
+				70C17474257043B600F26F2C /* Cells */,
+				7084640624B403C6009A7D8E /* Sets */,
+				708463FF24B3EF1E009A7D8E /* ExerciseAddTableCell.swift */,
 				704A014B24E886F600D8891E /* DescriptionCell.swift */,
 				704A80832495890200273D06 /* ExerciseTableCell.swift */,
 				7025C7B22476017600A6C11A /* DateCollectionCell.swift */,
-				70C17471256AE60800F26F2C /* WeekTableCell.swift */,
 				70D562F3247C18ED000CC15A /* WeekDayCollectionCell.swift */,
-				700DB21C24D662A500344B34 /* MonthCollectionCell.swift */,
 				7019590825042BC1002DC93A /* MenuView.swift */,
 				70F47AE4250462D700F0C6E1 /* MenuButton.swift */,
 				70F47AEA250691C200F0C6E1 /* CalendarSelectorView.swift */,
-				7084640624B403C6009A7D8E /* Sets */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -341,7 +349,7 @@
 				70940C34245205B6005C2E8B /* AppDelegate.swift in Sources */,
 				70F47AEB250691C200F0C6E1 /* CalendarSelectorView.swift in Sources */,
 				704A808824967E5E00273D06 /* SetAddCell.swift in Sources */,
-				70C17472256AE60800F26F2C /* WeekTableCell.swift in Sources */,
+				70C17472256AE60800F26F2C /* WeekCollectionCell.swift in Sources */,
 				70F47AE325044ECA00F0C6E1 /* UIFont+Extensions.swift in Sources */,
 				70F47AE925057FF200F0C6E1 /* UINavigationBar+Extensions.swift in Sources */,
 				704A808A24968D3D00273D06 /* UserManager.swift in Sources */,
