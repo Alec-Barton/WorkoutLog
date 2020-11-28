@@ -199,6 +199,7 @@
 			children = (
 				700DB21C24D662A500344B34 /* MonthCollectionCell.swift */,
 				70C17471256AE60800F26F2C /* WeekCollectionCell.swift */,
+				7025C7B22476017600A6C11A /* DateCollectionCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -224,7 +225,6 @@
 				708463FF24B3EF1E009A7D8E /* ExerciseAddTableCell.swift */,
 				704A014B24E886F600D8891E /* DescriptionCell.swift */,
 				704A80832495890200273D06 /* ExerciseTableCell.swift */,
-				7025C7B22476017600A6C11A /* DateCollectionCell.swift */,
 				70D562F3247C18ED000CC15A /* WeekDayCollectionCell.swift */,
 				7019590825042BC1002DC93A /* MenuView.swift */,
 				70F47AE4250462D700F0C6E1 /* MenuButton.swift */,

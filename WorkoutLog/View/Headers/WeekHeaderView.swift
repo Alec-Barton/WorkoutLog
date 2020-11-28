@@ -12,16 +12,18 @@ class WeekHeaderView: UICollectionReusableView {
     
     static let id = "WeekHeaderId"
 
-    private lazy var monthLabel: UILabel = {
+    private lazy var startDateLabel: UILabel = {
         let label = UILabel()
+        label.text = "March 1st"
         label.textAlignment = .left
         label.font = UIFont(name: "Avenir Next Condensed", size: 30)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private lazy var yearLabel: UILabel = {
+    private lazy var endDateLabel: UILabel = {
         let label = UILabel()
+        label.text = "March 8th"
         label.textAlignment = .left
         label.font = UIFont(name: "Avenir Next Condensed", size: 30)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -42,43 +44,28 @@ class WeekHeaderView: UICollectionReusableView {
         return label
     }()
     
-    
-    public var month: Month? {
-        didSet {
-            guard let month = month else { return }
-            monthLabel.text = "\(month.name)"
-        }
-    }
-    
-    public var year: Year? {
-        didSet {
-            guard let year = year else { return }
-            yearLabel.text = "\(year.name)"
-        }
-    }
-    
     override init (frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
     
     private func setup (){
-        self.addSubview(monthLabel)
-        self.addSubview(yearLabel)
+        self.addSubview(startDateLabel)
+        self.addSubview(endDateLabel)
         self.addSubview(detailsLabel)
         
         NSLayoutConstraint.activate([
-            monthLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30.0),
-            monthLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10.0),
-            monthLabel.widthAnchor.constraint(equalToConstant: 130),
-            monthLabel.heightAnchor.constraint(equalToConstant: 22.5),
+            startDateLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30.0),
+            startDateLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10.0),
+            startDateLabel.widthAnchor.constraint(equalToConstant: 130),
+            startDateLabel.heightAnchor.constraint(equalToConstant: 22.5),
             
-            yearLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30.0),
-            yearLabel.topAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: 5.0),
-            yearLabel.widthAnchor.constraint(equalToConstant: 130),
-            yearLabel.heightAnchor.constraint(equalToConstant: 22.5),
+            endDateLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30.0),
+            endDateLabel.topAnchor.constraint(equalTo: startDateLabel.bottomAnchor, constant: 5.0),
+            endDateLabel.widthAnchor.constraint(equalToConstant: 130),
+            endDateLabel.heightAnchor.constraint(equalToConstant: 22.5),
             
-            detailsLabel.leadingAnchor.constraint(equalTo: monthLabel.trailingAnchor, constant: 0.0),
+            detailsLabel.leadingAnchor.constraint(equalTo: startDateLabel.trailingAnchor, constant: 0.0),
             detailsLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10.0),
             detailsLabel.widthAnchor.constraint(equalToConstant: 200),
             detailsLabel.heightAnchor.constraint(equalToConstant: 50.0),

@@ -17,8 +17,27 @@ class WeekCollectionCell: UICollectionViewCell {
         setup()
     }
     
+    private lazy var weekdayLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var dateLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private func setup() {
+        self.addSubview(weekdayLabel)
+        self.addSubview(dateLabel)
         
+        NSLayoutConstraint.activate([
+        
+        ])
+        
+        self.layer.cornerRadius = 4.0
     }
 
     required init?(coder: NSCoder) {
