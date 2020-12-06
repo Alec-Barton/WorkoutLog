@@ -25,9 +25,10 @@ class MainNavigationController: UINavigationController {
         button.tintColor = .white
         button.imageEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         button.layer.cornerRadius = 20
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .darkGray
         button.applyDropShadow()
+        button.addTarget(self, action: #selector(logButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -187,6 +188,12 @@ class MainNavigationController: UINavigationController {
     
     @objc private func hamburgerButtonTapped(_ sender: Any) {
         menuIsOpen = !menuIsOpen
+    }
+    
+    @objc private func logButtonTapped(_ sender: Any) {
+        let layout = UICollectionViewFlowLayout()
+        let viewController = EditorViewController(collectionViewLayout: layout)
+        self.present(viewController)
     }
     
     @objc private func viewSwipedLeft(_ sender: Any) {

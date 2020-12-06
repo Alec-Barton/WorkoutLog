@@ -1,32 +1,27 @@
 //
-//  YearViewController.swift
+//  WorkoutViewController.swift
 //  WorkoutLog
 //
-//  Created by Alec Barton on 7/12/20.
+//  Created by Alec Barton on 5/25/20.
 //  Copyright © 2020 Alec Barton. All rights reserved.
 //
 
 import UIKit
 
-class YearViewController: UICollectionViewController {
+class EditorViewController: UICollectionViewController {
     
     let padding: CGFloat = 30
-    var years: [Year] = {
-        var array:[Year] = []
-        if let year2020 = Year(year: 2020){
-            array.append(year2020)
-        }
-        if let year2021 = Year(year: 2021){
-            array.append(year2021)
-        }
-        return array
+    let workouts = ["Chest Day", "Leg Day"]
+    
+    private lazy var titleView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        TemplateManager.shared.setup()
-        
+                
         setup()
         registerIds()
     }
@@ -51,21 +46,21 @@ class YearViewController: UICollectionViewController {
     }
     
     private func registerIds () {
-        collectionView.register(YearHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: YearHeaderView.id)
-        collectionView.register(DayCell.self, forCellWithReuseIdentifier: DayCell.id)
+        collectionView.register(WorkoutHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: WorkoutHeaderView.id)
+        collectionView.register(WorkoutCollectionCell.self, forCellWithReuseIdentifier: WorkoutCollectionCell.id)
         
     }
+    
 }
 
-extension YearViewController: UICollectionViewDelegateFlowLayout {
+extension EditorViewController: UICollectionViewDelegateFlowLayout {
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return years.count
+        return workouts.count
     }
         
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: YearHeaderView.id, for: indexPath) as! YearHeaderView
-        header.year = years[indexPath.section]
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: WorkoutHeaderView.id, for: indexPath) as! WorkoutHeaderView
         return header
     }
     
@@ -74,29 +69,11 @@ extension YearViewController: UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return years[section].numberOfCells
+        return 2
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        let year = years[indexPath.section]
-        let dayPadding = year.dayOffset
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayCell.id, for: indexPath) as! DayCell
-        if indexPath.row >= dayPadding && indexPath.row < year.daysInYear + dayPadding{
-            
-            let day = indexPath.row - dayPadding + 1
-            let date = Date(year: year.year, day: day)
-            cell.date = date
-            
-            if cell.date?.isToday ?? false {
-                cell.backgroundColor = ColorTheme.DateCell.highlight
-            } else {
-                cell.backgroundColor = ColorTheme.lightGray4
-            }
-        } else {
-            cell.backgroundColor = ColorTheme.lightGray2
-            cell.date = nil
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WorkoutCollectionCell.id, for: indexPath) as! WorkoutCollectionCell
         return cell
     }
     
@@ -105,4 +82,7 @@ extension YearViewController: UICollectionViewDelegateFlowLayout {
         return .init(width: size, height: size)
     }
 }
+
+
+
 

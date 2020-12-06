@@ -108,14 +108,14 @@ extension DayViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = WorkoutHeaderView()
-        view.workout = day?.workouts[section]
-        view.section = section
-        view.delegate = self
+//        view.workout = day?.workouts[section]
+//        view.section = section
+//        view.delegate = self
         return view
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return WorkoutHeaderView.height
+        return 50.0//WorkoutHeaderView.height
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -140,22 +140,22 @@ extension DayViewController: UITableViewDataSource {
     }
 }
 
-extension DayViewController: WorkoutHeaderViewDelegate {
-    func toggleOpen(_ view: WorkoutHeaderView) {
-        guard let section = view.section else { return }
-        guard let toggle = toggler[section] else { return }
-        
-        defer { workoutTableView.reloadSections(IndexSet(integer: section), with: .fade)}
-        
-        toggler[section] = !toggle
-        
-        guard toggle else { return }
-        
-        var indexPaths:[IndexPath] = []
-        guard let workout = day?.workouts[section] else { return }
-        for i in 0..<workout.exercises.count {
-            indexPaths.append(IndexPath(row: i, section: section))
-        }
-        workoutTableView.deleteRows(at: indexPaths, with: .fade)
-    }
-}
+//extension DayViewController: WorkoutHeaderViewDelegate {
+//    func toggleOpen(_ view: WorkoutHeaderView) {
+//        guard let section = view.section else { return }
+//        guard let toggle = toggler[section] else { return }
+//
+//        defer { workoutTableView.reloadSections(IndexSet(integer: section), with: .fade)}
+//
+//        toggler[section] = !toggle
+//
+//        guard toggle else { return }
+//
+//        var indexPaths:[IndexPath] = []
+//        guard let workout = day?.workouts[section] else { return }
+//        for i in 0..<workout.exercises.count {
+//            indexPaths.append(IndexPath(row: i, section: section))
+//        }
+//        workoutTableView.deleteRows(at: indexPaths, with: .fade)
+//    }
+//}
