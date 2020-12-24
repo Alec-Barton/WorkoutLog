@@ -11,11 +11,16 @@ import UIKit
 class WorkoutCollectionCell: UICollectionViewCell {
     
     static let id = "WorkoutCellId"
-    var exercise: ExerciseModel?
+    private static let additionalHeight: CGFloat = 30.0 + 5.0 + 10.0
+    var exercise: ExerciseModel? {
+        didSet {
+            titleLabel.text = exercise?.name
+        }
+    }
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Workout"
+        label.text = ""
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -23,6 +28,7 @@ class WorkoutCollectionCell: UICollectionViewCell {
     private lazy var setCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -46,15 +52,15 @@ class WorkoutCollectionCell: UICollectionViewCell {
         self.addSubview(setCollectionView)
         
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0),
             titleLabel.trailingAnchor.constraint(equalTo: self.centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
             titleLabel.heightAnchor.constraint(equalToConstant: 30.0),
             
-            setCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            setCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            setCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            setCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            setCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5.0),
+            setCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 10.0),
+            setCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0),
+            setCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20.0),
         ])
     }
     
@@ -63,7 +69,7 @@ class WorkoutCollectionCell: UICollectionViewCell {
     }
     
     static func sizeFor(_ model: ExerciseModel) -> CGSize {
-        let collectionViewWidth = UIScreen.main.bounds.width
+        let collectionViewWidth = UIScreen.main.bounds.width //- (20.0 * 2)
 
         var cellWidths: [CGFloat] = []
         for set in model.setArray {
@@ -71,8 +77,7 @@ class WorkoutCollectionCell: UICollectionViewCell {
         }
         
         let contentSize = UICollectionView.contentSizeFor(collectionViewWidth: collectionViewWidth, cellWidths: cellWidths, cellHeight: SetCollectionCell.cellHeight, verticalPadding: 0.0, horizontalPadding: 0.0)
-        print(contentSize.height)
-        return CGSize(width: contentSize.width, height: contentSize.height + 30.0)
+        return CGSize(width: contentSize.width, height: contentSize.height + WorkoutCollectionCell.additionalHeight)
     }
 }
 
@@ -84,19 +89,14 @@ extension WorkoutCollectionCell: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SetCollectionCell.id, for: indexPath) as! SetCollectionCell
+        if let exercise = exercise {
+            cell.set = exercise.setArray[indexPath.row]
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //store workout
-//        return CGSize(width: 10.0, height: 30.0)
-
         guard let exercise = exercise else { return .zero }
-        print("OK2:", SetCollectionCell.sizeFor(exercise.setArray[indexPath.row]))
-
         return SetCollectionCell.sizeFor(exercise.setArray[indexPath.row])
-//        return CGSize(width: 50.0, height: 30.0)
     }
-    
-    
 }
