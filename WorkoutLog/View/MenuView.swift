@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MenuViewDelegate: AnyObject {
-    func present(_ viewController: UIViewController)
+    func presentHorizontally(_ viewController: UIViewController)
 }
 
 class MenuView: UIView {
@@ -152,25 +152,25 @@ class MenuView: UIView {
     @objc private func profileButtonTapped(_ sender: Any) {
         let vc = ProfileViewController()
         vc.title = "Profile"
-        delegate?.present(vc)
+        delegate?.presentHorizontally(vc)
     }
     
     @objc private func workoutsButtonTapped(_ sender: Any) {
         let vc = ProfileViewController()
         vc.title = "Workouts"
-        delegate?.present(vc)
+        delegate?.presentHorizontally(vc)
     }
     
     @objc private func scheduleButtonTapped(_ sender: Any) {
         let vc = ProfileViewController()
         vc.title = "Schedule"
-        delegate?.present(vc)
+        delegate?.presentHorizontally(vc)
     }
     
     @objc private func settingsButtonTapped(_ sender: Any) {
         let vc = ProfileViewController()
         vc.title = "Settings"
-        delegate?.present(vc)
+        delegate?.presentHorizontally(vc)
     }
     
     required init?(coder: NSCoder) {

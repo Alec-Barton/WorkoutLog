@@ -11,10 +11,11 @@ import UIKit
 class EditorViewController: UICollectionViewController {
     
     let padding: CGFloat = 30
+    let day = DayModel()
     let workouts = ["Chest Day", "Leg Day"]
     
-    private lazy var titleView: UIView = {
-        let view = UIView()
+    private lazy var titleView: DayTitleView = {
+        let view = DayTitleView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -29,7 +30,7 @@ class EditorViewController: UICollectionViewController {
     private func setup() {
         
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.sectionInset = .init(top: padding, left: padding, bottom: padding, right: padding)
+            layout.sectionInset = .init(top: 0, left: padding, bottom: padding, right: padding)
         }
         
         view.backgroundColor = ColorTheme.lightGray1
@@ -37,8 +38,16 @@ class EditorViewController: UICollectionViewController {
         collectionView.contentInsetAdjustmentBehavior = .never
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(titleView)
+
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaTopAnchor),
+            titleView.topAnchor.constraint(equalTo: view.safeAreaTopAnchor, constant: 20.0),
+            titleView.heightAnchor.constraint(equalToConstant: 70.0),
+            titleView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            titleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+            
+            collectionView.topAnchor.constraint(equalTo: titleView.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -69,17 +78,19 @@ extension EditorViewController: UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return day.workoutArray.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WorkoutCollectionCell.id, for: indexPath) as! WorkoutCollectionCell
+        cell.exercise = day.workoutArray[indexPath.section].exerciseArray[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = view.frame.width/14 - 10
-        return .init(width: size, height: size)
+        let workout = day.workoutArray[indexPath.section]
+        let exercise = workout.exerciseArray[indexPath.row]
+        return  WorkoutCollectionCell.sizeFor(exercise)
     }
 }
 

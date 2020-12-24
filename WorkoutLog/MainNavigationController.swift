@@ -193,7 +193,7 @@ class MainNavigationController: UINavigationController {
     @objc private func logButtonTapped(_ sender: Any) {
         let layout = UICollectionViewFlowLayout()
         let viewController = EditorViewController(collectionViewLayout: layout)
-        self.present(viewController)
+        self.present(viewController, animated: true)
     }
     
     @objc private func viewSwipedLeft(_ sender: Any) {
@@ -214,9 +214,8 @@ class MainNavigationController: UINavigationController {
 }
 
 extension MainNavigationController: MenuViewDelegate {
-    func present(_ viewController: UIViewController) {
+    func presentHorizontally(_ viewController: UIViewController) {
         let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.modalPresentationStyle = .fullScreen
         navigationController.modalPresentationStyle = .custom
         navigationController.transitioningDelegate = self
         self.present(navigationController, animated: true)
