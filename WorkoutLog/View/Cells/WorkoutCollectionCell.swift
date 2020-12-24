@@ -8,9 +8,9 @@
 
 import UIKit
 
-class WorkoutCollectionCell: UICollectionViewCell {
+class ExerciseCollectionCell: UICollectionViewCell {
     
-    static let id = "WorkoutCellId"
+    static let id = "ExerciseCellId"
     
     private static let horizontalCellPadding: CGFloat = 3.0
     private static let verticalCellPadding: CGFloat = 3.0
@@ -31,8 +31,8 @@ class WorkoutCollectionCell: UICollectionViewCell {
     
     private lazy var setCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = WorkoutCollectionCell.horizontalCellPadding
-        layout.minimumLineSpacing = WorkoutCollectionCell.verticalCellPadding
+        layout.minimumInteritemSpacing = ExerciseCollectionCell.horizontalCellPadding
+        layout.minimumLineSpacing = ExerciseCollectionCell.verticalCellPadding
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
@@ -53,7 +53,6 @@ class WorkoutCollectionCell: UICollectionViewCell {
     }
     
     private func setup() {
-        
         self.addSubview(titleLabel)
         self.addSubview(setCollectionView)
         
@@ -84,12 +83,12 @@ class WorkoutCollectionCell: UICollectionViewCell {
             cellWidths.append(SetCollectionCell.sizeFor(set).width)
         }
         
-        let contentSize = UICollectionView.contentSizeFor(collectionViewWidth: collectionViewWidth, cellWidths: cellWidths, cellHeight: SetCollectionCell.cellHeight, verticalPadding: WorkoutCollectionCell.verticalCellPadding, horizontalPadding: WorkoutCollectionCell.horizontalCellPadding)
-        return CGSize(width: UIScreen.main.bounds.width, height: contentSize.height + WorkoutCollectionCell.additionalHeight)
+        let contentSize = UICollectionView.contentSizeFor(collectionViewWidth: collectionViewWidth, cellWidths: cellWidths, cellHeight: SetCollectionCell.cellHeight, verticalPadding: ExerciseCollectionCell.verticalCellPadding, horizontalPadding: ExerciseCollectionCell.horizontalCellPadding)
+        return CGSize(width: UIScreen.main.bounds.width, height: contentSize.height + ExerciseCollectionCell.additionalHeight)
     }
 }
 
-extension WorkoutCollectionCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ExerciseCollectionCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let exercise = exercise else { return 1 }
         return exercise.setArray.count + 1

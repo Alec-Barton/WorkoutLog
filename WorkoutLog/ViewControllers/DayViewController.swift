@@ -60,7 +60,7 @@ class DayViewController: UICollectionViewController {
     
     private func registerIds () {
         collectionView.register(WorkoutHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: WorkoutHeaderView.id)
-        collectionView.register(WorkoutCollectionCell.self, forCellWithReuseIdentifier: WorkoutCollectionCell.id)
+        collectionView.register(ExerciseCollectionCell.self, forCellWithReuseIdentifier: ExerciseCollectionCell.id)
         
     }
     
@@ -86,7 +86,7 @@ extension DayViewController: UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WorkoutCollectionCell.id, for: indexPath) as! WorkoutCollectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ExerciseCollectionCell.id, for: indexPath) as! ExerciseCollectionCell
         cell.exercise = day.workoutArray[indexPath.section].exerciseArray[indexPath.row]
         return cell
     }
@@ -94,7 +94,7 @@ extension DayViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let workout = day.workoutArray[indexPath.section]
         let exercise = workout.exerciseArray[indexPath.row]
-        return  WorkoutCollectionCell.sizeFor(exercise)
+        return  ExerciseCollectionCell.sizeFor(exercise)
     }
 }
 
