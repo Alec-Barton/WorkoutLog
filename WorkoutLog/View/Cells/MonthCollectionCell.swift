@@ -17,7 +17,6 @@ class MonthCollectionCell: UICollectionViewCell {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        view.backgroundColor = .purple
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

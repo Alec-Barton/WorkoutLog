@@ -1,4 +1,3 @@
-//
 //  WorkoutCollectionCell.swift
 //  WorkoutLog
 //

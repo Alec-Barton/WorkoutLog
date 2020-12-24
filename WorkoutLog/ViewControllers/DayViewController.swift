@@ -13,6 +13,12 @@ class DayViewController: UICollectionViewController {
     let padding: CGFloat = 30
     let day = DayModel()
     
+    var isEditingDay: Bool? {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
     private lazy var titleView: DayTitleView = {
         let view = DayTitleView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -29,12 +35,13 @@ class DayViewController: UICollectionViewController {
                 
         setup()
         registerIds()
+        isEditingDay = true
     }
     
     private func setup() {
         
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.sectionInset = .init(top: 0, left: padding, bottom: padding, right: padding)
+            layout.sectionInset = .init(top: 0, left: 0, bottom: 0, right: 0)
         }
         
         view.backgroundColor = ColorTheme.lightGray1
@@ -61,7 +68,7 @@ class DayViewController: UICollectionViewController {
     private func registerIds () {
         collectionView.register(WorkoutHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: WorkoutHeaderView.id)
         collectionView.register(ExerciseCollectionCell.self, forCellWithReuseIdentifier: ExerciseCollectionCell.id)
-        
+        collectionView.register(AddExerciseCollectionCell.self, forCellWithReuseIdentifier: AddExerciseCollectionCell.id)
     }
     
 }
@@ -69,6 +76,7 @@ class DayViewController: UICollectionViewController {
 extension DayViewController: UICollectionViewDelegateFlowLayout {
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        //TODO: Extra cell for editing
         return day.workoutArray.count
     }
         
@@ -82,22 +90,27 @@ extension DayViewController: UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return day.workoutArray[section].exerciseArray.count
+        return day.workoutArray[section].exerciseArray.count + ((isEditingDay ?? false) ? 1 : 0 )
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if (isEditingDay ?? false) && indexPath.row == day.workoutArray[indexPath.section].exerciseArray.count {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddExerciseCollectionCell.id, for: indexPath) as! AddExerciseCollectionCell
+            return cell
+        }
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ExerciseCollectionCell.id, for: indexPath) as! ExerciseCollectionCell
         cell.exercise = day.workoutArray[indexPath.section].exerciseArray[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if (isEditingDay ?? false) && indexPath.row == day.workoutArray[indexPath.section].exerciseArray.count {
+            return CGSize(width: UIScreen.main.bounds.width, height: 35.0)
+        }
         let workout = day.workoutArray[indexPath.section]
         let exercise = workout.exerciseArray[indexPath.row]
-        return  ExerciseCollectionCell.sizeFor(exercise)
+        return ExerciseCollectionCell.sizeFor(exercise)
     }
 }
-
-
-
-
