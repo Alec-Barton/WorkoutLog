@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddCollectionCell: UICollectionViewCell {
+class AddSetCollectionCell: UICollectionViewCell {
     static let id = "AddCellId"
     static let cellSize: CGFloat = 35.0
     
@@ -45,6 +45,6 @@ class AddCollectionCell: UICollectionViewCell {
     }
     
     static func size() -> CGSize {
-        return CGSize(width: AddCollectionCell.cellSize, height: AddCollectionCell.cellSize)
+        return CGSize(width: AddSetCollectionCell.cellSize, height: AddSetCollectionCell.cellSize)
     }
 }

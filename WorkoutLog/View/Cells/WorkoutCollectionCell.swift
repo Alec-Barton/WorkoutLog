@@ -72,14 +72,14 @@ class WorkoutCollectionCell: UICollectionViewCell {
     
     private func registerIds() {
         setCollectionView.register(SetCollectionCell.self, forCellWithReuseIdentifier: SetCollectionCell.id)
-        setCollectionView.register(AddCollectionCell.self, forCellWithReuseIdentifier: AddCollectionCell.id)
+        setCollectionView.register(AddSetCollectionCell.self, forCellWithReuseIdentifier: AddSetCollectionCell.id)
     }
     
     static func sizeFor(_ model: ExerciseModel) -> CGSize {
         let collectionViewWidth = UIScreen.main.bounds.width - (20.0 * 2)
 
         var cellWidths: [CGFloat] = []
-        cellWidths.append(AddCollectionCell.cellSize)
+        cellWidths.append(AddSetCollectionCell.cellSize)
         for set in model.setArray {
             cellWidths.append(SetCollectionCell.sizeFor(set).width)
         }
@@ -97,7 +97,7 @@ extension WorkoutCollectionCell: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddCollectionCell.id, for: indexPath) as! AddCollectionCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddSetCollectionCell.id, for: indexPath) as! AddSetCollectionCell
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SetCollectionCell.id, for: indexPath) as! SetCollectionCell
@@ -109,7 +109,7 @@ extension WorkoutCollectionCell: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.row == 0 {
-            return CGSize(width: AddCollectionCell.cellSize, height: AddCollectionCell.cellSize)
+            return CGSize(width: AddSetCollectionCell.cellSize, height: AddSetCollectionCell.cellSize)
         }
         guard let exercise = exercise else { return .zero }
         return SetCollectionCell.sizeFor(exercise.setArray[indexPath.row - 1])
