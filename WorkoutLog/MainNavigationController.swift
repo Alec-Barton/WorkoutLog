@@ -191,7 +191,7 @@ class MainNavigationController: UINavigationController {
     }
     
     @objc private func logButtonTapped(_ sender: Any) {
-        let viewController = EditorViewController()
+        let viewController = DayViewController()
         self.present(viewController, animated: true)
     }
     

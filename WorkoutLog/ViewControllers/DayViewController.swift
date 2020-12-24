@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditorViewController: UICollectionViewController {
+class DayViewController: UICollectionViewController {
     
     let padding: CGFloat = 30
     let day = DayModel()
@@ -66,7 +66,7 @@ class EditorViewController: UICollectionViewController {
     
 }
 
-extension EditorViewController: UICollectionViewDelegateFlowLayout {
+extension DayViewController: UICollectionViewDelegateFlowLayout {
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return day.workoutArray.count
