@@ -191,8 +191,7 @@ class MainNavigationController: UINavigationController {
     }
     
     @objc private func logButtonTapped(_ sender: Any) {
-        let layout = UICollectionViewFlowLayout()
-        let viewController = EditorViewController(collectionViewLayout: layout)
+        let viewController = EditorViewController()
         self.present(viewController, animated: true)
     }
     

@@ -19,6 +19,11 @@ class EditorViewController: UICollectionViewController {
         return view
     }()
     
+    convenience init() {
+        let layout = UICollectionViewFlowLayout()
+        self.init(collectionViewLayout: layout)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
                 

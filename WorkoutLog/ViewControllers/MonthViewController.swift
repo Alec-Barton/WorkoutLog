@@ -120,9 +120,8 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
 
 extension MonthViewController: DayCellDelegate {
     func cellTapped(_ cell: DayCell) {
-        let vc = DayViewController()
-        vc.date = cell.date
-        self.present(vc, animated: true)
+        let viewController = EditorViewController()
+        self.present(viewController, animated: true)
     }
 }
 
