@@ -8,6 +8,7 @@
 
 import UIKit
 
+/*
 class ExerciseCell: UITableViewCell {
     
     static let id = "ExerciseCellId"
@@ -73,8 +74,8 @@ class ExerciseCell: UITableViewCell {
         
         setCollectionView.delegate = self
         setCollectionView.dataSource = self
-        setCollectionView.register(SetInfoCell.self, forCellWithReuseIdentifier: SetInfoCell.id)
-        setCollectionView.register(SetAddCell.self, forCellWithReuseIdentifier: SetAddCell.id)
+//        setCollectionView.register(SetInfoCell.self, forCellWithReuseIdentifier: SetInfoCell.id)
+//        setCollectionView.register(SetAddCell.self, forCellWithReuseIdentifier: SetAddCell.id)
     }
     
     required init?(coder: NSCoder) {
@@ -126,14 +127,14 @@ extension ExerciseCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if indexPath.row == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SetAddCell.id, for: indexPath) as! SetAddCell
-            return cell
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SetInfoCell.id, for: indexPath) as! SetInfoCell
-            cell.label = exercise?.sets[indexPath.row - 1].string
-            return cell
-        }
+//        if indexPath.row == 0 {
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SetAddCell.id, for: indexPath) as! SetAddCell
+//            return cell
+//        } else {
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SetInfoCell.id, for: indexPath) as! SetInfoCell
+//            cell.label = exercise?.sets[indexPath.row - 1].string
+//            return cell
+//        }
     }
 }
 
@@ -145,4 +146,4 @@ extension ExerciseCell: UICollectionViewDelegateFlowLayout {
         return SetInfoCell.sizeFor(text: exercise?.sets[indexPath.row - 1].string ?? "")
     }
 }
-
+*/

@@ -44,7 +44,7 @@ class DayViewController: UIViewController {
 //        dateLabel.text = formatter.string(from: date)
         
         self.view.backgroundColor = ColorTheme.DayController.background
-        workoutTableView.register(ExerciseCell.self, forCellReuseIdentifier: ExerciseCell.id)
+//        workoutTableView.register(ExerciseCell.self, forCellReuseIdentifier: ExerciseCell.id)
         workoutTableView.register(ExerciseAddCell.self, forCellReuseIdentifier: ExerciseAddCell.id)
         workoutTableView.register(DescriptionCell.self, forCellReuseIdentifier: DescriptionCell.id)
 
@@ -129,14 +129,14 @@ extension DayViewController: UITableViewDataSource {
             return cell
         }
         
-        if indexPath.row == ((day?.workouts[indexPath.section].exercises.count ?? 0) + 1) {
+        if true { //indexPath.row == ((day?.workouts[indexPath.section].exercises.count ?? 0) + 1) {
             let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseAddCell.id, for: indexPath) as! ExerciseAddCell
             return cell
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseCell.id, for: indexPath) as! ExerciseCell
-        cell.exercise = day?.workouts[indexPath.section].exercises[indexPath.row - 1]
-        return cell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseCell.id, for: indexPath) as! ExerciseCell
+//        cell.exercise = day?.workouts[indexPath.section].exercises[indexPath.row - 1]
+//        return cell
     }
 }
 

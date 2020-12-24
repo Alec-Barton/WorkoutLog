@@ -12,7 +12,6 @@ class EditorViewController: UICollectionViewController {
     
     let padding: CGFloat = 30
     let day = DayModel()
-    let workouts = ["Chest Day", "Leg Day"]
     
     private lazy var titleView: DayTitleView = {
         let view = DayTitleView()
@@ -65,7 +64,7 @@ class EditorViewController: UICollectionViewController {
 extension EditorViewController: UICollectionViewDelegateFlowLayout {
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return workouts.count
+        return day.workoutArray.count
     }
         
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -78,7 +77,7 @@ extension EditorViewController: UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return day.workoutArray.count
+        return day.workoutArray[section].exerciseArray.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

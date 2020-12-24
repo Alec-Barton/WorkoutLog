@@ -11,7 +11,11 @@ import UIKit
 class WorkoutCollectionCell: UICollectionViewCell {
     
     static let id = "WorkoutCellId"
+    
+    private static let horizontalCellPadding: CGFloat = 3.0
+    private static let verticalCellPadding: CGFloat = 3.0
     private static let additionalHeight: CGFloat = 30.0 + 5.0 + 10.0
+    
     var exercise: ExerciseModel? {
         didSet {
             titleLabel.text = exercise?.name
@@ -27,6 +31,8 @@ class WorkoutCollectionCell: UICollectionViewCell {
     
     private lazy var setCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = WorkoutCollectionCell.horizontalCellPadding
+        layout.minimumLineSpacing = WorkoutCollectionCell.verticalCellPadding
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
@@ -58,7 +64,7 @@ class WorkoutCollectionCell: UICollectionViewCell {
             titleLabel.heightAnchor.constraint(equalToConstant: 30.0),
             
             setCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5.0),
-            setCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 10.0),
+            setCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10.0),
             setCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0),
             setCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20.0),
         ])
@@ -66,37 +72,46 @@ class WorkoutCollectionCell: UICollectionViewCell {
     
     private func registerIds() {
         setCollectionView.register(SetCollectionCell.self, forCellWithReuseIdentifier: SetCollectionCell.id)
+        setCollectionView.register(AddCollectionCell.self, forCellWithReuseIdentifier: AddCollectionCell.id)
     }
     
     static func sizeFor(_ model: ExerciseModel) -> CGSize {
-        let collectionViewWidth = UIScreen.main.bounds.width //- (20.0 * 2)
+        let collectionViewWidth = UIScreen.main.bounds.width - (20.0 * 2)
 
         var cellWidths: [CGFloat] = []
+        cellWidths.append(AddCollectionCell.cellSize)
         for set in model.setArray {
             cellWidths.append(SetCollectionCell.sizeFor(set).width)
         }
         
-        let contentSize = UICollectionView.contentSizeFor(collectionViewWidth: collectionViewWidth, cellWidths: cellWidths, cellHeight: SetCollectionCell.cellHeight, verticalPadding: 0.0, horizontalPadding: 0.0)
-        return CGSize(width: contentSize.width, height: contentSize.height + WorkoutCollectionCell.additionalHeight)
+        let contentSize = UICollectionView.contentSizeFor(collectionViewWidth: collectionViewWidth, cellWidths: cellWidths, cellHeight: SetCollectionCell.cellHeight, verticalPadding: WorkoutCollectionCell.verticalCellPadding, horizontalPadding: WorkoutCollectionCell.horizontalCellPadding)
+        return CGSize(width: UIScreen.main.bounds.width, height: contentSize.height + WorkoutCollectionCell.additionalHeight)
     }
 }
 
 extension WorkoutCollectionCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let exercise = exercise else { return 0 }
-        return exercise.setArray.count
+        guard let exercise = exercise else { return 1 }
+        return exercise.setArray.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.row == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddCollectionCell.id, for: indexPath) as! AddCollectionCell
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SetCollectionCell.id, for: indexPath) as! SetCollectionCell
         if let exercise = exercise {
-            cell.set = exercise.setArray[indexPath.row]
+            cell.set = exercise.setArray[indexPath.row - 1]
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.row == 0 {
+            return CGSize(width: AddCollectionCell.cellSize, height: AddCollectionCell.cellSize)
+        }
         guard let exercise = exercise else { return .zero }
-        return SetCollectionCell.sizeFor(exercise.setArray[indexPath.row])
+        return SetCollectionCell.sizeFor(exercise.setArray[indexPath.row - 1])
     }
 }

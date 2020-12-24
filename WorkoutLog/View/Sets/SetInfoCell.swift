@@ -6,6 +6,7 @@
 //  Copyright © 2020 Alec Barton. All rights reserved.
 //
 
+/*
 import UIKit
 
 class SetInfoCell: UICollectionViewCell {
@@ -61,3 +62,4 @@ class SetInfoCell: UICollectionViewCell {
         super.init(coder: coder)
     }
 }
+*/

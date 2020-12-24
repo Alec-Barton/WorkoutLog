@@ -11,7 +11,7 @@ import Foundation
 //Temp Data Models
 class DayModel {
     var date: String = "Day 1"
-    var workoutArray: [WorkoutModel] = [WorkoutModel(), WorkoutModel()]
+    var workoutArray: [WorkoutModel] = [WorkoutModel(), WorkoutModel(), WorkoutModel()]
 }
 
 class WorkoutModel {
@@ -21,7 +21,7 @@ class WorkoutModel {
 
 class ExerciseModel {
     var name: String = "Exercise"
-    var setArray: [SetModel] = [SetModel(), SetModel(), SetModel()]
+    var setArray: [SetModel] = [SetModel(), SetModel(), SetModel(), SetModel(), SetModel()]
 }
 
 class SetModel {

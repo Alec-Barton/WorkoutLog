@@ -19,7 +19,7 @@
 		704A8082249570F100273D06 /* TemplateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A8081249570F100273D06 /* TemplateManager.swift */; };
 		704A80842495890200273D06 /* ExerciseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A80832495890200273D06 /* ExerciseTableCell.swift */; };
 		704A8086249663F200273D06 /* SetInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A8085249663F200273D06 /* SetInfoCell.swift */; };
-		704A808824967E5E00273D06 /* SetAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A808724967E5E00273D06 /* SetAddCell.swift */; };
+		704A808824967E5E00273D06 /* AddCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A808724967E5E00273D06 /* AddCollectionCell.swift */; };
 		704A808A24968D3D00273D06 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A808924968D3D00273D06 /* UserManager.swift */; };
 		704A808C2496B7CE00273D06 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A808B2496B7CE00273D06 /* Day.swift */; };
 		705CFF0625634676007F8DF8 /* MonthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705CFF0525634676007F8DF8 /* MonthHeaderView.swift */; };
@@ -73,7 +73,7 @@
 		704A8081249570F100273D06 /* TemplateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateManager.swift; sourceTree = "<group>"; };
 		704A80832495890200273D06 /* ExerciseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableCell.swift; sourceTree = "<group>"; };
 		704A8085249663F200273D06 /* SetInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInfoCell.swift; sourceTree = "<group>"; };
-		704A808724967E5E00273D06 /* SetAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAddCell.swift; sourceTree = "<group>"; };
+		704A808724967E5E00273D06 /* AddCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollectionCell.swift; sourceTree = "<group>"; };
 		704A808924968D3D00273D06 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		704A808B2496B7CE00273D06 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		705CFF0525634676007F8DF8 /* MonthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeaderView.swift; sourceTree = "<group>"; };
@@ -164,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				704A8085249663F200273D06 /* SetInfoCell.swift */,
-				704A808724967E5E00273D06 /* SetAddCell.swift */,
 			);
 			path = Sets;
 			sourceTree = "<group>";
@@ -215,6 +214,7 @@
 				70D562F3247C18ED000CC15A /* WeekDayCollectionCell.swift */,
 				70B431ED257C48DE00A3BC5C /* WorkoutCollectionCell.swift */,
 				70F039272592DB9800B1DB91 /* SetCollectionCell.swift */,
+				704A808724967E5E00273D06 /* AddCollectionCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -370,7 +370,7 @@
 				70F0392B2592F26A00B1DB91 /* TestObjects.swift in Sources */,
 				70940C34245205B6005C2E8B /* AppDelegate.swift in Sources */,
 				70F47AEB250691C200F0C6E1 /* CalendarSelectorView.swift in Sources */,
-				704A808824967E5E00273D06 /* SetAddCell.swift in Sources */,
+				704A808824967E5E00273D06 /* AddCollectionCell.swift in Sources */,
 				70C17472256AE60800F26F2C /* WeekCollectionCell.swift in Sources */,
 				70F47AE325044ECA00F0C6E1 /* UIFont+Extensions.swift in Sources */,
 				70F47AE925057FF200F0C6E1 /* UINavigationBar+Extensions.swift in Sources */,
