@@ -9,7 +9,7 @@
 import UIKit
 
 class AddSetCollectionCell: UICollectionViewCell {
-    static let id = "AddCellId"
+    static let id = "AddSetCellId"
     static let cellSize: CGFloat = 35.0
     
     private lazy var label: UILabel = {
