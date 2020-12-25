@@ -12,9 +12,24 @@ class AddWorkoutHeaderView: UICollectionReusableView {
     
     static let id = "AddWorkoutHeaderId"
 
+    private lazy var button: UIButton = {
+        let button = UIButton()
+        button.setTitle( " +  Add New Workout", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24.0)
+        button.setTitleColor(.black, for: .normal)
+        button.contentHorizontalAlignment = .left
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+//        button.layer.borderColor = ColorTheme.lightGray4.cgColor
+//        button.layer.borderWidth = 1.0
+//        button.layer.cornerRadius = 5.0
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = " + Add New Workout"
+        label.text = " +  Add New Workout"
         label.font = UIFont.boldSystemFont(ofSize: 24.0)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -28,18 +43,22 @@ class AddWorkoutHeaderView: UICollectionReusableView {
     }
     
     private func setup (){
-        self.addSubview(titleLabel)
+        self.addSubview(button)
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0),
-            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            button.topAnchor.constraint(equalTo: self.topAnchor),
+            button.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0),
+            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20.0),
         ])
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc private func buttonTapped(_ sender: Any) {
+        print("Tapped Add Workout Button")
     }
 }
 

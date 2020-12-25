@@ -13,7 +13,7 @@ class AddExerciseCollectionCell: UICollectionViewCell {
 
     private lazy var button: UIButton = {
         let button = UIButton()
-        button.setTitle("   + \t Add New Exercise", for: .normal)
+        button.setTitle("   +  Add New Exercise", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.contentHorizontalAlignment = .left
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
