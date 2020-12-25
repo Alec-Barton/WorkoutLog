@@ -41,7 +41,7 @@ class DayViewController: UICollectionViewController {
     private func setup() {
         
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.sectionInset = .init(top: 0, left: 0, bottom: 0, right: 0)
+            layout.sectionInset = .init(top: 0, left: 0, bottom: 30.0, right: 0)
         }
         
         view.backgroundColor = ColorTheme.lightGray1
@@ -67,6 +67,8 @@ class DayViewController: UICollectionViewController {
     
     private func registerIds () {
         collectionView.register(WorkoutHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: WorkoutHeaderView.id)
+        collectionView.register(AddWorkoutHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: AddWorkoutHeaderView.id)
+
         collectionView.register(ExerciseCollectionCell.self, forCellWithReuseIdentifier: ExerciseCollectionCell.id)
         collectionView.register(AddExerciseCollectionCell.self, forCellWithReuseIdentifier: AddExerciseCollectionCell.id)
     }
@@ -77,10 +79,14 @@ extension DayViewController: UICollectionViewDelegateFlowLayout {
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         //TODO: Extra cell for editing
-        return day.workoutArray.count
+        return day.workoutArray.count + ((isEditingDay ?? false) ? 1 : 0 )
     }
         
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if (isEditingDay ?? false) && indexPath.section == day.workoutArray.count {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AddWorkoutHeaderView.id, for: indexPath) as! AddWorkoutHeaderView
+            return header
+        }
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: WorkoutHeaderView.id, for: indexPath) as! WorkoutHeaderView
         return header
     }
@@ -90,6 +96,7 @@ extension DayViewController: UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if (isEditingDay ?? false) && section == day.workoutArray.count { return 0 }
         return day.workoutArray[section].exerciseArray.count + ((isEditingDay ?? false) ? 1 : 0 )
     }
     

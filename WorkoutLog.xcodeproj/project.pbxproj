@@ -30,6 +30,7 @@
 		70940C3D245205B7005C2E8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70940C3C245205B7005C2E8B /* Assets.xcassets */; };
 		70940C40245205B7005C2E8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70940C3E245205B7005C2E8B /* LaunchScreen.storyboard */; };
 		70B0A5E42595484C0011B841 /* AddExerciseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B0A5E32595484C0011B841 /* AddExerciseCollectionCell.swift */; };
+		70B0A5EA25957D210011B841 /* AddWorkoutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B0A5E925957D210011B841 /* AddWorkoutHeaderView.swift */; };
 		70B0E5A02517EEBE00A4A4AA /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B0E59F2517EEBE00A4A4AA /* WeekViewController.swift */; };
 		70B431EB257C3FCE00A3BC5C /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B431EA257C3FCE00A3BC5C /* DayViewController.swift */; };
 		70B431EE257C48DE00A3BC5C /* ExerciseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B431ED257C48DE00A3BC5C /* ExerciseCollectionCell.swift */; };
@@ -82,6 +83,7 @@
 		70940C3F245205B7005C2E8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70940C41245205B7005C2E8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70B0A5E32595484C0011B841 /* AddExerciseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseCollectionCell.swift; sourceTree = "<group>"; };
+		70B0A5E925957D210011B841 /* AddWorkoutHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutHeaderView.swift; sourceTree = "<group>"; };
 		70B0E59F2517EEBE00A4A4AA /* WeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
 		70B431EA257C3FCE00A3BC5C /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		70B431ED257C48DE00A3BC5C /* ExerciseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCollectionCell.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */,
+				70B0A5E925957D210011B841 /* AddWorkoutHeaderView.swift */,
 				70C1746E256AE37200F26F2C /* WeekHeaderView.swift */,
 				705CFF0525634676007F8DF8 /* MonthHeaderView.swift */,
 				70D562EB247B33F8000CC15A /* DateHeaderView.swift */,
@@ -353,6 +356,7 @@
 				70C17472256AE60800F26F2C /* WeekCollectionCell.swift in Sources */,
 				70F47AE325044ECA00F0C6E1 /* UIFont+Extensions.swift in Sources */,
 				70F47AE925057FF200F0C6E1 /* UINavigationBar+Extensions.swift in Sources */,
+				70B0A5EA25957D210011B841 /* AddWorkoutHeaderView.swift in Sources */,
 				70B431EE257C48DE00A3BC5C /* ExerciseCollectionCell.swift in Sources */,
 				704A808A24968D3D00273D06 /* UserManager.swift in Sources */,
 				70D562F4247C18ED000CC15A /* WeekDayCollectionCell.swift in Sources */,
