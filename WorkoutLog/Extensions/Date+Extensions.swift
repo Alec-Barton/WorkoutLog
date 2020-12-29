@@ -24,6 +24,13 @@ extension Date {
         self = date
     }
     
+    init? (year: Int, month: Int, dayOfMonth: Int) {
+        let calendar = Calendar(identifier: .gregorian)
+        let components = DateComponents(year: year, month: month, day: dayOfMonth)
+        guard let date = calendar.date(from: components) else { return nil }
+        self = date
+    }
+    
     var isToday: Bool {
         let calendar = Calendar(identifier: .gregorian)
         return calendar.isDateInToday(self)
