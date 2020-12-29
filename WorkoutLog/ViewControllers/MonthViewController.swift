@@ -92,6 +92,8 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayCell.id, for: indexPath) as! DayCell
             cell.delegate = self
             if indexPath.row >= dayPadding && indexPath.row < month.daysInMonth + dayPadding{
+                let date = Date(year: 2020, month: indexPath.section, dayOfMonth: indexPath.row - dayPadding)
+                cell.date = date
                 cell.backgroundColor = ColorTheme.lightGray4
             } else {
                 cell.backgroundColor = ColorTheme.lightGray2
