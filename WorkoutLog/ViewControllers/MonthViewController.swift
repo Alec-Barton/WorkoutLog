@@ -95,6 +95,11 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
                 print("index", indexPath.row, dayPadding)
                 let date = Date(year: 2020, month: indexPath.section + 1, dayOfMonth: indexPath.row - dayPadding + 1)
                 cell.date = date
+                if cell.date?.isToday ?? false {
+                    cell.backgroundColor = ColorTheme.DateCell.highlight
+                } else {
+                    cell.backgroundColor = ColorTheme.lightGray4
+                }
             } else {
                 cell.backgroundColor = ColorTheme.lightGray2
             }
