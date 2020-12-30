@@ -20,6 +20,8 @@
 		704A808A24968D3D00273D06 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A808924968D3D00273D06 /* UserManager.swift */; };
 		704A808C2496B7CE00273D06 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A808B2496B7CE00273D06 /* Day.swift */; };
 		705CFF0625634676007F8DF8 /* MonthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705CFF0525634676007F8DF8 /* MonthHeaderView.swift */; };
+		705D87B8259C1BED00DCD0F7 /* MonthDateCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705D87B7259C1BED00DCD0F7 /* MonthDateCollectionCell.swift */; };
+		705D87BB259C1C0400DCD0F7 /* YearDateCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705D87BA259C1C0400DCD0F7 /* YearDateCollectionCell.swift */; };
 		707465D224D247A100D0E330 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707465D124D247A100D0E330 /* ColorTheme.swift */; };
 		707465D424D5045700D0E330 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707465D324D5045700D0E330 /* Timer.swift */; };
 		708463FC24B24674009A7D8E /* WorkoutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */; };
@@ -71,6 +73,8 @@
 		704A808924968D3D00273D06 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		704A808B2496B7CE00273D06 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		705CFF0525634676007F8DF8 /* MonthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeaderView.swift; sourceTree = "<group>"; };
+		705D87B7259C1BED00DCD0F7 /* MonthDateCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDateCollectionCell.swift; sourceTree = "<group>"; };
+		705D87BA259C1C0400DCD0F7 /* YearDateCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearDateCollectionCell.swift; sourceTree = "<group>"; };
 		707465D124D247A100D0E330 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		707465D324D5045700D0E330 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHeaderView.swift; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 				700DB21C24D662A500344B34 /* MonthCollectionCell.swift */,
 				70C17471256AE60800F26F2C /* WeekCollectionCell.swift */,
 				7025C7B22476017600A6C11A /* DateCollectionCell.swift */,
+				705D87B7259C1BED00DCD0F7 /* MonthDateCollectionCell.swift */,
+				705D87BA259C1C0400DCD0F7 /* YearDateCollectionCell.swift */,
 				70D562F3247C18ED000CC15A /* WeekDayCollectionCell.swift */,
 				70B431ED257C48DE00A3BC5C /* ExerciseCollectionCell.swift */,
 				70B0A5E32595484C0011B841 /* AddExerciseCollectionCell.swift */,
@@ -369,6 +375,7 @@
 				70E8E7D524BBFD640010C4AF /* CalendarManager.swift in Sources */,
 				704A808C2496B7CE00273D06 /* Day.swift in Sources */,
 				70C1746F256AE37200F26F2C /* WeekHeaderView.swift in Sources */,
+				705D87BB259C1C0400DCD0F7 /* YearDateCollectionCell.swift in Sources */,
 				700DB21D24D662A600344B34 /* MonthCollectionCell.swift in Sources */,
 				70D562EE247B4989000CC15A /* Month.swift in Sources */,
 				7027ACBA24DA0DA8000D10D2 /* Date+Extensions.swift in Sources */,
@@ -376,6 +383,7 @@
 				7025C7B32476017600A6C11A /* DateCollectionCell.swift in Sources */,
 				70D562F2247B648A000CC15A /* Exercise.swift in Sources */,
 				705CFF0625634676007F8DF8 /* MonthHeaderView.swift in Sources */,
+				705D87B8259C1BED00DCD0F7 /* MonthDateCollectionCell.swift in Sources */,
 				70F47AE5250462D700F0C6E1 /* MenuButton.swift in Sources */,
 				708463FE24B267D6009A7D8E /* UIColor+Extensions.swift in Sources */,
 				70F47AE72504741400F0C6E1 /* ProfileViewController.swift in Sources */,

@@ -89,7 +89,7 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
             let month = months[indexPath.section]
             let dayPadding = (month.startingDay.rawValue) + 6
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayCell.id, for: indexPath) as! DayCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DateCell.id, for: indexPath) as! DateCell
             cell.delegate = self
             if indexPath.row >= dayPadding && indexPath.row < month.daysInMonth + dayPadding{
                 print("index", indexPath.row, dayPadding)
