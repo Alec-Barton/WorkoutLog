@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class WeekdayCell: UICollectionViewCell {
+class WeekdayCollectionCell: UICollectionViewCell {
     static let id = "WeekDayCellId"
     
     private lazy var label: UILabel = {

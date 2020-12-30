@@ -52,7 +52,7 @@ class MonthViewController: UICollectionViewController {
     private func registerIds () {
         collectionView.register(MonthHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MonthHeaderView.id)
         
-        collectionView.register(WeekdayCell.self, forCellWithReuseIdentifier: WeekdayCell.id)
+        collectionView.register(WeekdayCollectionCell.self, forCellWithReuseIdentifier: WeekdayCollectionCell.id)
         collectionView.register(DateCollectionCell.self, forCellWithReuseIdentifier: DateCollectionCell.id)
     }
 }
@@ -81,7 +81,7 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.row < 7 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeekdayCell.id, for: indexPath) as! WeekdayCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeekdayCollectionCell.id, for: indexPath) as! WeekdayCollectionCell
             cell.day = WeekdayName(rawValue: indexPath.row + 1)
             cell.backgroundColor = ColorTheme.lightGray2
             return cell 
