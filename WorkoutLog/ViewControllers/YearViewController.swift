@@ -52,7 +52,7 @@ class YearViewController: UICollectionViewController {
     
     private func registerIds () {
         collectionView.register(YearHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: YearHeaderView.id)
-        collectionView.register(DateCell.self, forCellWithReuseIdentifier: DateCell.id)
+        collectionView.register(DateCollectionCell.self, forCellWithReuseIdentifier: DateCollectionCell.id)
         
     }
 }
@@ -81,7 +81,7 @@ extension YearViewController: UICollectionViewDelegateFlowLayout {
 
         let year = years[indexPath.section]
         let dayPadding = year.dayOffset
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DateCell.id, for: indexPath) as! DateCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DateCollectionCell.id, for: indexPath) as! DateCollectionCell
         if indexPath.row >= dayPadding && indexPath.row < year.daysInYear + dayPadding{
             
             let day = indexPath.row - dayPadding + 1

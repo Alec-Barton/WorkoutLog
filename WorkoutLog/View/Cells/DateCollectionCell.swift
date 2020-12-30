@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-protocol DateCellDelegate: AnyObject {
-    func cellTapped (_ cell: DateCell)
+protocol DateCollectionCellDelegate: AnyObject {
+    func cellTapped (_ cell: DateCollectionCell)
 }
 
-class DateCell: UICollectionViewCell {
+class DateCollectionCell: UICollectionViewCell {
     
     static let id = "DateCellId"
     
-    weak var delegate: DateCellDelegate?
+    weak var delegate: DateCollectionCellDelegate?
     
     private lazy var dateLabel: UILabel = {
         let label = UILabel()

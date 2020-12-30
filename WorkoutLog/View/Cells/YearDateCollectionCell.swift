@@ -8,6 +8,6 @@
 
 import UIKit
 
-class YearDateCollectionCell: DateCell {
-    
+class YearDateCollectionCell: DateCollectionCell {
+    //TODO
 }

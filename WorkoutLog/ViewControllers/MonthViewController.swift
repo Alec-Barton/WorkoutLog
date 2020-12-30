@@ -53,7 +53,7 @@ class MonthViewController: UICollectionViewController {
         collectionView.register(MonthHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MonthHeaderView.id)
         
         collectionView.register(WeekdayCell.self, forCellWithReuseIdentifier: WeekdayCell.id)
-        collectionView.register(DateCell.self, forCellWithReuseIdentifier: DateCell.id)
+        collectionView.register(DateCollectionCell.self, forCellWithReuseIdentifier: DateCollectionCell.id)
     }
 }
 
@@ -89,7 +89,7 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
             let month = months[indexPath.section]
             let dayPadding = (month.startingDay.rawValue) + 6
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DateCell.id, for: indexPath) as! DateCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DateCollectionCell.id, for: indexPath) as! DateCollectionCell
             cell.delegate = self
             if indexPath.row >= dayPadding && indexPath.row < month.daysInMonth + dayPadding{
                 print("index", indexPath.row, dayPadding)
@@ -125,8 +125,8 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension MonthViewController: DateCellDelegate {
-    func cellTapped(_ cell: DateCell) {
+extension MonthViewController: DateCollectionCellDelegate {
+    func cellTapped(_ cell: DateCollectionCell) {
         let viewController = DayViewController()
         self.present(viewController, animated: true)
     }
