@@ -62,6 +62,11 @@ class DayCell: UICollectionViewCell {
         self.addGestureRecognizer(tap)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.date = nil
+    }
+    
     @objc private func tapped() {
         guard let delegate = delegate else { return }
         delegate.cellTapped(self)
