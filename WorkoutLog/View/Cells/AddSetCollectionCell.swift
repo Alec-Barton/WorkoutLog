@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol AddSetCollectionCellDelegate {
+    func addSetCellTapped (_ cell: AddSetCollectionCell)
+}
+
 class AddSetCollectionCell: UICollectionViewCell {
     static let id = "AddSetCellId"
     static let cellSize: CGFloat = 35.0
+    
+    var delegate: AddSetCollectionCellDelegate?
     
     private lazy var label: UILabel = {
         let label = UILabel()
@@ -22,14 +28,15 @@ class AddSetCollectionCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setup()
+        setupSubviews()
+        setupGestures()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setup() {
+    private func setupSubviews() {
         self.backgroundColor = ColorTheme.lightGray1
         
         self.layer.borderColor = ColorTheme.lightGray4.cgColor
@@ -42,6 +49,15 @@ class AddSetCollectionCell: UICollectionViewCell {
             label.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
         ])
+    }
+    
+    private func setupGestures() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        self.addGestureRecognizer(tap)
+    }
+    
+    @objc private func tapped( _ sender: Any) {
+        delegate?.addSetCellTapped(self)
     }
     
     static func size() -> CGSize {

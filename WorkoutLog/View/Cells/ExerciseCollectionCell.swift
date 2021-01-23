@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ExerciseCollectionCellDelegate: AnyObject {
+    func openSetEditorFor(_ cell: ExerciseCollectionCell)
+}
+
 class ExerciseCollectionCell: UICollectionViewCell {
     
     static let id = "ExerciseCellId"
@@ -20,6 +24,8 @@ class ExerciseCollectionCell: UICollectionViewCell {
             titleLabel.text = exercise?.name
         }
     }
+    
+    var delegate: ExerciseCollectionCellDelegate?
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -96,6 +102,7 @@ extension ExerciseCollectionCell: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddSetCollectionCell.id, for: indexPath) as! AddSetCollectionCell
+            cell.delegate = self
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SetCollectionCell.id, for: indexPath) as! SetCollectionCell
@@ -111,5 +118,11 @@ extension ExerciseCollectionCell: UICollectionViewDelegate, UICollectionViewData
         }
         guard let exercise = exercise else { return .zero }
         return SetCollectionCell.sizeFor(exercise.setArray[indexPath.row - 1])
+    }
+}
+
+extension ExerciseCollectionCell: AddSetCollectionCellDelegate {
+    func addSetCellTapped(_ cell: AddSetCollectionCell) {
+        delegate?.openSetEditorFor(self)
     }
 }

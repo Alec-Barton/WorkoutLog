@@ -109,6 +109,7 @@ extension DayViewController: UICollectionViewDelegateFlowLayout {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ExerciseCollectionCell.id, for: indexPath) as! ExerciseCollectionCell
         cell.exercise = day.workoutArray[indexPath.section].exerciseArray[indexPath.row]
+        cell.delegate = self
         return cell
     }
     
@@ -119,5 +120,12 @@ extension DayViewController: UICollectionViewDelegateFlowLayout {
         let workout = day.workoutArray[indexPath.section]
         let exercise = workout.exerciseArray[indexPath.row]
         return ExerciseCollectionCell.sizeFor(exercise)
+    }
+}
+
+extension DayViewController: ExerciseCollectionCellDelegate {
+    func openSetEditorFor(_ cell: ExerciseCollectionCell) {
+        let controller = EditorViewController()
+        self.present(controller, animated: true)
     }
 }
