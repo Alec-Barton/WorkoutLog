@@ -92,7 +92,6 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DateCollectionCell.id, for: indexPath) as! DateCollectionCell
             cell.delegate = self
             if indexPath.row >= dayPadding && indexPath.row < month.daysInMonth + dayPadding{
-                print("index", indexPath.row, dayPadding)
                 let date = Date(year: 2020, month: indexPath.section + 1, dayOfMonth: indexPath.row - dayPadding + 1)
                 cell.date = date
                 if cell.date?.isToday ?? false {
