@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70009B2925BC909800F3A580 /* multipleSimulatorsStartup.sh in Resources */ = {isa = PBXBuildFile; fileRef = 70009B2825BC909800F3A580 /* multipleSimulatorsStartup.sh */; };
+		70009B2C25BC90AA00F3A580 /* SimulatorsList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 70009B2B25BC90AA00F3A580 /* SimulatorsList.txt */; };
 		700DB21D24D662A600344B34 /* MonthCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700DB21C24D662A500344B34 /* MonthCollectionCell.swift */; };
 		701959052503F31F002DC93A /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 701959042503F31F002DC93A /* Data.json */; };
 		70195907250412FA002DC93A /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70195906250412FA002DC93A /* MainNavigationController.swift */; };
@@ -48,6 +50,7 @@
 		70E8E7D324BBF0360010C4AF /* Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8E7D224BBF0360010C4AF /* Year.swift */; };
 		70E8E7D524BBFD640010C4AF /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8E7D424BBFD640010C4AF /* CalendarManager.swift */; };
 		70E8E7D724BE85130010C4AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8E7D624BE85130010C4AF /* Constants.swift */; };
+		70E96F0425B4DA9800DBA241 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E96F0325B4DA9800DBA241 /* EditorView.swift */; };
 		70F039282592DB9800B1DB91 /* SetCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F039272592DB9800B1DB91 /* SetCollectionCell.swift */; };
 		70F0392B2592F26A00B1DB91 /* TestObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F0392A2592F26A00B1DB91 /* TestObjects.swift */; };
 		70F0392F259387F600B1DB91 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F0392E259387F600B1DB91 /* UICollectionView+Extensions.swift */; };
@@ -60,6 +63,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70009B2825BC909800F3A580 /* multipleSimulatorsStartup.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = multipleSimulatorsStartup.sh; sourceTree = "<group>"; };
+		70009B2B25BC90AA00F3A580 /* SimulatorsList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SimulatorsList.txt; sourceTree = "<group>"; };
 		700DB21C24D662A500344B34 /* MonthCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCollectionCell.swift; sourceTree = "<group>"; };
 		701959042503F31F002DC93A /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		70195906250412FA002DC93A /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
@@ -103,6 +108,7 @@
 		70E8E7D224BBF0360010C4AF /* Year.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Year.swift; sourceTree = "<group>"; };
 		70E8E7D424BBFD640010C4AF /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		70E8E7D624BE85130010C4AF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		70E96F0325B4DA9800DBA241 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		70F039272592DB9800B1DB91 /* SetCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCollectionCell.swift; sourceTree = "<group>"; };
 		70F0392A2592F26A00B1DB91 /* TestObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestObjects.swift; sourceTree = "<group>"; };
 		70F0392E259387F600B1DB91 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
@@ -162,6 +168,8 @@
 		70940C27245205B6005C2E8B = {
 			isa = PBXGroup;
 			children = (
+				70009B2825BC909800F3A580 /* multipleSimulatorsStartup.sh */,
+				70009B2B25BC90AA00F3A580 /* SimulatorsList.txt */,
 				70940C32245205B6005C2E8B /* WorkoutLog */,
 				70940C31245205B6005C2E8B /* Products */,
 			);
@@ -235,6 +243,7 @@
 				70F47AE4250462D700F0C6E1 /* MenuButton.swift */,
 				70F47AEA250691C200F0C6E1 /* CalendarSelectorView.swift */,
 				70F039312593FA5E00B1DB91 /* DayTitleView.swift */,
+				70E96F0325B4DA9800DBA241 /* EditorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,6 +290,7 @@
 				70940C2C245205B6005C2E8B /* Sources */,
 				70940C2D245205B6005C2E8B /* Frameworks */,
 				70940C2E245205B6005C2E8B /* Resources */,
+				70009B2E25BC91E200F3A580 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -331,11 +341,33 @@
 			files = (
 				70940C40245205B7005C2E8B /* LaunchScreen.storyboard in Resources */,
 				70940C3D245205B7005C2E8B /* Assets.xcassets in Resources */,
+				70009B2C25BC90AA00F3A580 /* SimulatorsList.txt in Resources */,
 				701959052503F31F002DC93A /* Data.json in Resources */,
+				70009B2925BC909800F3A580 /* multipleSimulatorsStartup.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		70009B2E25BC91E200F3A580 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "custom_sim=`xcrun simctl list | grep 'Custom Simulators' | awk -F'[()]' '{print $2}'`\nif [ ! -z \"${custom_sim}\" ] && [ \"${TARGET_DEVICE_IDENTIFIER}\" = \"${custom_sim}\" ]; then\n/bin/sh multipleSimulatorsStartup.sh\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		70940C2C245205B6005C2E8B /* Sources */ = {
@@ -387,6 +419,7 @@
 				70F47AE5250462D700F0C6E1 /* MenuButton.swift in Sources */,
 				708463FE24B267D6009A7D8E /* UIColor+Extensions.swift in Sources */,
 				70F47AE72504741400F0C6E1 /* ProfileViewController.swift in Sources */,
+				70E96F0425B4DA9800DBA241 /* EditorView.swift in Sources */,
 				70940C36245205B6005C2E8B /* SceneDelegate.swift in Sources */,
 				70D562EC247B33F8000CC15A /* DateHeaderView.swift in Sources */,
 			);
