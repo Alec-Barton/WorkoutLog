@@ -21,7 +21,8 @@ class StrKeyboardButton: UIButton {
 class StrKeyboardBackButton: StrKeyboardButton {
     convenience init() {
         self.init(frame: .zero)
-        setTitle("", for: .normal)
+        setTitle("<", for: .normal)
+        backgroundColor = .systemPink
     }
 }
 
@@ -97,6 +98,24 @@ class StrKeyboard: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    private lazy var specialButton: StrKeyboardButton = {
+        let button = StrKeyboardButton(value: ":")
+        button.addTarget(self, action: #selector(nineButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    private lazy var zeroButton: StrKeyboardButton = {
+        let button = StrKeyboardButton(value: "0")
+        button.addTarget(self, action: #selector(nineButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    private lazy var backButton: StrKeyboardBackButton = {
+        let button = StrKeyboardBackButton()
+        button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     var delegate: StrKeyboardViewDelegate?
     
@@ -118,6 +137,9 @@ class StrKeyboard: UIView {
         addSubview(sevenButton)
         addSubview(eightButton)
         addSubview(nineButton)
+        addSubview(specialButton)
+        addSubview(zeroButton)
+        addSubview(backButton)
         
         NSLayoutConstraint.activate([
             // center column
@@ -135,6 +157,11 @@ class StrKeyboard: UIView {
             eightButton.topAnchor.constraint(equalTo: fiveButton.bottomAnchor, constant: StrKeyboard.verticalSpacing),
             eightButton.heightAnchor.constraint(equalToConstant: StrKeyboardButton.height),
             eightButton.widthAnchor.constraint(equalToConstant: buttonWidth),
+            
+            zeroButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            zeroButton.topAnchor.constraint(equalTo: eightButton.bottomAnchor, constant: StrKeyboard.verticalSpacing),
+            zeroButton.heightAnchor.constraint(equalToConstant: StrKeyboardButton.height),
+            zeroButton.widthAnchor.constraint(equalToConstant: buttonWidth),
 
             // left column
             oneButton.trailingAnchor.constraint(equalTo: twoButton.leadingAnchor, constant: -StrKeyboard.horizontalSpacing),
@@ -151,6 +178,11 @@ class StrKeyboard: UIView {
             sevenButton.topAnchor.constraint(equalTo: fourButton.bottomAnchor, constant: StrKeyboard.verticalSpacing),
             sevenButton.heightAnchor.constraint(equalToConstant: StrKeyboardButton.height),
             sevenButton.widthAnchor.constraint(equalToConstant: buttonWidth),
+            
+            specialButton.trailingAnchor.constraint(equalTo: zeroButton.leadingAnchor, constant: -StrKeyboard.horizontalSpacing),
+            specialButton.topAnchor.constraint(equalTo: sevenButton.bottomAnchor, constant: StrKeyboard.verticalSpacing),
+            specialButton.heightAnchor.constraint(equalToConstant: StrKeyboardButton.height),
+            specialButton.widthAnchor.constraint(equalToConstant: buttonWidth),
 
             // right column
             threeButton.leadingAnchor.constraint(equalTo: twoButton.trailingAnchor, constant: StrKeyboard.horizontalSpacing),
@@ -167,6 +199,11 @@ class StrKeyboard: UIView {
             nineButton.topAnchor.constraint(equalTo: sixButton.bottomAnchor, constant: StrKeyboard.verticalSpacing),
             nineButton.heightAnchor.constraint(equalToConstant: StrKeyboardButton.height),
             nineButton.widthAnchor.constraint(equalToConstant: buttonWidth),
+            
+            backButton.leadingAnchor.constraint(equalTo: zeroButton.trailingAnchor, constant: StrKeyboard.horizontalSpacing),
+            backButton.topAnchor.constraint(equalTo: nineButton.bottomAnchor, constant: StrKeyboard.verticalSpacing),
+            backButton.heightAnchor.constraint(equalToConstant: StrKeyboardButton.height),
+            backButton.widthAnchor.constraint(equalToConstant: buttonWidth),
         ])
     }
     
@@ -179,6 +216,10 @@ class StrKeyboard: UIView {
     @objc private func sevenButtonTapped(_ sender: Any) { }
     @objc private func eightButtonTapped(_ sender: Any) { }
     @objc private func nineButtonTapped(_ sender: Any) { }
+    @objc private func specialButtonTapped(_ sender: Any) { }
+    @objc private func zeroButtonTapped(_ sender: Any) { }
+    @objc private func backButtonTapped(_ sender: Any) { }
+
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 

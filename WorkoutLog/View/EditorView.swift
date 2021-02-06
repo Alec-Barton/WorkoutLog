@@ -34,7 +34,7 @@ class EditorView: UIView {
             keyboard.leadingAnchor.constraint(equalTo: leadingAnchor),
             keyboard.trailingAnchor.constraint(equalTo: trailingAnchor),
             keyboard.bottomAnchor.constraint(equalTo: bottomAnchor),
-            keyboard.topAnchor.constraint(equalTo: centerYAnchor),
+            keyboard.topAnchor.constraint(equalTo: topAnchor),
         ])
     }
     
