@@ -13,9 +13,31 @@ import UIKit
 //}
 
 class EditorView: UIView {
-    //Case 1: Interval or Time
+    //Case 1: Rep or Time
     //Case 2: Add Weight or Remove Weight
     
+    private lazy var repInputLabel: UILabel = {
+        let label = UILabel()
+        label.text = "500"
+        label.backgroundColor = .lightGray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    private lazy var xLabel: UILabel = {
+        let label = UILabel()
+        label.text = "X"
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    private lazy var weightInputLabel: UILabel = {
+        let label = UILabel()
+        label.text = "1000 lbs"
+        label.backgroundColor = .lightGray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
     private lazy var keyboard: StrKeyboard = {
         let keyboard = StrKeyboard()
         keyboard.translatesAutoresizingMaskIntoConstraints = false
@@ -28,13 +50,32 @@ class EditorView: UIView {
     }
     
     private func setupSubviews() {
+        addSubview(repInputLabel)
+        addSubview(xLabel)
+        addSubview(weightInputLabel)
         addSubview(keyboard)
         
         NSLayoutConstraint.activate([
+            
+            repInputLabel.trailingAnchor.constraint(equalTo: xLabel.leadingAnchor, constant: -20.0),
+            repInputLabel.widthAnchor.constraint(equalToConstant: 120.0),
+            repInputLabel.heightAnchor.constraint(equalToConstant: 44.0),
+            repInputLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10.0),
+            
+            xLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            xLabel.widthAnchor.constraint(equalToConstant: 20.0),
+            xLabel.heightAnchor.constraint(equalToConstant: 44.0),
+            xLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10.0),
+            
+            weightInputLabel.leadingAnchor.constraint(equalTo: xLabel.trailingAnchor, constant: 20.0),
+            weightInputLabel.widthAnchor.constraint(equalToConstant: 120.0),
+            weightInputLabel.heightAnchor.constraint(equalToConstant: 44.0),
+            weightInputLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10.0),
+            
             keyboard.leadingAnchor.constraint(equalTo: leadingAnchor),
             keyboard.trailingAnchor.constraint(equalTo: trailingAnchor),
             keyboard.bottomAnchor.constraint(equalTo: bottomAnchor),
-            keyboard.topAnchor.constraint(equalTo: topAnchor),
+            keyboard.heightAnchor.constraint(equalToConstant: StrKeyboard.height),
         ])
     }
     
@@ -62,7 +103,7 @@ class EditorViewController: UIViewController {
         NSLayoutConstraint.activate([
             tempView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tempView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tempView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tempView.bottomAnchor.constraint(equalTo: view.safeAreaBottomAnchor),
             tempView.topAnchor.constraint(equalTo: view.centerYAnchor),
         ])
     }
