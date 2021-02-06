@@ -13,8 +13,19 @@ import UIKit
 //}
 
 class EditorView: UIView {
+    
+    //OLD
     //Case 1: Rep or Time
     //Case 2: Add Weight or Remove Weight
+    //How to handle Rep x Time ??
+    
+    //NEW
+    //Input 1: Reps or Time
+    //Input 2: Weight, Unweight, Time
+    //  - If user selects Time + Time, change to (1:Time 2:Unweight)
+    //5 possible types
+    
+    //TODO Input Type Switcher
     
     private lazy var repInputLabel: UILabel = {
         let label = UILabel()
