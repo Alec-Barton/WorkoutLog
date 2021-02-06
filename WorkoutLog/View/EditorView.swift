@@ -8,22 +8,43 @@
 
 import UIKit
 
-enum SetType {
-    case rep, weightedRep, timed, timedRep, timedWeight
-}
+//enum SetType {
+//    case rep, weightedRep, timed, timedRep, timedWeight
+//}
 
-//open class EditorInputView: UIView {
-//
-//}
-//
-//class EditorView: UIView {
-//
-//}
+class EditorView: UIView {
+    //Case 1: Interval or Time
+    //Case 2: Add Weight or Remove Weight
+    
+    private lazy var keyboard: StrKeyboard = {
+        let keyboard = StrKeyboard()
+        keyboard.translatesAutoresizingMaskIntoConstraints = false
+        return keyboard
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupSubviews()
+    }
+    
+    private func setupSubviews() {
+        addSubview(keyboard)
+        
+        NSLayoutConstraint.activate([
+            keyboard.leadingAnchor.constraint(equalTo: leadingAnchor),
+            keyboard.trailingAnchor.constraint(equalTo: trailingAnchor),
+            keyboard.bottomAnchor.constraint(equalTo: bottomAnchor),
+            keyboard.topAnchor.constraint(equalTo: centerYAnchor),
+        ])
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+}
 
 class EditorViewController: UIViewController {
     
-    private lazy var tempView: UIView = {
-        let view = UIView()
+    private lazy var tempView: EditorView = {
+        let view = EditorView()
         view.backgroundColor = .gray
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -39,10 +60,10 @@ class EditorViewController: UIViewController {
         self.view.addSubview(tempView)
         
         NSLayoutConstraint.activate([
-            tempView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            tempView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            tempView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            tempView.topAnchor.constraint(equalTo: self.view.centerYAnchor),
+            tempView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tempView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tempView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tempView.topAnchor.constraint(equalTo: view.centerYAnchor),
         ])
     }
 }

@@ -24,6 +24,7 @@
 		705CFF0625634676007F8DF8 /* MonthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705CFF0525634676007F8DF8 /* MonthHeaderView.swift */; };
 		705D87B8259C1BED00DCD0F7 /* MonthDateCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705D87B7259C1BED00DCD0F7 /* MonthDateCollectionCell.swift */; };
 		705D87BB259C1C0400DCD0F7 /* YearDateCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705D87BA259C1C0400DCD0F7 /* YearDateCollectionCell.swift */; };
+		706E802825CEDF9800232AD7 /* StrKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E802725CEDF9800232AD7 /* StrKeyboard.swift */; };
 		707465D224D247A100D0E330 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707465D124D247A100D0E330 /* ColorTheme.swift */; };
 		707465D424D5045700D0E330 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707465D324D5045700D0E330 /* Timer.swift */; };
 		708463FC24B24674009A7D8E /* WorkoutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */; };
@@ -80,6 +81,7 @@
 		705CFF0525634676007F8DF8 /* MonthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeaderView.swift; sourceTree = "<group>"; };
 		705D87B7259C1BED00DCD0F7 /* MonthDateCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDateCollectionCell.swift; sourceTree = "<group>"; };
 		705D87BA259C1C0400DCD0F7 /* YearDateCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearDateCollectionCell.swift; sourceTree = "<group>"; };
+		706E802725CEDF9800232AD7 /* StrKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrKeyboard.swift; sourceTree = "<group>"; };
 		707465D124D247A100D0E330 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		707465D324D5045700D0E330 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		708463FB24B24674009A7D8E /* WorkoutHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHeaderView.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				70F47AEA250691C200F0C6E1 /* CalendarSelectorView.swift */,
 				70F039312593FA5E00B1DB91 /* DayTitleView.swift */,
 				70E96F0325B4DA9800DBA241 /* EditorView.swift */,
+				706E802725CEDF9800232AD7 /* StrKeyboard.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				70F039322593FA5E00B1DB91 /* DayTitleView.swift in Sources */,
 				70F0392F259387F600B1DB91 /* UICollectionView+Extensions.swift in Sources */,
 				7019590925042BC1002DC93A /* MenuView.swift in Sources */,
+				706E802825CEDF9800232AD7 /* StrKeyboard.swift in Sources */,
 				70E8E7D724BE85130010C4AF /* Constants.swift in Sources */,
 				70F0392B2592F26A00B1DB91 /* TestObjects.swift in Sources */,
 				70940C34245205B6005C2E8B /* AppDelegate.swift in Sources */,
